@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501185133) do
+ActiveRecord::Schema.define(:version => 20130501201837) do
+
+  create_table "personas", :force => true do |t|
+    t.string   "nombre",     :limit => 20, :null => false
+    t.string   "apellido",   :limit => 20, :null => false
+    t.string   "direccion",  :limit => 20, :null => false
+    t.string   "telefono",   :limit => 20, :null => false
+    t.string   "email",      :limit => 20, :null => false
+    t.string   "cargo",      :limit => 20, :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
