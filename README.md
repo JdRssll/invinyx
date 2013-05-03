@@ -3,10 +3,16 @@ invinyx
 
 Sistema de administracion de inventario
 
-Instalacion
-=======
+Requerimientos
+==============
 
-* sudo apt-get install mysql-client libmysqlclient-dev
+* Mysql5.x
+* mysql-client
+* libmysqlclient-dev
+
+Instalacón
+==========
+
 * rvm install ruby-2.0.0-p0
 * rvm use ruby-2.0.0-p0
 * git clone https://github.com/JdRssll/invinyx.git
