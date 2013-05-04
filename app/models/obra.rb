@@ -7,4 +7,5 @@ class Obra < ActiveRecord::Base
   		field :nombre
   	end
   end
+
 end

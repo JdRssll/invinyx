@@ -24,7 +24,13 @@ ActiveRecord::Schema.define(:version => 20130504000915) do
   end
 
   create_table "obras", :force => true do |t|
+<<<<<<< HEAD
     t.string "nombre", :limit => 120, :null => false
+=======
+    t.string   "nombre",     :limit => 60
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+>>>>>>> obra
   end
 
   create_table "rails_admin_histories", :force => true do |t|
