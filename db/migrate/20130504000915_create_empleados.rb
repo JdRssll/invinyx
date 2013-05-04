@@ -8,6 +8,7 @@ class CreateEmpleados < ActiveRecord::Migration
       t.string :telefono, :limit => 11, :null => false
       t.string :email, :limit => 35
       t.string :cargo, :limit => 80, :null => false
+      t.references  :obra, null: false
     end
     execute "ALTER TABLE empleados ADD PRIMARY KEY (cedula)"
   end

@@ -14,18 +14,17 @@
 ActiveRecord::Schema.define(:version => 20130504000915) do
 
   create_table "empleados", :primary_key => "cedula", :force => true do |t|
-    t.string "nombre",    :limit => 20,  :null => false
-    t.string "apellido",  :limit => 20,  :null => false
-    t.string "direccion", :limit => 120, :null => false
-    t.string "telefono",  :limit => 11,  :null => false
-    t.string "email",     :limit => 35
-    t.string "cargo",     :limit => 80,  :null => false
+    t.string  "nombre",    :limit => 20,  :null => false
+    t.string  "apellido",  :limit => 20,  :null => false
+    t.string  "direccion", :limit => 120, :null => false
+    t.string  "telefono",  :limit => 11,  :null => false
+    t.string  "email",     :limit => 35
+    t.string  "cargo",     :limit => 80,  :null => false
+    t.integer "obra_id",                  :null => false
   end
 
   create_table "obras", :force => true do |t|
-    t.string   "nombre",     :limit => 120, :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string "nombre", :limit => 120, :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
