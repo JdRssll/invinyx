@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(:version => 20130502224815) do
 
   create_table "obras", :force => true do |t|
-    t.string   "nombre"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "nombre",     :limit => 60
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
