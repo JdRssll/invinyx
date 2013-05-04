@@ -10,7 +10,7 @@ Requerimientos
 * mysql-client
 * libmysqlclient-dev
 
-Instalacón
+Instalación
 ==========
 
 * rvm install ruby-2.0.0-p0
