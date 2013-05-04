@@ -58,13 +58,13 @@ es:
         title: "Nuevo %{model_label}"
         menu: "Agregar nuevo"
         breadcrumb: "Nuevo"
-        link: "Agregar un nuevo %{model_label}"
+        link: "Agregar %{model_label}"
         done: "creado"
       edit:
         title: "Editar %{model_label} '%{object_label}'"
         menu: "Editar"
         breadcrumb: "Editar"
-        link: "Editar este %{model_label}"
+        link: "Editar %{model_label}"
         done: "modificado"
       delete:
         title: "Eliminar %{model_label} '%{object_label}'"

@@ -119,7 +119,7 @@ es:
       not_an_integer: debe ser un entero
       odd: debe ser un número impar
       record_invalid: ! 'La validación falló: %{errors}'
-      taken: ya ha sido tomado
+      taken: ya existe
       invalid_email_format: no es un correo válido
       too_long:
         one: es demasiado largo (máximo 1 caracter)
