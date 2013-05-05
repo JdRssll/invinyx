@@ -1,5 +1,6 @@
 class Proveedor < ActiveRecord::Base
 	set_primary_key :rif
+	has_many :facturas, :dependent => :destroy
   attr_accessible :nombre, :rif, :telefono, :direccion, :email
 
   #validaciones
