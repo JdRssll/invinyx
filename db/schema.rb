@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501185133) do
+ActiveRecord::Schema.define(:version => 20130505215121) do
+
+  create_table "proveedors", :primary_key => "rif", :force => true do |t|
+    t.string "nombre",    :limit => 20,  :null => false
+    t.string "telefono",  :limit => 11,  :null => false
+    t.string "direccion", :limit => 120, :null => false
+    t.string "email",     :limit => 35,  :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
