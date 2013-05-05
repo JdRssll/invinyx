@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505215121) do
+ActiveRecord::Schema.define(:version => 20130505230802) do
+
+  create_table "facturas", :force => true do |t|
+    t.date     "fecha"
+    t.integer  "proveedor_id", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "proveedors", :primary_key => "rif", :force => true do |t|
     t.string "nombre",    :limit => 20,  :null => false
