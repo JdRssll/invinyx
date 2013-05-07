@@ -5,3 +5,4 @@
 require File.expand_path('../config/application', __FILE__)
 
 Invinyx::Application.load_tasks
+
