@@ -12,7 +12,7 @@ class Empleado < ActiveRecord::Base
   validates_associated :obra
   #vvalidaciones para nombre y apellido
   validates :apellido, :nombre, :length => { :minimum => 3, :maximum => 20 }
-  validates :apellido, :nombre, :format => { :with => /\A[a-zA-Z]+\z/, :message => "sólo permite letras" }
+  #validates :apellido, :nombre, :format => { :with => /\A[a-zA-Z]+\z/, :message => "sólo permite letras" }
   #validaciones para direccion
   validates :direccion, :length => { :minimum => 8, :maximum => 120 }
   #validaciones para cargo

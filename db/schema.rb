@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505230802) do
+ActiveRecord::Schema.define(:version => 20130507214456) do
 
   create_table "empleados", :primary_key => "cedula", :force => true do |t|
     t.string  "nombre",    :limit => 20,  :null => false
@@ -53,6 +53,20 @@ ActiveRecord::Schema.define(:version => 20130505230802) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "tipo_transaccions", :force => true do |t|
+    t.string   "tipo",       :limit => 100, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "transaccions", :force => true do |t|
+    t.float    "cantidad",                           :null => false
+    t.string   "descripcion",         :limit => 200, :null => false
+    t.integer  "tipo_transaccion_id",                :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
