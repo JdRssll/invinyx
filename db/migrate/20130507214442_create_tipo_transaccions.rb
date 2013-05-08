@@ -5,5 +5,7 @@ class CreateTipoTransaccions < ActiveRecord::Migration
 
       #t.timestamps
     end
+    execute "INSERT INTO tipo_transaccions (tipo) VALUES ('Entrada')"
+  	execute "INSERT INTO tipo_transaccions (tipo) VALUES ('Salida')"
   end
 end

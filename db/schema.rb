@@ -55,9 +55,7 @@ ActiveRecord::Schema.define(:version => 20130507214456) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "tipo_transaccions", :force => true do |t|
-    t.string   "tipo",       :limit => 100, :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string "tipo", :limit => 100, :null => false
   end
 
   create_table "transaccions", :force => true do |t|
