@@ -7,5 +7,13 @@ class Transaccion < ActiveRecord::Base
   	field :cantidad
   	field :tipo_transaccion
   	field :descripcion, :text
+  	show do
+  		field :updated_at
+  		field :created_at
+  	end
+
+  	list do
+  		field :created_at
+  	end
   end
 end
