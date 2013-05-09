@@ -5,8 +5,12 @@ class Transaccion < ActiveRecord::Base
   validates_numericality_of :cantidad
   rails_admin do
   	field :cantidad
-  	field :tipo_transaccion
-  	field :descripcion, :text
+    field :tipo_transaccion do
+      label "Tipo de transacción"
+    end
+  	field :descripcion, :text do
+      label "Descripción"
+    end
   	show do
   		field :updated_at
   		field :created_at
