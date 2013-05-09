@@ -3,23 +3,23 @@ class Transaccion < ActiveRecord::Base
   attr_accessible :cantidad, :descripcion, :tipo_transaccion_id
   validates_presence_of :cantidad, :tipo_transaccion_id
   validates_numericality_of :cantidad
+
+  
   rails_admin do
   	field :cantidad
+
     field :tipo_transaccion do
       label "Tipo de transacción"
       inline_add false
       inline_edit false
     end
+    
   	field :descripcion, :text do
       label "Descripción"
     end
-  	show do
-  		field :updated_at
-  		field :created_at
-  	end
 
-  	list do
-  		field :created_at
-  	end
+    field :created_at do
+      label "Fecha de Creación"
+    end
   end
 end

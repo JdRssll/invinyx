@@ -7,4 +7,9 @@ class Factura < ActiveRecord::Base
   #validaciones para asociaciones
   validates_associated :proveedor
 
+  rails_admin do
+  	field :fecha
+  	field :proveedor_id
+  end
+
 end

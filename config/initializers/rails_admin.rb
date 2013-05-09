@@ -36,6 +36,7 @@ RailsAdmin.config do |config|
   # config.label_methods << :description # Default is [:name, :title]
   config.label_methods << :nombre
   config.label_methods << :tipo
+  
 
   ################  Model configuration  ################
 
