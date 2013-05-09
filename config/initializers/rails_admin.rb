@@ -62,5 +62,4 @@ RailsAdmin.config do |config|
   def custom_label_method
     "#{self.nombre} #{self.apellido}"
   end
-
 end

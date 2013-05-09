@@ -3,9 +3,13 @@ class Proveedor < ActiveRecord::Base
 	has_many :facturas, :dependent => :destroy
   attr_accessible :nombre, :rif, :telefono, :direccion, :email
 
-  #validaciones
+  #validaciones en general
   validates_presence_of :rif, :nombre, :direccion, :telefono, :email
   validates_uniqueness_of :rif, :email
+
+  #validaciones para rif
+  validates :rif, :format => { :with => /\A(?=.*[a-z])[a-z\d]+\Z/i, :on => :create }
+  validates :rif, :length => { :minimum => 6, :maximum => 11, :on => :create } 
 
   #validaciones para nombre
   validates :nombre, :length => { :minimum => 4, :maximum => 20 }
@@ -20,6 +24,7 @@ class Proveedor < ActiveRecord::Base
   #validaciones para direccion
   validates :direccion, :length => { :minimum => 8, :maximum => 120 }
 
+  #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do
   	field :rif
   	field :nombre
