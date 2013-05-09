@@ -6,8 +6,10 @@ class Obra < ActiveRecord::Base
   validates_length_of :nombre, :maximum => 45, :minimum => 5
   
   rails_admin do
-  	create do
+  	field :nombre
+  	list do
   		field :nombre
+  		field :empleados
   	end
   end
 

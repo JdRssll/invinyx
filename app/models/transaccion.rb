@@ -7,6 +7,8 @@ class Transaccion < ActiveRecord::Base
   	field :cantidad
     field :tipo_transaccion do
       label "Tipo de transacción"
+      inline_add false
+      inline_edit false
     end
   	field :descripcion, :text do
       label "Descripción"

@@ -4,7 +4,6 @@ class Factura < ActiveRecord::Base
 
   #validaciones en general
   validates_presence_of :fecha, :proveedor_id
-
   #validaciones para asociaciones
   validates_associated :proveedor
 
