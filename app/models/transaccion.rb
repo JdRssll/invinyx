@@ -26,12 +26,14 @@ class Transaccion < ActiveRecord::Base
     show do
       field :created_at do
         label "Fecha de Creación"
+        strftime_format "%d-%m-%Y"
       end  
     end
 
     list do
       field :created_at do
         label "Fecha de Creación"
+        strftime_format "%d-%m-%Y"
       end  
     end
   end

@@ -10,7 +10,10 @@ class Factura < ActiveRecord::Base
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do
-  	field :fecha, :date
+  	field :fecha do 
+      label "Fecha de emisión"
+      strftime_format "%d-%m-%Y"
+    end
   	field :proveedor
   end
 
