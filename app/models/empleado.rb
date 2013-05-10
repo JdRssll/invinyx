@@ -33,6 +33,7 @@ class Empleado < ActiveRecord::Base
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do
+    object_label_method :custom_label_method
   	field :cedula
     field :nombre
     field :apellido
@@ -41,5 +42,10 @@ class Empleado < ActiveRecord::Base
     field :obra
     field :email
     field :cargo
+  end
+
+  #Metodo para etiqueta de instancia
+  def custom_label_method
+    "#{self.nombre} #{self.apellido}"
   end
 end

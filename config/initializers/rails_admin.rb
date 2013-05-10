@@ -51,15 +51,5 @@ RailsAdmin.config do |config|
 
   # Now you probably need to tour the wiki a bit: https://github.com/sferik/rails_admin/wiki
   # Anyway, here is how RailsAdmin saw your application's models when you ran the initializer:
-  
-  #Etiquetas para mostrar
-  config.model 'Empleado' do
-    object_label_method do
-      :custom_label_method
-    end
-  end
-
-  def custom_label_method
-    "#{self.nombre} #{self.apellido}"
-  end
+   
 end

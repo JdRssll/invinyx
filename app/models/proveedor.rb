@@ -26,6 +26,9 @@ class Proveedor < ActiveRecord::Base
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do
+    label "Proveedor"
+    label_plural "Proveedores"
+
   	field :rif
   	field :nombre
   	field :direccion, :text

@@ -8,6 +8,9 @@ class Transaccion < ActiveRecord::Base
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do
+    label "Transacción"
+    label_plural "Transacciones"
+
   	field :cantidad
 
     field :tipo_transaccion do
