@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'rails_admin'
+gem 'carrierwave'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -39,5 +40,3 @@ gem 'rails_admin'
 # To use debugger
 # gem 'debugger'
 
-
-gem "devise"

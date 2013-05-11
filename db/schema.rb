@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507214456) do
+ActiveRecord::Schema.define(:version => 20130510221222) do
+
+  create_table "articulos", :primary_key => "codigo", :force => true do |t|
+    t.string  "nombre",           :limit => 60,       :null => false
+    t.text    "descripcion",      :limit => 255,      :null => false
+    t.string  "unidad_de_medida", :limit => 15,       :null => false
+    t.float   "cantidad"
+    t.text    "foto",             :limit => 16777215
+    t.string  "familia_id",                           :null => false
+    t.string  "ubicacion_id",                         :null => false
+    t.float   "stock_minimo"
+    t.float   "stock_maximo"
+    t.boolean "consumible"
+  end
 
   create_table "empleados", :primary_key => "cedula", :force => true do |t|
     t.string  "nombre",    :limit => 20,  :null => false
@@ -25,9 +38,13 @@ ActiveRecord::Schema.define(:version => 20130507214456) do
 
   create_table "facturas", :force => true do |t|
     t.date     "fecha"
-    t.integer  "proveedor_id", :null => false
+    t.string   "proveedor_id", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "familia", :force => true do |t|
+    t.string "nombre", :limit => 80, :null => false
   end
 
   create_table "obras", :force => true do |t|
@@ -64,6 +81,10 @@ ActiveRecord::Schema.define(:version => 20130507214456) do
     t.integer  "tipo_transaccion_id",                :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "ubicacions", :force => true do |t|
+    t.string "nombre", :limit => 80, :null => false
   end
 
   create_table "users", :force => true do |t|
