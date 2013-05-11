@@ -36,11 +36,17 @@ ActiveRecord::Schema.define(:version => 20130510221222) do
     t.integer "obra_id",                  :null => false
   end
 
+  create_table "estados", :force => true do |t|
+    t.string   "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "facturas", :force => true do |t|
     t.date     "fecha"
-    t.string   "proveedor_id", :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "proveedor_id", :limit => 11, :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "familia", :force => true do |t|
@@ -49,6 +55,12 @@ ActiveRecord::Schema.define(:version => 20130510221222) do
 
   create_table "obras", :force => true do |t|
     t.string "nombre", :limit => 120, :null => false
+  end
+
+  create_table "pedidos", :force => true do |t|
+    t.integer  "estado_id",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "proveedors", :primary_key => "rif", :force => true do |t|
