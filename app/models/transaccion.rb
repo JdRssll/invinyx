@@ -8,31 +8,24 @@ class Transaccion < ActiveRecord::Base
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do
-    label "Transacción"
-    label_plural "Transacciones"
-
   	field :cantidad
 
     field :tipo_transaccion do
-      label "Tipo de transacción"
       inline_add false
       inline_edit false
     end
     
   	field :descripcion, :text do
-      label "Descripción"
     end
 
     show do
       field :created_at do
-        label "Fecha de Creación"
         strftime_format "%d-%m-%Y"
       end  
     end
 
     list do
       field :created_at do
-        label "Fecha de Creación"
         strftime_format "%d-%m-%Y"
       end  
     end

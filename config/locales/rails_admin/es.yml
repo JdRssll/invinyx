@@ -1,4 +1,36 @@
 es:
+  attributes:
+    descripcion: "Descripción"
+    codigo: "Código"
+    ubicacion: "Ubicación"
+    stock_maximo: "Stock máximo"
+    stock_minimo: "Stock mínimo"
+    cedula: "Cédula"
+    direccion: "Dirección"
+    telefono: "Teléfono"
+    tipo_transaccion: "Tipo de transacción"
+    created_at: "Fecha de creación"
+    articulos: "Artículos"
+  activerecord:
+    models:
+      ubicacion: 
+        one: "Ubicación"
+        other: "Ubicaciones"
+      transaccion:
+        one: "Transacción"
+        other: "Transacciones"
+      proveedor:
+        one: "Proveedor"
+        other: "Proveedores"
+      familia:
+        one: "Familia"
+        other: "Familias"
+      articulo:
+        one: "Artículo"
+        other: "Artículos"
+    attributes:
+      factura:
+        fecha: "Fecha de emisión"
   home:
     name: Inicio
   views:

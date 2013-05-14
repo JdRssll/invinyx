@@ -1,5 +1,5 @@
 class Articulo < ActiveRecord::Base
-  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible
+  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible
 
   mount_uploader :foto, FotoUploader
   belongs_to :familia
