@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'rails_admin'
+gem "rmagick"
 gem 'carrierwave'
 
 # To use ActiveModel has_secure_password

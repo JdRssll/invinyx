@@ -126,6 +126,7 @@ GEM
       json (~> 1.4)
     ref (1.0.4)
     remotipart (1.0.5)
+    rmagick (2.13.2)
     safe_yaml (0.9.1)
     sass (3.2.8)
     sass-rails (3.2.6)
@@ -163,6 +164,7 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.13)
   rails_admin
+  rmagick
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
