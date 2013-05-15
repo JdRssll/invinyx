@@ -102,6 +102,10 @@ es:
   errors:
     format: ! '%{attribute} %{message}'
     messages:
+      stock_maximo: no puede ser menor al stock mínimo
+      stock_minimo: no puede ser mayor al stock máximo
+      only_letters: solo permite letras
+      extension_white_list_error: "inválida, asegúrese de que el formato de la imagen sea (jpg, jpeg, gif, png)"
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide con la confirmación

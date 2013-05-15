@@ -12,7 +12,7 @@ class Proveedor < ActiveRecord::Base
   validates :rif, :length => { :minimum => 6, :maximum => 11, :on => :create } 
 
   #validaciones para nombre
-  validates :nombre, :length => { :minimum => 4, :maximum => 20 }
+  validates :nombre, :length => { :maximum => 40 }
 
   #validaciones para email
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create } 
@@ -22,7 +22,7 @@ class Proveedor < ActiveRecord::Base
   validates_numericality_of :telefono, :only_integer => true
 
   #validaciones para direccion
-  validates :direccion, :length => { :minimum => 8, :maximum => 120 }
+  validates :direccion, :length => { :maximum => 120 }
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
   rails_admin do

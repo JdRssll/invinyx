@@ -4,7 +4,7 @@ class Empleado < ActiveRecord::Base
   attr_accessible :apellido, :nombre, :direccion, :email, :telefono, :cargo, :cedula, :obra_id
   
   #validaciones en general
-  validates_presence_of :apellido, :nombre, :direccion, :telefono, :cargo, :cedula
+  validates_presence_of :apellido, :nombre, :direccion, :telefono, :cargo, :cedula, :obra
   validates_uniqueness_of :cedula, :email
 
   #validaciones para email
@@ -14,21 +14,21 @@ class Empleado < ActiveRecord::Base
   validates_associated :obra
 
   #vvalidaciones para nombre y apellido
-  validates :apellido, :nombre, :length => { :minimum => 3, :maximum => 20 }
-  #validates :apellido, :nombre, :format => { :with => /\A[a-zA-Z]+\z/, :message => "sólo permite letras" }
+  validates :apellido, :nombre, :length => { :maximum => 20 }
+  validates :apellido, :nombre, :format => { :with => /\A[a-zA-Z]+\z/, :message => I18n.t('errors.messages.only_letters') }
 
   #validaciones para direccion
-  validates :direccion, :length => { :minimum => 8, :maximum => 120 }
+  validates :direccion, :length => { :maximum => 140 }
 
   #validaciones para cargo
-  validates :cargo, :length => { :minimum => 4, :maximum => 80 }
+  validates :cargo, :length => { :maximum => 80 }
 
   #validaciones para telefono
   validates :telefono, :length => { :minimum => 7, :maximum => 11 }
   validates_numericality_of :telefono, :only_integer => true
   
   #validaciones para cedula
-  validates :cedula, :length => { :minimum => 7, :maximum => 8 }
+  validates :cedula, :length => { :minimum => 6, :maximum => 8 }
   validates_numericality_of :cedula, :only_integer => true
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
@@ -43,6 +43,8 @@ class Empleado < ActiveRecord::Base
     field :email
     field :cargo
   end
+
+  private
 
   #Metodo para etiqueta de instancia
   def custom_label_method

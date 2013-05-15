@@ -1,6 +1,16 @@
 class Articulo < ActiveRecord::Base
   attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible
 
+  #validaciones en general
+  validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
+  validates_uniqueness_of :codigo, :nombre
+
+  #validacion para descripcion
+  validates :descripcion, :length => { :maximum => 140}
+
+  #valdiaciones personalizadas
+  validate :stock_maximo_mayor?
+
   mount_uploader :foto, FotoUploader
   belongs_to :familia
   belongs_to :ubicacion
@@ -21,4 +31,18 @@ class Articulo < ActiveRecord::Base
   	field :stock_minimo, :integer
   	field :consumible
   end
+
+  private
+
+  #validacion, stock maximo no puede ser menor a stock minimo
+  def stock_maximo_mayor?
+    if self.stock_maximo < self.stock_minimo
+      errors.add(:stock_maximo, I18n.t('errors.messages.stock_maximo')) 
+      errors.add(:stock_minimo, I18n.t('errors.messages.stock_minimo'))
+    end
+  end
+
+
+
 end
+
