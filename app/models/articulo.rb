@@ -11,6 +11,8 @@ class Articulo < ActiveRecord::Base
   #valdiaciones personalizadas
   validate :stock_maximo_mayor?
 
+  has_and_belongs_to_many :facturas
+
   mount_uploader :foto, FotoUploader
   belongs_to :familia
   belongs_to :ubicacion

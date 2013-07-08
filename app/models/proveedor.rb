@@ -8,7 +8,7 @@ class Proveedor < ActiveRecord::Base
   validates_uniqueness_of :rif, :email
 
   #validaciones para rif
-  validates :rif, :format => { :with => /\A(?=.*[a-z])[a-z\d]+\Z/i, :on => :create }
+  #validates :rif, :format => { :with => /\A(?=.*[a-z])[a-z\d]+\Z/i, :on => :create }
   validates :rif, :length => { :minimum => 6, :maximum => 11, :on => :create } 
 
   #validaciones para nombre
