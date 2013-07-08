@@ -1,0 +1,39 @@
+%ul.nav.nav-tabs
+	%li.active
+		%a{:href => "#"}
+			/%i.icon-th-large
+			Articulos
+	%li
+		%a{:href => "#"} Pedidos
+	%li
+		%a{:href => "#"} Devoluciones
+
+%table.table.table-striped
+	%thead
+		%tr
+			%th imagen
+			%th Codigo
+			%th Nombre
+			%th Cantidad
+			%th Unidad de Medida
+			%th Ubicación
+			%th Ver
+	%tbody
+		- @articulos.each do |articulo|
+			%tr
+				%td 
+					=image_tag "/#{articulo.foto.store_dir}/thumb_#{articulo.foto_identifier}"
+				%td 
+					=articulo.codigo
+				%td 
+					=articulo.nombre
+				%td 
+					=articulo.cantidad
+				%td 
+					=articulo.unidad_de_medida
+				%td 
+					=articulo.ubicacion.nombre
+				%td
+					%a.btn
+						Ver
+  
