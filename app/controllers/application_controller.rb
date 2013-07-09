@@ -3,9 +3,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :articulos
 
-
   def articulos
   	@articulos = Articulo.all.map
+  end
+
+  def articulos_facturas
+  	@articulo = Articulo.find(params[:id])
   end
 
 end

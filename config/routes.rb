@@ -3,6 +3,8 @@ Invinyx::Application.routes.draw do
 
   devise_for :users
 
+  get '/agregar/:id' => 'application#articulos_facturas',  :as => :articulos_facturas
+
   
 
   # The priority is based upon order of creation:

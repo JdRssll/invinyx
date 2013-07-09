@@ -1,6 +1,5 @@
 # RailsAdmin config file. Generated on May 01, 2013 14:21
 # See github.com/sferik/rails_admin for more informations
-
 RailsAdmin.config do |config|
 
 
@@ -40,6 +39,8 @@ RailsAdmin.config do |config|
 
   ################  Model configuration  ################
 
+
+  
   # Each model configuration can alternatively:
   #   - stay here in a `config.model 'ModelName' do ... end` block
   #   - go in the model definition file in a `rails_admin do ... end` block
