@@ -25,7 +25,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'rails_admin'
-gem "rmagick"
+gem 'rmagick'
 gem 'carrierwave'
 gem 'simple_form'
 

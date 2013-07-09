@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130708161834) do
 
   create_table "facturas", :force => true do |t|
     t.date     "fecha"
-    t.string   "proveedor_id", :null => false
+    t.integer  "proveedor_id", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
