@@ -1,0 +1,45 @@
+/*
+  Customize RailsAdmin theme here.
+  Copy this file to your app/assets/stylesheets/rails_admin/custom/theming.css.scss, leave this one untouched
+  Don't require it in your application.rb
+
+  Look at the markup in RailsAdmin and go there to get inspiration from:
+
+  http://twitter.github.com/bootstrap/
+
+  Test me: (actual color should be the one defined in variables.css.scss if you did)
+
+  body{ background-color: $linkColor; }
+*/
+
+#articulos_length {
+	border-left-width: 1px;
+	margin-right: 0px;
+	width: 64px
+}
+
+#articulos_filter {
+	width: 115%;
+}
+
+#div-tabla-articulos {
+	border: 1px solid;
+	border-color: #ddd	
+}
+
+.dataTables_paginate {
+	padding-left: 25px;}
+
+#articulos {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #ddd;
+	margin-bottom: 0px;
+}
+
+#div-tabla-articulos .row-fluid .span6{
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	padding-right: 0px;
+}

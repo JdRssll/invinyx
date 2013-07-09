@@ -1,3 +1,19 @@
-- @articulos = Articulo.all
-
-- simple_form_for @articulos do |f|
+.span6#div-tabla-articulos
+	%table.table.table-striped#articulos
+		%thead
+			%tr
+				%th Codigo
+				%th Nombre
+				%th Cantidad
+				%th Acciones
+		%tbody
+			- @articulos.each do |articulo|
+				%tr
+					%td
+						= articulo.codigo
+					%td
+						= articulo.nombre
+					%td
+						= articulo.cantidad
+					%td
+						= link_to '<i class="icon-plus"></i> Agregar'.html_safe
