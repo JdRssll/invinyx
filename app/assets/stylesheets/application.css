@@ -95,13 +95,15 @@ footer{
 }
 
 .fotoArticulo{
-	width: 200px;
-	float: left;
+	width: 400px;
 }
 .datosArticulo{
-	border-left: 1px solid #c0c0c0;
+	width: 750px;
 	padding-left: 30px;
-	margin-left: 250px;
 	padding-top: 30px;
 	padding-bottom: 100px;
+}
+
+.tituloArticulo{
+	box-shadow: 0px 10px 5px #888888;
 }
