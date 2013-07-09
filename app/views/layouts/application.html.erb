@@ -18,19 +18,20 @@
     </ul>
   </div>
 </div>
-<div class='content'>
-	<div class='logoEmp'><%= image_tag 'brand.gif'%></div>
-	<section class='caja1'>		
-		<div class='tituloApp'>
-			<h1>CANTV</h1>
-			<p>Sistema de Control de Inventarios.</p>
-		</div>				
-		<div class='logoInyx'><%= image_tag 'inyxlogo.png'%></div>
-	</section>
-	<section class='caja2'>
-		<%= yield %>
-	</section>
-	<footer><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
+<header>
+  <section class='caja1'>       
+    <div class='tituloApp'>  
+      <h1>INVINYX</h1>
+      <p>Sistema de Control de Inventarios.</p>
+    </div>        
+    <div class='logoInyx'><%= image_tag 'inyxlogo.png'%></div>
+</header>
+<div class='content'> 
+  </section>
+  <section class='caja2'>
+    <%= yield %>
+  </section>
+  <footer><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
 </div>
 </body>
 </html>

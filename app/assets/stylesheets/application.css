@@ -12,7 +12,17 @@
  *= require_tree .
  */
 
- .content{
+header{
+	margin: -20px;
+	background: -webkit-linear-gradient(#F4FA58, #FFBF00);
+	background: -moz-linear-gradient(#F4FA58, #FFBF00);
+	background: -o-linear-gradient(#F4FA58, #FFBF00);
+	width: 99.4%;
+	height: 100px;
+	padding: 1%;
+	color: #151515;
+}
+.content{
  	width: 96%;
  }
 .logoEmp{	
@@ -25,7 +35,7 @@
 }
 
 .logoInyx{	
-	width: 11%;
+	width: 100px;
 	padding: 10px;
 	float: right;
 	margin-top: -130px;
@@ -40,29 +50,25 @@
 }
 
 .caja1{
-	background: -webkit-linear-gradient(#ffffff, #E6E6E6);
-	background: -moz-linear-gradient(#ffffff, #E6E6E6);
-	background: -o-linear-gradient(#ffffff, #E6E6E6);
-	margin-left: 13%;
+	margin: 4em auto;
+	margin-top: -8px;
 	padding: 10px;
-	width: 85%;
+	width: 800px;
 	height: 11%;
-	box-shadow: 0px 0px 15px #888888;
-	margin-bottom: 1%;
-	border: 1px solid #ffffff;
 }
 .caja2{
+	margin: 4em auto;
 	padding: 10px;
-	width: 98%;
+	width: 800px;
 	box-shadow: 0px 0px 15px #888888;
-	margin-bottom: 1%;
 	background: #fff;
 }
 
 footer{
+	margin: 4em auto;
 	box-shadow: 0px 0px 15px #888888;
 	padding: 10px;
-	width: 98%;
+	width: 800px;
 	background: -webkit-linear-gradient(#ffffff, #E6E6E6);
 	background: -moz-linear-gradient(#ffffff, #E6E6E6);
 	background: -o-linear-gradient(#ffffff, #E6E6E6);	
