@@ -93,3 +93,15 @@ footer{
 	float: right;
 	width: 100px;
 }
+
+.fotoArticulo{
+	width: 200px;
+	float: left;
+}
+.datosArticulo{
+	border-left: 1px solid #c0c0c0;
+	padding-left: 30px;
+	margin-left: 250px;
+	padding-top: 30px;
+	padding-bottom: 100px;
+}

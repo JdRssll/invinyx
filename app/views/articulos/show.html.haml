@@ -1,0 +1,52 @@
+- articulo = @articulo
+%center
+	%h2
+		Ficha de Articulo
+	.fotoArticulo
+		=image_tag "/#{articulo.foto.store_dir}/#{articulo.foto_identifier}"
+.datosArticulo
+	%table.table.table-striped
+		%thead
+			%tr
+				%th 
+				%th 
+		%tbody
+			%tr
+				%th
+					Nombre:
+				%th
+					=articulo.nombre
+			%tr
+				%th
+					Descripción: 
+				%th
+					=articulo.descripcion
+			%tr
+				%th
+					Cantidad:
+				%th
+					=articulo.cantidad
+					=articulo.unidad_de_medida
+			%tr
+				%th
+					Familia: 
+				%th
+					=articulo.familia.nombre
+			%tr
+				%th
+					Ubicacion: 
+				%th
+					=articulo.ubicacion.nombre
+			%tr
+				%th
+					Stock Maximo: 
+				%th
+					=articulo.stock_maximo
+			%tr
+				%th
+					Stock Minimo: 
+				%th
+					=articulo.stock_minimo
+
+%a.btn{:href =>'/articulos'}
+	Volver 
