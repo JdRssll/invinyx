@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710165656) do
+ActiveRecord::Schema.define(:version => 20130710195334) do
 
   create_table "articulos", :primary_key => "codigo", :force => true do |t|
     t.string  "nombre",           :limit => 60,       :null => false
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(:version => 20130710165656) do
 
   create_table "obras", :force => true do |t|
     t.string "nombre", :limit => 120, :null => false
+  end
+
+  create_table "pedido_has_articulos", :force => true do |t|
+    t.integer  "pedido_id"
+    t.integer  "articulo_id"
+    t.float    "cantidad"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "pedidos", :force => true do |t|

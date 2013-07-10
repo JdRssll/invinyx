@@ -1,5 +1,5 @@
 class Articulo < ActiveRecord::Base
-  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible
+  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible,:pedido_has_articulos_ids
 
   #validaciones en general
   validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
@@ -14,7 +14,8 @@ class Articulo < ActiveRecord::Base
   mount_uploader :foto, FotoUploader
   belongs_to :familia
   belongs_to :ubicacion
-
+  has_many :pedido_has_articulos
+  has_many :pedidos, :through => :pedido_has_articulos
   rails_admin do
   	field :codigo
   	field :nombre
