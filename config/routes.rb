@@ -1,4 +1,8 @@
 Invinyx::Application.routes.draw do
+  get "devoluciones/index"
+
+  get "pedidos/index"
+
   get "articulos/index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
