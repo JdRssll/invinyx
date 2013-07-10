@@ -1,8 +1,11 @@
 - articulo = @articulo
+%h2
+	%p
+		%a#volver.btn{:href =>'/articulos'}
+			Volver
+		Ficha de Articulo			
+%hr
 %center
-	%h2
-		Ficha de Articulo
-	%hr
 	.fotoArticulo
 		=image_tag "/#{articulo.foto.store_dir}/#{articulo.foto_identifier}"
 .datosArticulo
@@ -48,6 +51,4 @@
 					Stock Minimo: 
 				%th
 					=articulo.stock_minimo
-
-%a.btn{:href =>'/articulos'}
-	Volver 
+ 

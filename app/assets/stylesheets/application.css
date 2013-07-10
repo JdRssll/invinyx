@@ -8,7 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+ *= require_self 
+ *= require bootstrap
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/jquery.dataTables.bootstrap
  *= require_tree .
  */
 
@@ -106,4 +109,8 @@ footer{
 
 .tituloArticulo{
 	box-shadow: 0px 10px 5px #888888;
+}
+
+#volver{
+	margin-right: 200px;
 }

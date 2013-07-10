@@ -8,16 +8,16 @@
 	%li
 		%a{:href => "#"} Devoluciones
 
-%table.table.table-striped
+%table.table.table-striped#articulos
 	%thead
 		%tr
 			%th imagen
 			%th Codigo
 			%th Nombre
 			%th Cantidad
-			%th Unidad de Medida
 			%th Ubicación
 			%th Ver
+			%th Realizar Pedido
 	%tbody
 		- @articulos.each do |articulo|
 			%tr
@@ -29,11 +29,47 @@
 					=articulo.nombre
 				%td 
 					=articulo.cantidad
-				%td 
 					=articulo.unidad_de_medida
 				%td 
 					=articulo.ubicacion.nombre
 				%td
 					%a.btn{:href => "articulos/show/#{articulo.codigo}"}
 						Ver
-  
+				%td
+					%a.btn{:href => "#"}
+						Pedido
+
+
+:javascript
+(function() {
+	jQuery(function() {
+		return $('#articulos').dataTable({
+			"oLanguage": {
+				"sProcessing": "Procesando...",
+				"sLengthMenu": "Mostrar _MENU_ registros",
+				"sZeroRecords": "No se encontraron resultados",
+				"sEmptyTable": "Ningún dato disponible en esta tabla",
+				"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+				"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+				"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+				"sInfoPostFix": "",
+				"sSearch": "Buscar:",
+				"sUrl": "",
+				"sInfoThousands": ",",
+				"sLoadingRecords": "Cargando...",
+				"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Último",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior"
+				},
+				"oAria": {
+					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+				}
+			},
+			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+			"sPaginationType": "bootstrap"
+		});
+	});
+}).call(this);
