@@ -1,5 +1,9 @@
 class PedidosController < ApplicationController
   def index
-  	@articulos = Articulo.all
+  	@pedidos = Pedido.all
+  end
+
+  def show
+  	@pedido = Pedido.find(params[:id])
   end
 end

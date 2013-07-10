@@ -1,54 +1,51 @@
 - articulo = @articulo
 %h2
 	%p
-		%a#volver.btn{:href =>'/articulos'}
-			Volver
-		Ficha de Articulo			
+		=link_to("Volver", "/articulos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+		%center
+			Ficha de Articulo			
 %hr
 %center
-	.fotoArticulo
-		=image_tag "/#{articulo.foto.store_dir}/#{articulo.foto_identifier}"
-.datosArticulo
-	%table.table.table-striped
-		%thead
-			%tr
-				%th 
-				%th 
-		%tbody
-			%tr
-				%th
-					Nombre:
-				%th
-					=articulo.nombre
-			%tr
-				%th
-					Descripción: 
-				%th
-					=articulo.descripcion
-			%tr
-				%th
-					Cantidad:
-				%th
-					=articulo.cantidad
-					=articulo.unidad_de_medida
-			%tr
-				%th
-					Familia: 
-				%th
-					=articulo.familia.nombre
-			%tr
-				%th
-					Ubicacion: 
-				%th
-					=articulo.ubicacion.nombre
-			%tr
-				%th
-					Stock Maximo: 
-				%th
-					=articulo.stock_maximo
-			%tr
-				%th
-					Stock Minimo: 
-				%th
-					=articulo.stock_minimo
+	%ul.thumbnails
+		%li.span4
+			.thumbnail#thumbnailArticulo
+				.fotoArticulo
+				=image_tag "/#{articulo.foto.store_dir}/detalle_#{articulo.foto_identifier}"
+		%li.span4
+			%h3
+				=articulo.nombre
+			.datosArticulo
+				%table.table.table-striped 
+					%tbody
+						%tr
+							%th
+								Descripción: 
+							%th
+								=articulo.descripcion
+						%tr
+							%th
+								Cantidad:
+							%th
+								=articulo.cantidad
+								=articulo.unidad_de_medida
+						%tr
+							%th
+								Familia: 
+							%th
+								=articulo.familia.nombre
+						%tr
+							%th
+								Ubicacion: 
+							%th
+								=articulo.ubicacion.nombre
+						%tr
+							%th
+								Stock Maximo: 
+							%th
+								=articulo.stock_maximo
+						%tr
+							%th
+								Stock Minimo: 
+							%th
+								=articulo.stock_minimo
  

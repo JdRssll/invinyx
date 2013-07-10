@@ -8,3 +8,69 @@
 	%li
 		%a{:href => "/devoluciones"} Devoluciones
 
+%table.table.table-striped#articulos
+	%thead
+		%tr
+			%th #
+			%th C.I
+			%th Empleado
+			%th Obra
+			%th Estado
+			%th Fecha
+			%th Acciones
+	%tbody
+		- @pedidos.each do |pedido|
+			%tr
+				%td 
+					=pedido.id
+				%td 
+					=pedido.empleado.cedula
+				%th
+					=pedido.empleado.nombre
+					=pedido.empleado.apellido
+				%th
+					=pedido.empleado.obra.nombre
+				%th
+					=pedido.estado
+				%th
+					=pedido.created_at.strftime("%d %b. %Y %H:%M")
+				%td
+					=link_to("V", "/pedidos/show/#{pedido.id}", html_options = {:class=>"btn", :title=>"Ver Detalles"})
+					=link_to("D", "#", html_options = {:class=>"btn", :title=>"Realizar Devolución"})
+					
+
+
+:javascript
+(function() {
+	jQuery(function() {
+		return $('#articulos').dataTable({
+			"oLanguage": {
+				"sProcessing": "Procesando...",
+				"sLengthMenu": "Mostrar _MENU_ registros",
+				"sZeroRecords": "No se encontraron resultados",
+				"sEmptyTable": "Ningún dato disponible en esta tabla",
+				"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+				"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+				"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+				"sInfoPostFix": "",
+				"sSearch": "Buscar:",
+				"sUrl": "",
+				"sInfoThousands": ",",
+				"sLoadingRecords": "Cargando...",
+				"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Último",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior"
+				},
+				"oAria": {
+					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+				}
+			},
+			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+			"sPaginationType": "bootstrap"
+		});
+	});
+}).call(this);
+

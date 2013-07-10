@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  estado: 1
+  empleado_id: 1
+
+two:
+  estado: 1
+  empleado_id: 1

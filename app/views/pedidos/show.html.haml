@@ -1,0 +1,51 @@
+- pedido = @pedido
+%h2
+	%p
+		=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+		%center
+			Detalle del Pedido #
+			=pedido.id
+%hr
+.row
+	.span9
+		.span2
+			%b
+				Cedula:
+			=pedido.empleado.cedula
+		.span2
+			%b
+				Nombre:
+			=pedido.empleado.nombre
+		.span2
+			%b
+				Apellido:
+			=pedido.empleado.apellido
+		.span2
+			%b
+				Cargo:
+			=pedido.empleado.cargo
+%br 
+.row
+	.span9
+		%center
+			.span2
+				%b
+					Obra:
+				=pedido.empleado.obra.nombre
+			.span2
+				%b
+					Estado:
+				=pedido.estado
+			.span2
+				%b
+					Fecha:
+				=pedido.created_at.strftime("%d %b. %Y %H:%M")
+%hr
+	%table.table.table-striped#articulos
+		%thead#cabezera
+			%tr
+				%th Codigo
+				%th Nombre de Articulo
+				%th Cantidad
+				%th Unidad de Medida
+		%tbody
