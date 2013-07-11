@@ -24,6 +24,7 @@ header{
 	height: 100px;
 	padding: 1%;
 	color: #151515;
+	border-bottom: 1px solid #E6E6E6;
 }
 .content{
  	width: 96%;
@@ -105,8 +106,4 @@ footer{
 	width: 300px;
 	padding-left: 30px;
 	padding-top: 30px;
-}
-
-#cabezera{
-	border-bottom: 1px solid #000000;
 }

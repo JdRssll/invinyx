@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(:version => 20130710195334) do
     t.integer "obra_id",                  :null => false
   end
 
+  create_table "estados", :force => true do |t|
+    t.string   "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "facturas", :force => true do |t|
     t.date     "fecha"
     t.integer  "proveedor_id", :null => false

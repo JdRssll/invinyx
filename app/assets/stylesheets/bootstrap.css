@@ -227,7 +227,9 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
+  background: -webkit-linear-gradient(#ffffff, #E6E6E6);
+  background: -moz-linear-gradient(#ffffff, #E6E6E6);
+  background: -o-linear-gradient(#ffffff, #E6E6E6);
 }
 
 a {

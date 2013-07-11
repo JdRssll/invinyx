@@ -1,9 +1,13 @@
 %h2
 	%p
-		=link_to("Volver", "/@pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+		=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
 		%center
-			Detalle del pedido #
+			Detalles del Pedido #
 			=@pedido.id
+%hr
+%h4
+	%center
+		Datos del Personal
 %hr
 .row
 	.span9
@@ -40,6 +44,10 @@
 					Fecha:
 				=@pedido.created_at.strftime("%d %b. %Y %H:%M")
 %hr
+%h4
+	%center
+		Listado de Articulos
+%hr
 	%table.table.table-striped#articulos
 		%thead#cabezera
 			%tr
@@ -56,3 +64,5 @@
 						=articulo.nombre
 					%th
 						= @pedido.cantidad_del_articulo_pedido(articulo.codigo)
+					%th
+						=articulo.unidad_de_medida
