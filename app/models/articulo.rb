@@ -2,16 +2,17 @@ class Articulo < ActiveRecord::Base
   attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible
 
   #validaciones en general
-  validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
-  validates_uniqueness_of :codigo, :nombre
+  #validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
+  #validates_uniqueness_of :codigo, :nombre
 
   #validacion para descripcion
-  validates :descripcion, :length => { :maximum => 140}
+  #validates :descripcion, :length => { :maximum => 140}
 
   #valdiaciones personalizadas
-  validate :stock_maximo_mayor?
+  #validate :stock_maximo_mayor?
 
-  has_and_belongs_to_many :facturas
+  has_many :factura_has_articulos
+  has_many :facturas, through: :factura_has_articulos
 
   mount_uploader :foto, FotoUploader
   belongs_to :familia

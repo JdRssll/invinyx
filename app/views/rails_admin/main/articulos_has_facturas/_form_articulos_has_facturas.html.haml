@@ -6,7 +6,7 @@
 					%th Codigo
 					%th Nombre
 					%th Cantidad
-					%th Acciones
+					%th Accion
 			%tbody
 				- @articulos.each do |articulo|
 					%tr
@@ -18,6 +18,14 @@
 							= articulo.cantidad
 						%td
 							= link_to_function '<i class="icon-plus"></i> Agregar'.html_safe, "agregar_articulo_a_factura('#{articulo.id}')", remote: true
+	.span6#div-tabla-facturas
+		%table.table.table-striped#facturas
+			%thead
+				%tr
+					%th Nombre
+					%th Cantidad
+					%th Accion
+			%tbody.agregar
 
 :javascript
 	

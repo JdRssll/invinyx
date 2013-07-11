@@ -11,25 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708161834) do
+ActiveRecord::Schema.define(:version => 20130710064336) do
 
   create_table "articulos", :primary_key => "codigo", :force => true do |t|
-    t.string  "nombre",           :limit => 60,                        :null => false
-    t.text    "descripcion",      :limit => 255,                       :null => false
-    t.string  "unidad_de_medida", :limit => 15,                        :null => false
+    t.string  "nombre",           :limit => 60,       :null => false
+    t.text    "descripcion",      :limit => 255,      :null => false
+    t.string  "unidad_de_medida", :limit => 15,       :null => false
     t.float   "cantidad"
     t.text    "foto",             :limit => 16777215
-    t.string  "familia_id",                                            :null => false
-    t.string  "ubicacion_id",                                          :null => false
-    t.float   "stock_minimo",                         :default => 0.0
-    t.float   "stock_maximo",                         :default => 0.0
+    t.string  "familia_id",                           :null => false
+    t.string  "ubicacion_id",                         :null => false
+    t.float   "stock_minimo"
+    t.float   "stock_maximo"
     t.boolean "consumible"
-  end
-
-  create_table "articulos_facturas", :force => true do |t|
-    t.integer "articulo_id"
-    t.integer "factura_id"
-    t.float   "cantidad"
   end
 
   create_table "empleados", :primary_key => "cedula", :force => true do |t|
@@ -42,9 +36,15 @@ ActiveRecord::Schema.define(:version => 20130708161834) do
     t.integer "obra_id",                  :null => false
   end
 
+  create_table "factura_has_articulos", :force => true do |t|
+    t.integer "factura_id"
+    t.string  "articulo_id"
+    t.float   "cantidad"
+  end
+
   create_table "facturas", :force => true do |t|
     t.date     "fecha"
-    t.integer  "proveedor_id", :null => false
+    t.string   "proveedor_id", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

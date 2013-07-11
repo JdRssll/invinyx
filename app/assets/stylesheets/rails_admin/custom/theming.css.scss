@@ -43,3 +43,23 @@
 	padding-bottom: 5px;
 	padding-right: 0px;
 }
+
+#div-tabla-facturas {
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: #ddd;
+}
+
+#facturas {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #ddd;
+	margin-bottom: 0px;
+}
+
+#imput_codigo {
+	border: none;
+	box-shadow: none;
+	background: none;
+	width: 30px;
+}

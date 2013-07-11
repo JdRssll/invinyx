@@ -1,0 +1,7 @@
+%tr
+	%td
+		= text_field_tag "factura[articulo_ids][]", "#{articulo.codigo}", id: "imput_codigo", readonly: "readonly"
+	%td
+		= text_field_tag "factura[cantidad][]"
+	%td
+		= link_to_function '<i class="icon-plus"></i> Remover'.html_safe, "#"

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  factura_id: 
+  articulo_id: 
+  cantidad: 1.5
+
+two:
+  factura_id: 
+  articulo_id: 
+  cantidad: 1.5
