@@ -1,4 +1,3 @@
-- articulo = @articulo
 %h2
 	%p
 		=link_to("Volver", "/articulos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
@@ -10,10 +9,10 @@
 		%li.span4
 			.thumbnail#thumbnailArticulo
 				.fotoArticulo
-				=image_tag "/#{articulo.foto.store_dir}/detalle_#{articulo.foto_identifier}"
+				=image_tag "/#{@articulo.foto.store_dir}/detalle_#{@articulo.foto_identifier}"
 		%li.span4
 			%h3
-				=articulo.nombre
+				=@articulo.nombre
 			.datosArticulo
 				%table.table.table-striped 
 					%tbody
@@ -21,31 +20,31 @@
 							%th
 								Descripción: 
 							%th
-								=articulo.descripcion
+								=@articulo.descripcion
 						%tr
 							%th
 								Cantidad:
 							%th
-								=articulo.cantidad
-								=articulo.unidad_de_medida
+								=@articulo.cantidad
+								=@articulo.unidad_de_medida
 						%tr
 							%th
 								Familia: 
 							%th
-								=articulo.familia.nombre
+								=@articulo.familia.nombre
 						%tr
 							%th
 								Ubicacion: 
 							%th
-								=articulo.ubicacion.nombre
+								=@articulo.ubicacion.nombre
 						%tr
 							%th
 								Stock Maximo: 
 							%th
-								=articulo.stock_maximo
+								=@articulo.stock_maximo
 						%tr
 							%th
 								Stock Minimo: 
 							%th
-								=articulo.stock_minimo
- 
+								=@articulo.stock_minimo
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710195334) do
+ActiveRecord::Schema.define(:version => 20130711132634) do
 
   create_table "articulos", :primary_key => "codigo", :force => true do |t|
     t.string  "nombre",           :limit => 60,       :null => false
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(:version => 20130710195334) do
     t.float   "stock_minimo"
     t.float   "stock_maximo"
     t.boolean "consumible"
+  end
+
+  create_table "devoluciones", :force => true do |t|
+    t.text     "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "empleados", :primary_key => "cedula", :force => true do |t|

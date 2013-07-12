@@ -30,8 +30,12 @@
 					=pedido.empleado.apellido
 				%th
 					=pedido.empleado.obra.nombre
-				%th
-					=pedido.estado
+				- if pedido.estado == 0
+					%th{:style=>"background: #9FF781;"}
+						=pedido.estado
+				- else
+					%th
+						=pedido.estado
 				%th
 					=pedido.created_at.strftime("%d %b. %Y %H:%M")
 				%td
