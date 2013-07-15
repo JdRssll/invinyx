@@ -1,7 +1,7 @@
 %td
-	= label_tag articulo.nombre
-%td
 	= text_field_tag "factura[factura_has_articulos_attributes][#{articulo.codigo}][articulo_id]", "#{articulo.codigo}", id: "imput_codigo", readonly: "readonly"
+%td
+	= articulo.nombre
 %td
 	= text_field_tag "factura[factura_has_articulos_attributes][#{articulo.codigo}][cantidad]", 0, id: "input_cantidad"
 %td
