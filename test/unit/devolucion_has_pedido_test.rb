@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DevolucionesTest < ActiveSupport::TestCase
+class DevolucionHasPedidoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

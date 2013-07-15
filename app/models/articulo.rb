@@ -1,15 +1,15 @@
 class Articulo < ActiveRecord::Base
-  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible,:pedido_has_articulos_ids
+  attr_accessible :codigo, :cantidad, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible,:pedido_has_articulos_ids
 
   #validaciones en general
-  validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
-  validates_uniqueness_of :codigo, :nombre
+  #validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
+  #validates_uniqueness_of :codigo, :nombre
 
   #validacion para descripcion
-  validates :descripcion, :length => { :maximum => 140}
+  #validates :descripcion, :length => { :maximum => 140}
 
   #valdiaciones personalizadas
-  validate :stock_maximo_mayor?
+  #validate :stock_maximo_mayor?
 
   mount_uploader :foto, FotoUploader
   belongs_to :familia
@@ -33,6 +33,16 @@ class Articulo < ActiveRecord::Base
   	field :consumible
   end
 
+  def advertencia_stock
+    if self.cantidad < self.stock_maximo && self.cantidad > self.stock_minimo
+      return 1
+    elsif self.cantidad <= self.stock_minimo
+      return 2
+    elsif self.cantidad >= self.stock_maximo
+      return 3
+    end
+  end
+
   private
 
   #validacion, stock maximo no puede ser menor a stock minimo
@@ -42,8 +52,5 @@ class Articulo < ActiveRecord::Base
       errors.add(:stock_minimo, I18n.t('errors.messages.stock_minimo'))
     end
   end
-
-
-
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711132634) do
+ActiveRecord::Schema.define(:version => 20130715151728) do
 
   create_table "articulos", :primary_key => "codigo", :force => true do |t|
     t.string  "nombre",           :limit => 60,       :null => false
@@ -26,7 +26,15 @@ ActiveRecord::Schema.define(:version => 20130711132634) do
     t.boolean "consumible"
   end
 
-  create_table "devoluciones", :force => true do |t|
+  create_table "devolucion_has_pedidos", :force => true do |t|
+    t.integer  "devolucion_id"
+    t.integer  "pedido_has_articulo_id"
+    t.float    "cantidad"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  create_table "devolucions", :force => true do |t|
     t.text     "descripcion"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -42,10 +50,10 @@ ActiveRecord::Schema.define(:version => 20130711132634) do
     t.integer "obra_id",                  :null => false
   end
 
-  create_table "estados", :force => true do |t|
-    t.string   "estado"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "factura_has_articulos", :force => true do |t|
+    t.integer "factura_id"
+    t.string  "articulo_id"
+    t.float   "cantidad"
   end
 
   create_table "facturas", :force => true do |t|

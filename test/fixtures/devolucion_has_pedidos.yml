@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  devolucion_id: 
+  pedido_has_articulo_id: 
+  cantidad: 1.5
+
+two:
+  devolucion_id: 
+  pedido_has_articulo_id: 
+  cantidad: 1.5

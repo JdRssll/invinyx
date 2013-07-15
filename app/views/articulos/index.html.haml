@@ -26,14 +26,23 @@
 					=articulo.codigo
 				%td 
 					=articulo.nombre
-				%td 
-					=articulo.cantidad
-					=articulo.unidad_de_medida
+				- if articulo.advertencia_stock == 1
+					%th{:style=>"background: #82FA58;"}
+						=articulo.cantidad
+						=articulo.unidad_de_medida
+				- elsif articulo.advertencia_stock == 2
+					%th{:style=>"background: #FA5858;"}
+						=articulo.cantidad
+						=articulo.unidad_de_medida
+				- else
+					%th{:style=>"background: #F4FA58;"}
+						=articulo.cantidad
+						=articulo.unidad_de_medida
 				%td 
 					=articulo.ubicacion.nombre
 				%td
-					=link_to("V", "articulos/show/#{articulo.codigo}", html_options = {:class=>"btn", :title=>"Ver Detalles"})
-					=link_to("P", "#", html_options = {:class=>"btn", :title=>"Realizar Pedido"})
+					=link_to("Ver", "articulos/show/#{articulo.codigo}", html_options = {:class=>"btn", :title=>"Ver Detalles"})
+				
 				
 					
 

@@ -6,4 +6,13 @@ class PedidosController < ApplicationController
   def show
   	@pedido = Pedido.find(params[:id])
   end
+
+  def new
+  	@empleados = Empleado.all
+  	@articulos = Articulo.all
+  end
+
+  def asignar_empleado_a_pedido  	
+  	@empleado = Empleado.find(params[:id])
+  end
 end

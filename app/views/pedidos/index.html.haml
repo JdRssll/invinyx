@@ -7,7 +7,10 @@
 		%a{:href => "#"} Pedidos
 	%li
 		%a{:href => "/devoluciones"} Devoluciones
-
+%p
+	%a.btn.btn-primary{:href => "/pedidos/new"}
+		Realizar Pedido
+%br 
 %table.table.table-striped#articulos
 	%thead
 		%tr
@@ -31,10 +34,10 @@
 				%th
 					=pedido.empleado.obra.nombre
 				- if pedido.estado == 0
-					%th{:style=>"background: #9FF781;"}
+					%th{:style=>"background: #82FA58;"}
 						=pedido.estado
 				- else
-					%th
+					%th{:style=>"background: #FA5858;"}
 						=pedido.estado
 				%th
 					=pedido.created_at.strftime("%d %b. %Y %H:%M")

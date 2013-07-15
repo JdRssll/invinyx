@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+60.times do |i|
+	Articulo.create(codigo: i+1, nombre: "Articulo #{i}", unidad_de_medida: "mtrs", familia_id: 1, ubicacion_id: 1, stock_minimo: 2, stock_maximo: 10, cantidad: 0)
+end

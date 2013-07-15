@@ -1,0 +1,155 @@
+%h2
+	%center
+		Nuevo Pedido
+%hr
+%center
+	%h4
+		Datos del Empleado
+%hr
+.row
+	.span9
+		.span2
+			%b
+				Cedula: 
+			%input{:class=>'formPedido',:id=>"cedulaEmpleado", :readonly=>"readonly"}
+		.span2
+			%b
+				Nombre:
+			%input{:class=>'formPedido',:id=>"nombreEmpleado", :readonly=>"readonly"}
+		.span2
+			%b
+				Apellido:
+			%input{:class=>'formPedido',:id=>"apellidoEmpleado", :readonly=>"readonly"}
+		.span2
+			%a.btn{:id=>"buscarEmpleado","data-toggle" => "modal", :href => "#EmpleadosModal", :role => "button"}
+				Buscar
+.row
+	.span9
+		.span2
+			%b
+				Cargo: 
+			%input{:class=>'formPedido',:id=>"cargoEmpleado", :readonly=>"readonly"}
+		.span2
+			%b
+				Telefono:
+			%input{:class=>'formPedido',:id=>"telefonoEmpleado", :readonly=>"readonly"}
+		.span2
+			%b
+				Obra:
+			%input{:class=>'formPedido',:id=>"obraEmpleado", :readonly=>"readonly"}
+		
+%hr
+.row
+	.span4
+		%table.table.table-bordered#empleados
+			%thead
+				%tr
+					%th Codigo
+					%th Nombre
+					%th Cantidad
+					%th Acciones
+			%tbody
+				- @articulos.each do |articulo|
+					%tr
+						%td
+							=articulo.codigo
+						%td 
+							=articulo.nombre
+						- if articulo.advertencia_stock == 1
+							%th{:style=>"background: #82FA58;"}
+								=articulo.cantidad
+								=articulo.unidad_de_medida
+						- elsif articulo.advertencia_stock == 2
+							%th{:style=>"background: #FA5858;"}
+								=articulo.cantidad
+								=articulo.unidad_de_medida
+						- else
+							%th{:style=>"background: #F4FA58;"}
+								=articulo.cantidad
+								=articulo.unidad_de_medida
+						%td
+							=link_to("+", "articulos/show/#{articulo.codigo}", html_options = {:class=>"btn btn-success", :title=>"Agregar"})
+	.span4
+		%table.table.table-bordered#articulos
+			%thead
+				%tr
+					%th Codigo
+					%th Nombre
+					%th Cantidad
+					%th Acciones
+			%tbody
+
+%br
+%br		
+.modal-footer	
+	=link_to("Guardar", "#", html_options = {:class=>"btn btn-primary"})
+	=link_to("Volver", "#", html_options = {:class=>"btn"})
+
+	#EmpleadosModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+		.modal-header
+			%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+			%h3#myModalLabel Buscar Empleado
+		.modal-body
+			%table.table.table-striped#empleados
+				%thead
+					%tr
+						%th C.I
+						%th Nombre
+						%th Apellido
+						%th Cargo
+						%th Control
+				%tbody
+					- @empleados.each do |empleado|
+						%tr
+							%td
+								=empleado.cedula
+							%td 
+								=empleado.nombre
+							%td 
+								=empleado.apellido
+							%td 
+								=empleado.cargo
+							%td
+								=link_to_function "+", "agregar_empleado('#{empleado.cedula}')", class:"btn btn-success", remote: true
+		.modal-footer
+
+:javascript
+
+	function agregar_empleado(cedula) {
+		$.get("/agregar/empleado/"+cedula)
+	}
+
+	(function() {
+		jQuery(function() {
+			return $('#empleados').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "Buscar:",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+				"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
+				"sPaginationType": "bootstrap"
+			});
+		});
+	}).call(this);
+
+
