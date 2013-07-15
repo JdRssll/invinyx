@@ -1,5 +1,5 @@
 class Articulo < ActiveRecord::Base
-  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible
+  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible, :cantidad
 
   #validaciones en general
   #validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
@@ -19,7 +19,7 @@ class Articulo < ActiveRecord::Base
   belongs_to :ubicacion
 
   rails_admin do
-  	field :codigo
+  	field :codigo   
   	field :nombre
   	field :descripcion
   	field :unidad_de_medida, :enum do 
@@ -27,12 +27,17 @@ class Articulo < ActiveRecord::Base
     		['Unid.', 'Mts.', 'Mts2.', 'Kgs.', 'Lts.']
   		end
 		end
+    list do
+      include_fields :cantidad
+    end
   	field :foto, :carrierwave
   	field :familia
   	field :ubicacion
   	field :stock_maximo, :integer
   	field :stock_minimo, :integer
   	field :consumible
+
+
   end
 
   private

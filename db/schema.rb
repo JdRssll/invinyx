@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20130710064336) do
     t.string  "nombre",           :limit => 60,       :null => false
     t.text    "descripcion",      :limit => 255,      :null => false
     t.string  "unidad_de_medida", :limit => 15,       :null => false
-    t.float   "cantidad"
+    t.float   "cantidad", :default => 0
     t.text    "foto",             :limit => 16777215
     t.string  "familia_id",                           :null => false
     t.string  "ubicacion_id",                         :null => false
