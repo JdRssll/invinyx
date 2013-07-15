@@ -35,7 +35,7 @@
 	
 	function agregar_articulo_a_factura(id) {
 		$("#anuncio").remove()
-		if ($('#facturas').find('#1').length == 0) {
+		if ($('#facturas').find('#'+id).length == 0) {
 			$.get("/agregar/"+id)
 		} else { alert("Ya existe este articulo")}	
 	}
