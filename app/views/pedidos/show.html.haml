@@ -1,6 +1,5 @@
 %h2
-	%p
-		=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+	%p		
 		%center
 			Detalles del Pedido #
 			=@pedido.id
@@ -66,4 +65,5 @@
 						= @pedido.cantidad_del_articulo_pedido(articulo.codigo)
 					%th
 						=articulo.unidad_de_medida
-%hr 
+.modal-footer	
+	=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})

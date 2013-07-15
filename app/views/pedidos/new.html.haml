@@ -39,6 +39,10 @@
 			%input{:class=>'formPedido',:id=>"obraEmpleado", :readonly=>"readonly"}
 		
 %hr
+%center
+	%h4
+		Lista de Articulos
+%hr
 .row
 	.span4
 		%table.table.table-bordered#empleados
@@ -83,7 +87,7 @@
 %br		
 .modal-footer	
 	=link_to("Guardar", "#", html_options = {:class=>"btn btn-primary"})
-	=link_to("Volver", "#", html_options = {:class=>"btn"})
+	=link_to("Volver", "/pedidos/", html_options = {:class=>"btn"})
 
 	#EmpleadosModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 		.modal-header
@@ -147,6 +151,39 @@
 					}
 				},
 				"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
+				"sPaginationType": "bootstrap"
+			});
+		});
+	}).call(this);
+
+	(function() {
+		jQuery(function() {
+			return $('#articulos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "Buscar:",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+				"sDom": "<'row-fluid't<'row-fluid'<'span12'p>>",
 				"sPaginationType": "bootstrap"
 			});
 		});

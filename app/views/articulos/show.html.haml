@@ -1,6 +1,5 @@
 %h2
-	%p
-		=link_to("Volver", "/articulos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+	%p		
 		%center
 			Ficha de Articulo			
 %hr
@@ -8,8 +7,8 @@
 	%ul.thumbnails
 		%li.span4
 			.thumbnail#thumbnailArticulo
-				.fotoArticulo
-				=image_tag "/#{@articulo.foto.store_dir}/detalle_#{@articulo.foto_identifier}"
+				.fotoArticulo					
+					=image_tag "/#{@articulo.foto.store_dir}/detalle_#{@articulo.foto_identifier}"
 		%li.span4
 			%h3
 				=@articulo.nombre
@@ -47,4 +46,6 @@
 								Stock Minimo: 
 							%th
 								=@articulo.stock_minimo
+.modal-footer	
+	=link_to("Volver", "/articulos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
 
