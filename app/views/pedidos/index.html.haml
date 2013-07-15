@@ -7,9 +7,11 @@
 		%a{:href => "#"} Pedidos
 	%li
 		%a{:href => "/devoluciones"} Devoluciones
-%p
-	%a.btn.btn-primary{:href => "/pedidos/new"}
-		Realizar Pedido
+
+.modal-footer		
+	%p
+		%a.btn.btn-success{:href => "/pedidos/new"}
+			+ Realizar Pedido
 %br 
 %table.table.table-striped#articulos
 	%thead
