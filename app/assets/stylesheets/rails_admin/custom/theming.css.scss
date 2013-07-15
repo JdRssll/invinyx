@@ -45,18 +45,12 @@
 }
 
 #factura_cantidad_field {
-	border-left: 1px solid;
-	border-right: 1px solid;
-	border-color: #ddd;
 	padding-right: 50px;
 }
 
-#facturas {
-	border-top: 1px solid;
-	border-bottom: 1px solid;
-	border-right: 1px solid;
+#facturas tr{
+	border: 1px solid;
 	border-color: #ddd;
-	margin-bottom: 0px;
 }
 
 #imput_codigo {

@@ -1,6 +1,6 @@
 .span12#contenedor-facturas
 	.span6#div-tabla-articulos
-		%table.table.table-striped#articulos
+		%table.table.table-striped.articulos
 			%thead
 				%tr
 					%th Código
@@ -17,7 +17,7 @@
 						%td
 							= articulo.cantidad
 						%td
-							= link_to_function '<i class="icon-plus"></i> Agregar'.html_safe, "agregar_articulo_a_factura('#{articulo.id}')", remote: true
+							= link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar_articulo_a_factura('#{articulo.id}')", class: "btn btn-success" ,remote: true
 	.span6#factura_cantidad_field
 		%table.table.table-striped#facturas
 			%thead
@@ -27,17 +27,22 @@
 					%th Cantidad
 					%th Acción
 			%tbody.agregar
-
+				%tr#anuncio
+					%td{ colspan: 4 }
+						%center
+							Ingresar articulos al listado
 :javascript
 	
 	function agregar_articulo_a_factura(id) {
-		if ($("#documento_preview").length) { $("#documento_preview").remove() } 
-		$.get("/agregar/"+id) 
+		$("#anuncio").remove()
+		if ($('#facturas').find('#1').length == 0) {
+			$.get("/agregar/"+id)
+		} else { alert("Ya existe este articulo")}	
 	}
 
 	(function() {
 		jQuery(function() {
-			return $('#articulos').dataTable({
+			return $('.articulos').dataTable({
 				"oLanguage": {
 	        "sProcessing": "Procesando...",
 	        "sLengthMenu": "Mostrar _MENU_ registros",
