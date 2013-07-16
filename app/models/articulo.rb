@@ -27,15 +27,16 @@ class Articulo < ActiveRecord::Base
     		['Unid.', 'Mts.', 'Mts2.', 'Kgs.', 'Lts.']
   		end
 		end
-    list do
-      include_fields :cantidad
-    end
   	field :foto, :carrierwave
   	field :familia
   	field :ubicacion
   	field :stock_maximo, :integer
   	field :stock_minimo, :integer
   	field :consumible
+
+    list do
+      include_fields :cantidad
+    end
 
 
   end
