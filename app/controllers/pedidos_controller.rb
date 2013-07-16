@@ -8,8 +8,21 @@ class PedidosController < ApplicationController
   end
 
   def new
+    @pedido = Pedido.new
   	@empleados = Empleado.all
   	@articulos = Articulo.all
+  end
+
+  def create
+    @pedido = Pedido.new(params[:pedido])
+
+    respond_to do |format|
+      if @pedido.save
+        format.html { redirect_to @pedido, notice: 'Producto was successfully created.' }
+      else
+        format.html { render action: "new" }
+      end
+    end
   end
 
   def asignar_empleado_a_pedido  	

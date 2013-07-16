@@ -92,12 +92,16 @@ footer{
 }
 
 .formPedido{
-	background: none;
+	background: #fff;
 	border: none;
+	width: 190px;
+	border-radius: 10px;
+	padding: 5px;
+	border: 1px solid #c0c0c0;
 }
 
 #buscarEmpleado{
-	margin-left: 50px;
+	margin-left: 90%;
 }
 
 .firma{

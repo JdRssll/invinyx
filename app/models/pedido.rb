@@ -10,6 +10,10 @@ class Pedido < ActiveRecord::Base
 		pedido.first.cantidad
 	end
 
+  def permitir_cantidad?
+    
+  end
+
   rails_admin do 
   	field :empleado
   end

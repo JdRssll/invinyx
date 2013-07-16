@@ -1,0 +1,81 @@
+= form_for(@pedido) do |f|
+	%a.btn.btn-info{:id=>"buscarEmpleado","data-toggle" => "modal", :href => "#EmpleadosModal", :role => "button"}
+		Buscar
+	.row
+		.span9
+			.span2s
+				= f.label :cedula 
+				= f.text_field :empleado_id, class: "formPedido", id: "cedulaEmpleado", readonly: "readonly", type:""
+			.span2s
+				= label_tag "Nombre"
+				= text_field_tag "Nombre","", class: "formPedido", id: "nombreEmpleado", readonly: "readonly", type:""
+			.span2
+				= label_tag "Apellido"
+				= text_field_tag "Apellido","", class: "formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""
+			
+	%br	
+	.row
+		.span9
+			.span2s
+				= label_tag "Cargo"
+				= text_field_tag "Cargo","", class: "formPedido", id: "cargoEmpleado", readonly: "readonly", type:""
+			.span2s
+				= label_tag "Telefono"
+				= text_field_tag "Telefono","", class: "formPedido", id: "telefonoEmpleado", readonly: "readonly", type:""
+			.span2
+				= label_tag "Obra"
+				= text_field_tag "Obra","", class: "formPedido", id: "obraEmpleado", readonly: "readonly", type:""
+			
+	%hr
+	%center
+		%h4
+			Lista de Articulos
+	%hr
+	.row
+		.span4
+			%table.table.table-bordered.tablaEstandar
+				%thead
+					%tr
+						%th Codigo
+						%th Nombre
+						%th Cantidad
+						%th Acciones
+				%tbody
+					- @articulos.each do |articulo|
+						%tr
+							%td
+								=articulo.codigo
+							%td 
+								=articulo.nombre
+							- if articulo.advertencia_stock == 1
+								%th{:style=>"background: #82FA58;"}
+									=articulo.cantidad
+									=articulo.unidad_de_medida
+							- elsif articulo.advertencia_stock == 2
+								%th{:style=>"background: #FA5858;"}
+									=articulo.cantidad
+									=articulo.unidad_de_medida
+							- else
+								%th{:style=>"background: #F4FA58;"}
+									=articulo.cantidad
+									=articulo.unidad_de_medida
+							%td
+								=link_to_function "+", "agregar('#{articulo.codigo}', '/agregar/articulo/')", class: "btn btn-success", remote: true
+		.span4
+			%table.table.table-bordered#articulosAgregado
+				%thead
+					%tr
+						%th Codigo
+						%th Nombre
+						%th Cantidad
+						%th Acciones
+				%tbody.agregar
+					%tr#anuncio
+						%th{ :colspan=>"4" }
+							%center
+								No hay articulos en la lista
+	%br
+	%br
+	.modal-footer	
+		= f.submit class: "btn btn-primary"
+		=link_to("Volver", pedidos_path, html_options = {:class=>"btn"})

@@ -6,4 +6,6 @@ class ArticulosController < ApplicationController
   def show
   	@articulo = Articulo.find(params[:id])
   end
+
+ 
 end

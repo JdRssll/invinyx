@@ -4,4 +4,5 @@ class PedidoHasArticulo < ActiveRecord::Base
   belongs_to :articulo
   has_many :devolucion_has_pedidos
   has_many :devoluciones, :through => :devolucion_has_pedido
+  validates_presence_of :cantidad
 end

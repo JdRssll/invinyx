@@ -1,7 +1,9 @@
 Invinyx::Application.routes.draw do
-  get "devoluciones/index"
+  resources :productos
+  resources :pedidos
 
-  get "pedidos/index"
+
+  get "devoluciones/index"
 
   get "articulos/index"
 
