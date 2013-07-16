@@ -1,69 +1,81 @@
-.modal-footer	
-	%h2
-		%p		
-			%center
-				Detalles del Pedido #
-				=@pedido.id
-%h4
-	%center
-		Datos del Personal
-%hr
-.row
-	.span9
-		.span2
-			%b
-				Cedula:
-			=@pedido.empleado.cedula
-		.span2
-			%b
-				Nombre:
-			=@pedido.empleado.nombre
-		.span2
-			%b
-				Apellido:
-			=@pedido.empleado.apellido
-		.span2
-			%b
-				Cargo:
-			=@pedido.empleado.cargo
-%br 
-.row
-	.span9
+.NotaEntrega
+	.modal-footer	
+		%h2
+			%p		
+				%center
+					Detalles del Pedido #
+					=@pedido.id
+	%h4
 		%center
+			Datos del Personal
+	%hr
+	.row
+		.span9
 			.span2
 				%b
-					Obra:
-				=@pedido.empleado.obra.nombre
+					Cedula:
+				=@pedido.empleado.cedula
 			.span2
 				%b
-					Estado:
-				=@pedido.estado
+					Nombre:
+				=@pedido.empleado.nombre
 			.span2
 				%b
-					Fecha:
-				=@pedido.created_at.strftime("%d %b. %Y %H:%M")
-%hr
-%h4
-	%center
-		Listado de Articulos
-%hr
-	%table.table.table-striped#articulos
-		%thead#cabezera
-			%tr
-				%th Codigo
-				%th Nombre de Articulo
-				%th Cantidad
-				%th Unidad de Medida
-		%tbody
-			- @pedido.articulos.each do |articulo|
+					Apellido:
+				=@pedido.empleado.apellido
+			.span2
+				%b
+					Cargo:
+				=@pedido.empleado.cargo
+	%br 
+	.row
+		.span9
+			%center
+				.span2
+					%b
+						Obra:
+					=@pedido.empleado.obra.nombre
+				.span2
+					%b
+						Estado:
+					=@pedido.estado
+				.span2
+					%b
+						Fecha:
+					=@pedido.created_at.strftime("%d %b. %Y %H:%M")
+	%hr
+	%h4
+		%center
+			Listado de Articulos
+	%hr
+		%table.table.table-striped#articulos
+			%thead#cabezera
 				%tr
-					%th
-						=articulo.codigo
-					%th
-						=articulo.nombre
-					%th
-						= @pedido.cantidad_del_articulo_pedido(articulo.codigo)
-					%th
-						=articulo.unidad_de_medida
+					%th Codigo
+					%th Nombre de Articulo
+					%th Cantidad
+					%th Unidad de Medida
+			%tbody
+				- @pedido.articulos.each do |articulo|
+					%tr
+						%th
+							=articulo.codigo
+						%th
+							=articulo.nombre
+						%th
+							= @pedido.cantidad_del_articulo_pedido(articulo.codigo)
+						%th
+							=articulo.unidad_de_medida
+
+	%br
+	.row
+		%center
+			.span4
+				.firma
+					=@pedido.empleado.nombre
+					=@pedido.empleado.apellido	 
+			.span4
+				.firma
+					Operador del sistema
 .modal-footer	
 	=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})

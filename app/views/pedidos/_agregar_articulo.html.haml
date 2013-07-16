@@ -1,0 +1,17 @@
+%tr{id:"#{articulo.codigo}"}	
+	%td 
+		=text_field_tag "pedido[pedido_has_articulo_attributes][#{articulo.codigo}][articulo_id]", "#{articulo.codigo}", id:'input_codigo', readonly:'readonly'
+	%td
+		=articulo.nombre
+	%td
+		=text_field_tag "pedido[pedido_has_articulo_attributes][#{articulo.codigo}][cantidad]", "0", id:'input_cantidad'
+	%td
+		=link_to_function "X", "remover('#{articulo.codigo}')", class:"btn btn-danger", remote: true
+
+:javascript
+	function remover(id){
+		$('.agregar #'+id).remove()
+		if($('.agregar tr').size()==0){
+			$('.agregar').append("<tr id='anuncio'><td colspan='4'><center>No hay articulos en la lista</center></td></tr>");
+		}
+	}

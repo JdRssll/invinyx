@@ -7,6 +7,8 @@ Invinyx::Application.routes.draw do
 
   get "/agregar/empleado/:id" => 'pedidos#asignar_empleado_a_pedido', :as => :empleado_info 
 
+  get "/agregar/articulo/:id" => 'pedidos#asignar_articulo_a_pedido', :as => :articulo_info 
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users

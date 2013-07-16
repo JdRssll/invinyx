@@ -15,4 +15,9 @@ class PedidosController < ApplicationController
   def asignar_empleado_a_pedido  	
   	@empleado = Empleado.find(params[:id])
   end
+
+  def asignar_articulo_a_pedido   
+    @articulo = Articulo.find(params[:id])
+  end
+
 end
