@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20130716182712) do
     t.datetime "updated_at",             :null => false
   end
 
+  create_table "devoluciones", :force => true do |t|
+    t.text     "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "devolucions", :force => true do |t|
     t.text     "descripcion"
     t.datetime "created_at",  :null => false
@@ -48,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20130716182712) do
     t.string  "email",     :limit => 35
     t.string  "cargo",     :limit => 80,  :null => false
     t.integer "obra_id",                  :null => false
+  end
+
+  create_table "estados", :force => true do |t|
+    t.string   "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "factura_has_articulos", :force => true do |t|

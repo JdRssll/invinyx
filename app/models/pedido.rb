@@ -11,7 +11,8 @@ class Pedido < ActiveRecord::Base
 	end
 
   def permitir_cantidad?
-    
+    self.cantidad.each do |cantidad|
+    end
   end
 
   rails_admin do 
