@@ -12,6 +12,8 @@ es:
     created_at: "Fecha de creación"
     articulos: "Artículos"
     factura_has_articulos: "Ingresar artículos"
+    password: "Contraseña"
+    password_confirmation: "Confirmar contraseña"
   activerecord:
     models:
       ubicacion: 

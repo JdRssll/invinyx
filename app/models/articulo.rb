@@ -20,29 +20,38 @@ class Articulo < ActiveRecord::Base
   belongs_to :ubicacion
 
   rails_admin do
-  	field :codigo   
-  	field :nombre
-  	field :descripcion
-  	field :unidad_de_medida, :enum do 
-  		enum do
-    		['Unid.', 'Mts.', 'Mts2.', 'Kgs.', 'Lts.']
+  	create do
+      field :codigo   
+    	field :nombre
+    	field :descripcion
+    	field :unidad_de_medida, :enum do 
+    		enum do
+      		['Unid.', 'Mts.', 'Mts2.', 'Kgs.', 'Lts.']
+    		end
   		end
-		end
-  	field :foto, :carrierwave
-  	field :familia
-  	field :ubicacion
-  	field :stock_maximo, :integer
-  	field :stock_minimo, :integer
-  	field :consumible
-    list do
-      include_fields :cantidad
+    	field :foto, :carrierwave
+    	field :familia
+    	field :ubicacion
+    	field :stock_maximo, :integer
+    	field :stock_minimo, :integer
+    	field :consumible
     end
 
     list do
-      include_fields :cantidad
+      field :codigo   
+      field :nombre
+      field :cantidad
+      field :descripcion
+      field :unidad_de_medida 
     end
 
+    edit do
+      exclude_fields :cantidad, :facturas, :transaccions
+    end
 
+    show do
+      exclude_fields :facturas, :transaccions
+    end
   end
 
   private
