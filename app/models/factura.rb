@@ -10,7 +10,7 @@ class Factura < ActiveRecord::Base
   #validaciones para asociaciones
   validates_associated :proveedor
 
-  validate :permitir_factura_cantidad?
+  validate :permitir_cantidad?
 
   before_save :asignar_cantidad_a_articulo
 
@@ -18,8 +18,8 @@ class Factura < ActiveRecord::Base
   accepts_nested_attributes_for :factura_has_articulos, :allow_destroy => true
 
 
-  def permitir_factura_cantidad?
-   errors.add(:factura_has_articulos, 'La cantidad ingresada no puede ser mayor o igual a 0') if self.factura_has_articulos.inject(true) { |validador, registro| registro.cantidad <= 0 }
+  def permitir_cantidad?
+    errors.add(:factura_has_articulos, 'La cantidad ingresada no puede ser menor o igual a 0') if self.factura_has_articulos.inject(true) { |validador, registro| registro.cantidad <= 0 }
   end
 
   def asignar_cantidad_a_articulo
@@ -37,8 +37,14 @@ class Factura < ActiveRecord::Base
     end
   	field :proveedor
     field :factura_has_articulos do
-      label "Ingresar artículos"
       partial "articulos_has_facturas/form_articulos_has_facturas"
+    end
+    list do
+      exclude_fields :factura_has_articulos
+    end
+
+    show do
+      exclude_fields :factura_has_articulos
     end
   end
 

@@ -11,6 +11,7 @@ es:
     tipo_transaccion: "Tipo de transacción"
     created_at: "Fecha de creación"
     articulos: "Artículos"
+    factura_has_articulos: "Ingresar artículos"
   activerecord:
     models:
       ubicacion: 

@@ -37,7 +37,7 @@
 		$("#anuncio").remove()
 		if ($('#facturas').find('#'+id).length == 0) {
 			$.get("/agregar/"+id)
-		} else { alert("No puede ingresar un articulo mas de 2 veces.")}	
+		} else { alert("Este artículo ya ha sido agregado a la lista.")}	
 	}
 
 	(function() {

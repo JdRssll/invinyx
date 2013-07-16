@@ -3,17 +3,28 @@ class Transaccion < ActiveRecord::Base
   belongs_to :articulo
   attr_accessible :cantidad, :descripcion, :tipo_transaccion_id, :articulo_id
 
+  before_save :transacciones
+
   #validaciones en general
-  validates_presence_of :cantidad, :tipo_transaccion_id
-  validates_numericality_of :cantidad
+  validates_presence_of :cantidad, :tipo_transaccion_id, :articulo_id
+  validates :cantidad, :numericality => { :greater_than_or_equal_to => 1 }
+  validate :permite_salida?
 
 
-  def transaccion
-    if self.tipo == 1
-
+  def transacciones
+    articulo = Articulo.find(self.articulo_id)
+    if self.tipo_transaccion_id == 1
+      articulo.update_attribute(:cantidad, articulo.cantidad+self.cantidad)
     else
-      
+      articulo.update_attribute(:cantidad, articulo.cantidad-self.cantidad)
     end    
+  end
+
+  def permite_salida?
+    articulo = Articulo.find(self.articulo_id)
+    if self.tipo_transaccion_id == 2 and articulo.cantidad == 0
+      errors.add(:tipo_transaccion, I18n.t('errors.messages.tipo_transaccion'))
+    end
   end
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE
