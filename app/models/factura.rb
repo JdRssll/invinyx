@@ -12,6 +12,8 @@ class Factura < ActiveRecord::Base
 
   validate :permitir_factura_cantidad?
 
+  before_save :asignar_cantidad_a_articulo
+
  
   accepts_nested_attributes_for :factura_has_articulos, :allow_destroy => true
 
@@ -20,6 +22,12 @@ class Factura < ActiveRecord::Base
    errors.add(:factura_has_articulos, 'La cantidad ingresada no puede ser mayor o igual a 0') if self.factura_has_articulos.inject(true) { |validador, registro| registro.cantidad <= 0 }
   end
 
+  def asignar_cantidad_a_articulo
+    self.factura_has_articulos.each do |registro|
+      articulo = Articulo.find(registro.articulo_id)
+      articulo.update_attribute(:cantidad, articulo.cantidad+registro.cantidad)
+    end 
+  end
   
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE

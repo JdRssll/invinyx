@@ -38,6 +38,10 @@ class Articulo < ActiveRecord::Base
       include_fields :cantidad
     end
 
+    list do
+      include_fields :cantidad
+    end
+
 
   end
 
