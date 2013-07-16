@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-60.times do |i|
-	Articulo.create(codigo: i+1, nombre: "Articulo #{i}", unidad_de_medida: "Mts", familia_id: 1, ubicacion_id: 1)
+10.times do |i|
+	Articulo.create(codigo: i+1, nombre: "Articulo #{i}", unidad_de_medida: "Mts", familia_id: 1, ubicacion_id: 1, cantidad: 0, stock_maximo: 50, stock_minimo: 5)
 end
+
+TipoTransaccion.create(tipo: "Entrada")
+TipoTransaccion.create(tipo: "Salida")
+User.create(email: "usuario@email.com", password: "12345678", password_confirmation: "12345678")
+Familia.create(nombre: "General")
+Ubicacion.create(nombre: "General")
+Obra.create(nombre: "Amuay")

@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130710064336) do
 
   create_table "articulos", :primary_key => "codigo", :force => true do |t|
-    t.string  "nombre",           :limit => 60,       :null => false
-    t.text    "descripcion",      :limit => 255,      :null => false
-    t.string  "unidad_de_medida", :limit => 15,       :null => false
-    t.float   "cantidad", :default => 0
+    t.string  "nombre",           :limit => 60,                        :null => false
+    t.text    "descripcion",      :limit => 255,                       :null => false
+    t.string  "unidad_de_medida", :limit => 15,                        :null => false
+    t.float   "cantidad",                             :default => 0.0
     t.text    "foto",             :limit => 16777215
-    t.string  "familia_id",                           :null => false
-    t.string  "ubicacion_id",                         :null => false
+    t.string  "familia_id",                                            :null => false
+    t.string  "ubicacion_id",                                          :null => false
     t.float   "stock_minimo"
     t.float   "stock_maximo"
     t.boolean "consumible"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20130710064336) do
     t.float    "cantidad",                           :null => false
     t.string   "descripcion",         :limit => 200, :null => false
     t.integer  "tipo_transaccion_id",                :null => false
+    t.string   "articulo_id"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
   end
