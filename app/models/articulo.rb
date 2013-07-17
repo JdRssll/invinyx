@@ -1,9 +1,11 @@
 class Articulo < ActiveRecord::Base
-  attr_accessible :codigo, :cantidad, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible,:pedido_has_articulos_ids
+
+  attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible, :cantidad
 
   #validaciones en general
-  #validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
-  #validates_uniqueness_of :codigo, :nombre
+  validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion, :stock_maximo, :stock_minimo
+  validates_uniqueness_of :codigo, :nombre
+
 
   #validacion para descripcion
   #validates :descripcion, :length => { :maximum => 140}
@@ -11,26 +13,54 @@ class Articulo < ActiveRecord::Base
   #valdiaciones personalizadas
   #validate :stock_maximo_mayor?
 
+  has_many :factura_has_articulos
+  has_many :facturas, through: :factura_has_articulos
+
+  has_many :articulos_proveedors
+  has_many :proveedors, through: :articulos_proveedors
+
+  has_many :transaccions
+
   mount_uploader :foto, FotoUploader
   belongs_to :familia
   belongs_to :ubicacion
   has_many :pedido_has_articulos
   has_many :pedidos, :through => :pedido_has_articulos
   rails_admin do
-  	field :codigo
-  	field :nombre
-  	field :descripcion
-  	field :unidad_de_medida, :enum do 
-  		enum do
-    		['Unid.', 'Mts.', 'Mts2.', 'Kgs.', 'Lts.']
+  	create do
+      field :codigo, :string
+    	field :nombre
+    	field :descripcion
+    	field :unidad_de_medida, :enum do 
+    		enum do
+      		['Unid.', 'Mts.', 'Mts2.', 'Kgs.', 'Lts.']
+    		end
   		end
-		end
-  	field :foto, :carrierwave
-  	field :familia
-  	field :ubicacion
-  	field :stock_maximo, :integer
-  	field :stock_minimo, :integer
-  	field :consumible
+    	field :foto, :carrierwave
+    	field :familia
+    	field :ubicacion
+    	field :stock_maximo, :integer
+    	field :stock_minimo, :integer
+    	field :consumible
+      exclude_fields :articulos_proveedors, :proveedors
+    end
+
+    list do
+      field :codigo   
+      field :nombre
+      field :cantidad
+      field :descripcion
+      field :unidad_de_medida 
+      exclude_fields :articulos_proveedors
+    end
+
+    edit do
+      exclude_fields :cantidad, :facturas, :transaccions, :articulos_proveedors, :proveedors
+    end
+
+    show do
+      exclude_fields :facturas, :transaccions, :articulos_proveedors
+    end
   end
 
   def advertencia_stock

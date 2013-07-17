@@ -4,6 +4,7 @@ class CreateTransaccions < ActiveRecord::Migration
       t.float :cantidad, :null => false
       t.string :descripcion, :limit => 200, :null => false
       t.references  :tipo_transaccion, null: false
+      t.string :articulo_id
       t.timestamps
     end
   end

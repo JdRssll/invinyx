@@ -102,6 +102,7 @@ es:
   errors:
     format: ! '%{attribute} %{message}'
     messages:
+      tipo_transaccion: no puede realizarse, el artículo no posee existencia
       stock_maximo: no puede ser menor al stock mínimo
       stock_minimo: no puede ser mayor al stock máximo
       only_letters: solo permite letras

@@ -1,6 +1,5 @@
 # RailsAdmin config file. Generated on May 01, 2013 14:21
 # See github.com/sferik/rails_admin for more informations
-
 RailsAdmin.config do |config|
 
 
@@ -17,6 +16,8 @@ RailsAdmin.config do |config|
   # If you want to track changes on your models:
   # config.audit_with :history, 'User'
 
+  config.authorize_with :cancan
+
   # Or with a PaperTrail: (you need to install it first)
   # config.audit_with :paper_trail, 'User'
 
@@ -27,7 +28,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ["TipoTransaccion"]
+  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo", "ArticulosProveedor"]
 
   # Include specific models (exclude the others):
   # config.included_models = []
@@ -36,10 +37,28 @@ RailsAdmin.config do |config|
   # config.label_methods << :description # Default is [:name, :title]
   config.label_methods << :nombre
   config.label_methods << :tipo
+
+
+  config.actions do
+    # root actions
+    dashboard                     # mandatory
+    # collection actions 
+    index                         # mandatory
+    new
+    export
+    bulk_delete
+    # member actions
+    show
+    edit
+    delete
+    show_in_app
+  end
   
 
   ################  Model configuration  ################
 
+
+  
   # Each model configuration can alternatively:
   #   - stay here in a `config.model 'ModelName' do ... end` block
   #   - go in the model definition file in a `rails_admin do ... end` block

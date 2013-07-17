@@ -2,6 +2,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
+      t.string :nombre, null: false
+      t.string :apellido, null: false
+      t.string :telefono, null: false
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
