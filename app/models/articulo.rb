@@ -2,7 +2,7 @@ class Articulo < ActiveRecord::Base
   attr_accessible :codigo, :nombre, :descripcion, :unidad_de_medida, :foto, :foto_cache, :remove_foto, :familia_id, :ubicacion_id, :stock_minimo, :stock_maximo, :consumible, :cantidad
 
   #validaciones en general
-  validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion
+  validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion, :stock_maximo, :stock_minimo
   validates_uniqueness_of :codigo, :nombre
 
   #validacion para descripcion
