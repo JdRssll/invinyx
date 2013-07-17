@@ -1,5 +1,6 @@
 es:
   attributes:
+    proveedors: "Proveedores"
     descripcion: "Descripción"
     codigo: "Código"
     ubicacion: "Ubicación"

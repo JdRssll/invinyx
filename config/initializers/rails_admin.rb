@@ -26,7 +26,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo"]
+  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo", "ArticulosProveedor"]
 
   # Include specific models (exclude the others):
   # config.included_models = []
@@ -35,6 +35,22 @@ RailsAdmin.config do |config|
   # config.label_methods << :description # Default is [:name, :title]
   config.label_methods << :nombre
   config.label_methods << :tipo
+
+
+  config.actions do
+    # root actions
+    dashboard                     # mandatory
+    # collection actions 
+    index                         # mandatory
+    new
+    export
+    bulk_delete
+    # member actions
+    show
+    edit
+    delete
+    show_in_app
+  end
   
 
   ################  Model configuration  ################

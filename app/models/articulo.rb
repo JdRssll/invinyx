@@ -25,7 +25,7 @@ class Articulo < ActiveRecord::Base
 
   rails_admin do
   	create do
-      field :codigo   
+      field :codigo, :string
     	field :nombre
     	field :descripcion
     	field :unidad_de_medida, :enum do 
@@ -39,6 +39,7 @@ class Articulo < ActiveRecord::Base
     	field :stock_maximo, :integer
     	field :stock_minimo, :integer
     	field :consumible
+      exclude_fields :articulos_proveedors, :proveedors
     end
 
     list do
@@ -47,14 +48,15 @@ class Articulo < ActiveRecord::Base
       field :cantidad
       field :descripcion
       field :unidad_de_medida 
+      exclude_fields :articulos_proveedors
     end
 
     edit do
-      exclude_fields :cantidad, :facturas, :transaccions
+      exclude_fields :cantidad, :facturas, :transaccions, :articulos_proveedors, :proveedors
     end
 
     show do
-      exclude_fields :facturas, :transaccions
+      exclude_fields :facturas, :transaccions, :articulos_proveedors
     end
   end
 

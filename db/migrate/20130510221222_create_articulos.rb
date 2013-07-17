@@ -1,6 +1,6 @@
 class CreateArticulos < ActiveRecord::Migration
   def change
-    create_table :articulos, {:id => false} do |t|
+    create_table :articulos do |t|
       t.string :codigo, limit: 12
       t.string :nombre, limit: 60, null: false
       t.text :descripcion, limit: 140, null: false
@@ -15,6 +15,5 @@ class CreateArticulos < ActiveRecord::Migration
 
       t.timestamp
     end
-    execute "ALTER TABLE articulos ADD PRIMARY KEY (codigo)"
   end
 end
