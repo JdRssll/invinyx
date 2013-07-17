@@ -57,11 +57,13 @@ ActiveRecord::Schema.define(:version => 20130710064336) do
     t.string "nombre", :limit => 120, :null => false
   end
 
-  create_table "proveedors", :primary_key => "rif", :force => true do |t|
+  create_table "proveedors", :force => true do |t|
+    t.string "rif",       :limit => 10
     t.string "nombre",    :limit => 20,  :null => false
     t.string "telefono",  :limit => 11,  :null => false
-    t.string "direccion", :limit => 120, :null => false
-    t.string "email",     :limit => 35,  :null => false
+    t.string "direccion", :limit => 120
+    t.string "email",     :limit => 35
+    t.string "contacto",  :limit => 25
   end
 
   create_table "rails_admin_histories", :force => true do |t|
