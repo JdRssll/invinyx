@@ -28,7 +28,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo", "ArticulosProveedor"]
+  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo", "ArticulosProveedor", "Pedido", "Devolucion", "DevolucionHasPedido", "PedidoHasArticulo"]
 
   # Include specific models (exclude the others):
   # config.included_models = []
