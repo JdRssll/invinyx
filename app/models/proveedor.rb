@@ -1,6 +1,10 @@
 class Proveedor < ActiveRecord::Base
 	has_many :facturas, :dependent => :destroy
-  attr_accessible :nombre, :rif, :telefono, :direccion, :email, :contacto
+  has_many :articulos_proveedors
+  has_many :articulos, through: :articulos_proveedors
+  attr_accessible :nombre, :rif, :telefono, :direccion, :email, :contacto, :articulo_ids
+
+
 
   #validaciones en general
   validates_presence_of :nombre, :telefono
@@ -30,6 +34,7 @@ class Proveedor < ActiveRecord::Base
   	field :telefono
     field :contacto
   	field :email
+    field :articulos
   end
 
 end

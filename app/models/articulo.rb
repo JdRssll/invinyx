@@ -13,6 +13,10 @@ class Articulo < ActiveRecord::Base
 
   has_many :factura_has_articulos
   has_many :facturas, through: :factura_has_articulos
+
+  has_many :articulos_proveedors
+  has_many :proveedors, through: :articulos_proveedors
+
   has_many :transaccions
 
   mount_uploader :foto, FotoUploader

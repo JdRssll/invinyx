@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  articulo_id: MyString
+  proveedor_id: 1
+
+two:
+  articulo_id: MyString
+  proveedor_id: 1

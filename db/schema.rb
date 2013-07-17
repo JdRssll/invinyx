@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710064336) do
+ActiveRecord::Schema.define(:version => 20130717014809) do
 
   create_table "articulos", :primary_key => "codigo", :force => true do |t|
     t.string  "nombre",           :limit => 60,                        :null => false
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(:version => 20130710064336) do
     t.float   "stock_minimo"
     t.float   "stock_maximo"
     t.boolean "consumible"
+  end
+
+  create_table "articulos_has_facturas", :force => true do |t|
+    t.float    "cantidad"
+    t.integer  "articulo_id", :null => false
+    t.integer  "factura_id",  :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "articulos_proveedors", :force => true do |t|
+    t.string   "articulo_id"
+    t.integer  "proveedor_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "empleados", :primary_key => "cedula", :force => true do |t|
@@ -55,6 +70,15 @@ ActiveRecord::Schema.define(:version => 20130710064336) do
 
   create_table "obras", :force => true do |t|
     t.string "nombre", :limit => 120, :null => false
+  end
+
+  create_table "orden_compras", :force => true do |t|
+    t.date     "fecha"
+    t.float    "cantidad"
+    t.string   "articulo_id",  :null => false
+    t.string   "proveedor_id", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "proveedors", :force => true do |t|
