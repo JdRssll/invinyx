@@ -73,9 +73,13 @@
 			.span4
 				.firma
 					=@pedido.empleado.nombre
-					=@pedido.empleado.apellido	 
+					=@pedido.empleado.apellido
+					%br	
+					%b
+						=@pedido.empleado.cargo
 			.span4
 				.firma
 					Operador del sistema
+				
 .modal-footer	
 	=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})

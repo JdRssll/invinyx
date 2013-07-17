@@ -4,15 +4,20 @@ class Pedido < ActiveRecord::Base
   has_many :articulos, :through => :pedido_has_articulos
   belongs_to :empleado
   accepts_nested_attributes_for :pedido_has_articulos, :allow_destroy => true
+  before_save :restar_cantidad_a_articulo
+  validates_presence_of :empleado_id
+  
 
 	def cantidad_del_articulo_pedido(articulo)
 		pedido = PedidoHasArticulo.where(pedido_id: self.id, articulo_id: articulo)
 		pedido.first.cantidad
 	end
 
-  def permitir_cantidad?
-    self.cantidad.each do |cantidad|
-    end
+  def restar_cantidad_a_articulo
+    self.pedido_has_articulos.each do |registro|
+      articulo = Articulo.find(registro.articulo_id)
+      articulo.update_attribute(:cantidad, articulo.cantidad-registro.cantidad)
+    end 
   end
 
   rails_admin do 
