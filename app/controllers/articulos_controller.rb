@@ -1,4 +1,6 @@
 class ArticulosController < ApplicationController
+
+	before_filter :authenticate_user!
   
   def index
   	@articulos = Articulo.all
