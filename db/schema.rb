@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717014809) do
+ActiveRecord::Schema.define(:version => 20130717040144) do
 
   create_table "articulos", :force => true do |t|
     t.string  "codigo",           :limit => 12
@@ -86,6 +86,17 @@ ActiveRecord::Schema.define(:version => 20130717014809) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "roles", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
 
   create_table "tipo_transaccions", :force => true do |t|
     t.string "tipo", :limit => 100, :null => false

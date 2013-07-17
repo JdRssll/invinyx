@@ -24,6 +24,7 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'cancan'
 gem 'rails_admin'
 gem 'rmagick'
 gem 'carrierwave'
