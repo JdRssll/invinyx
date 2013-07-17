@@ -1,6 +1,6 @@
 .span12#contenedor-facturas
 	.span6#div-tabla-articulos
-		%table.table.table-striped.articulos
+		%table.table.table-bordered.articulos
 			%thead
 				%tr
 					%th Código
@@ -19,11 +19,11 @@
 						%td
 							= link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar_articulo_a_factura('#{articulo.id}')", class: "btn btn-success" ,remote: true
 	.span6#factura_cantidad_field
-		%table.table.table-striped#facturas
+		%table.table.table-bordered#facturas
 			%thead
 				%tr
+					%th#id-factura id
 					%th Código
-					%th Nombre
 					%th Cantidad
 					%th Acción
 			%tbody.agregar
@@ -62,10 +62,7 @@
 	          "sNext": "Siguiente",
 	          "sPrevious": "Anterior"
 	        },
-	        "oAria": {
-	          "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-	          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-	        }
+	        
 	      },
 	      "sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
 	      "sPaginationType": "bootstrap"
