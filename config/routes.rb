@@ -1,11 +1,8 @@
 Invinyx::Application.routes.draw do
   resources :productos
   resources :pedidos
-
-
-  get "devoluciones/index"
-
-  get "articulos/index"
+  resources :articulos
+  resources :devolucions
 
   get "/agregar/empleado/:id" => 'pedidos#asignar_empleado_a_pedido', :as => :empleado_info 
 

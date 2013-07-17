@@ -1,14 +1,12 @@
 %ul.nav.nav-tabs
 	%li.active
-		%a{:href => "#"}
-			/%i.icon-th-large
-			Articulos
+		= link_to "Articulos", articulos_path
 	%li
-		%a{:href => "pedidos/"} Pedidos
+		= link_to "Pedidos", pedidos_path
 	%li
-		%a{:href => "/devoluciones"} Devoluciones
+		= link_to "Devoluciones", devolucions_path
 	
-%table.table.table-striped#articulos
+%table.table.table-striped.articulos
 	%thead
 		%tr
 			%th imagen
@@ -41,42 +39,38 @@
 				%td 
 					=articulo.ubicacion.nombre
 				%td
-					=link_to("Ver", "articulos/show/#{articulo.codigo}", html_options = {:class=>"btn btn-info", :title=>"Ver Detalles"})
-				
-				
-					
-
+					=link_to "Ver", articulo, class: "btn btn-info", title: "Ver Detalles"
 
 :javascript
-(function() {
-	jQuery(function() {
-		return $('#articulos').dataTable({
-			"oLanguage": {
-				"sProcessing": "Procesando...",
-				"sLengthMenu": "Mostrar _MENU_ registros",
-				"sZeroRecords": "No se encontraron resultados",
-				"sEmptyTable": "Ningún dato disponible en esta tabla",
-				"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-				"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-				"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-				"sInfoPostFix": "",
-				"sSearch": "Buscar:",
-				"sUrl": "",
-				"sInfoThousands": ",",
-				"sLoadingRecords": "Cargando...",
-				"oPaginate": {
-					"sFirst": "Primero",
-					"sLast": "Último",
-					"sNext": "Siguiente",
-					"sPrevious": "Anterior"
+	(function() {
+		jQuery(function() {
+			return $('.articulos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "Buscar:",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
 				},
-				"oAria": {
-					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
-				}
-			},
-			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-			"sPaginationType": "bootstrap"
+				"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+				"sPaginationType": "bootstrap"
+			});
 		});
-	});
-}).call(this);
+	}).call(this);

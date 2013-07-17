@@ -1,12 +1,12 @@
-%tr{id:"#{articulo.codigo}"}	
+%tr{id:"#{articulo.id}"}	
 	%td 
-		=text_field_tag "pedido[pedido_has_articulos_attributes][#{articulo.codigo}][articulo_id]", "#{articulo.codigo}", id:'input_codigo', readonly:'readonly'
+		=text_field_tag "pedido[pedido_has_articulos_attributes][#{articulo.id}][articulo_id]", "#{articulo.id}", id:'input_codigo', readonly:'readonly'
 	%td
 		=articulo.nombre
 	%td
-		=text_field_tag "pedido[pedido_has_articulos_attributes][#{articulo.codigo}][cantidad]", "0", id:'input_cantidad'
+		=text_field_tag "pedido[pedido_has_articulos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
 	%td
-		=link_to_function "X", "remover('#{articulo.codigo}')", class:"btn btn-danger", remote: true
+		=link_to_function "X", "remover('#{articulo.id}')", class:"btn btn-danger", remote: true
 
 :javascript
 	function remover(id){

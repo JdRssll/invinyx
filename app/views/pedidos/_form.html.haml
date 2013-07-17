@@ -1,6 +1,5 @@
 = form_for(@pedido) do |f|
-	%a.btn.btn-info{:id=>"buscarEmpleado","data-toggle" => "modal", :href => "#EmpleadosModal", :role => "button"}
-		Buscar
+	=link_to "Buscar", "#", class: "btn btn-info", id: "buscarEmpleado", "data-toggle" => "modal", href: "#EmpleadosModal", role: "button" 
 	.row
 		.span9
 			.span2s
@@ -11,8 +10,7 @@
 				= text_field_tag "Nombre","", class: "formPedido", id: "nombreEmpleado", readonly: "readonly", type:""
 			.span2
 				= label_tag "Apellido"
-				= text_field_tag "Apellido","", class: "formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""
-			
+				= text_field_tag "Apellido","", class: "formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""	
 	%br	
 	.row
 		.span9
@@ -60,7 +58,7 @@
 									=articulo.cantidad
 									=articulo.unidad_de_medida
 							%td
-								=link_to_function "+", "agregar('#{articulo.codigo}', '/agregar/articulo/')", class: "btn btn-success", remote: true
+								=link_to_function "+", "agregar('#{articulo.id}', '/agregar/articulo/')", class: "btn btn-success", remote: true
 		.span4
 			%table.table.table-bordered#articulosAgregado
 				%thead
@@ -78,5 +76,5 @@
 	%br
 	.modal-footer	
 		= f.submit class: "btn btn-primary"
-		=link_to("Volver", pedidos_path, html_options = {:class=>"btn"})
+		=link_to"Volver", pedidos_path, class: "btn"
 		

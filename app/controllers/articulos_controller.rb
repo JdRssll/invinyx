@@ -1,4 +1,5 @@
 class ArticulosController < ApplicationController
+  
   def index
   	@articulos = Articulo.all
   end
@@ -7,5 +8,4 @@ class ArticulosController < ApplicationController
   	@articulo = Articulo.find(params[:id])
   end
 
- 
 end

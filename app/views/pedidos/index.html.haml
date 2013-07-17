@@ -1,19 +1,17 @@
+//Esto se repite deberiamos crear un partial para esto
 %ul.nav.nav-tabs
 	%li
-		%a{:href => "/articulos"}
-			/%i.icon-th-large
-			Articulos
+		= link_to "Articulos", articulos_path
 	%li.active
-		%a{:href => "#"} Pedidos
+		= link_to "Pedidos", pedidos_path
 	%li
-		%a{:href => "/devoluciones"} Devoluciones
+		= link_to "Devoluciones", devolucions_path
 
 .modal-footer		
 	%p
-		%a.btn.btn-success{:href => "/pedidos/new"}
-			+ Realizar Pedido
+		= link_to "Realizar Pedido", new_pedido_path, class: "btn btn-success"
 %br 
-%table.table.table-striped#articulos
+%table.table.table-striped.articulos
 	%thead
 		%tr
 			%th #
@@ -44,42 +42,40 @@
 				%th
 					=pedido.created_at.strftime("%d %b. %Y %H:%M")
 				%td
-					=link_to("V", "/pedidos/show/#{pedido.id}", html_options = {:class=>"btn btn-info", :title=>"Ver Detalles"})
-					=link_to("D", "#", html_options = {:class=>"btn", :title=>"Realizar Devolución"})
+					=link_to "V", "/pedidos/show/#{pedido.id}", class: "btn btn-info", title: "Ver Detalles"
+					=link_to "D", "#", :class=>"btn", :title=>"Realizar Devolución"
 					
-
-
 :javascript
-(function() {
-	jQuery(function() {
-		return $('#articulos').dataTable({
-			"oLanguage": {
-				"sProcessing": "Procesando...",
-				"sLengthMenu": "Mostrar _MENU_ registros",
-				"sZeroRecords": "No se encontraron resultados",
-				"sEmptyTable": "Ningún dato disponible en esta tabla",
-				"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-				"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-				"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-				"sInfoPostFix": "",
-				"sSearch": "Buscar:",
-				"sUrl": "",
-				"sInfoThousands": ",",
-				"sLoadingRecords": "Cargando...",
-				"oPaginate": {
-					"sFirst": "Primero",
-					"sLast": "Último",
-					"sNext": "Siguiente",
-					"sPrevious": "Anterior"
+	(function() {
+		jQuery(function() {
+			return $('.articulos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "Buscar:",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
 				},
-				"oAria": {
-					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
-				}
-			},
-			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-			"sPaginationType": "bootstrap"
+				"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+				"sPaginationType": "bootstrap"
+			});
 		});
-	});
-}).call(this);
+	}).call(this);
 
