@@ -24,6 +24,7 @@
 			%th Codigo
 			%th Nombre
 			%th Cantidad
+			%th Estado
 			%th Ubicación
 			%th Acciones
 	%tbody
@@ -39,14 +40,20 @@
 					%th{:style=>"background: #82FA58;"}
 						=articulo.cantidad
 						=articulo.unidad_de_medida
+					%th{:style=>"background: #82FA58;"}
+						Aceptable						
 				- elsif articulo.advertencia_stock == 2
 					%th{:style=>"background: #FA5858;"}
 						=articulo.cantidad
 						=articulo.unidad_de_medida
+					%th{:style=>"background: #FA5858;"}
+						Comprar		
 				- else
 					%th{:style=>"background: #F4FA58;"}
 						=articulo.cantidad
 						=articulo.unidad_de_medida
+					%th{:style=>"background: #F4FA58;"}
+						No comprar
 				%td 
 					=articulo.ubicacion.nombre
 				%td
