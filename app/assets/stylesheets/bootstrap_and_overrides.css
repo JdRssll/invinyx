@@ -6,10 +6,14 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-.row {
-	margin-left: 0px;
+.row-invinyx{
+	margin-left: 4%;
 }
 
 #DatosPersonales .span2 {
 	width: 135px;
+}
+
+#id-pedido {
+	display: none;
 }
