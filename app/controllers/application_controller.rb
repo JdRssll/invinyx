@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :articulos
 
   def articulos
-  	@articulos = Articulo.all.map
+  	@articulos = Articulo.all
   end
 
   def articulos_facturas

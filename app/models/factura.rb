@@ -28,6 +28,11 @@ class Factura < ActiveRecord::Base
       articulo.update_attribute(:cantidad, articulo.cantidad+registro.cantidad)
     end 
   end
+
+  def cantidad_del_articulo_en_factura(articulo)
+    factura = FacturaHasArticulo.where(factura_id: self.id, articulo_id: articulo)
+    factura.first.cantidad
+  end
   
 
   #Configuracion de Rails_admin CREATE,SHOW,LIST,UPDATE

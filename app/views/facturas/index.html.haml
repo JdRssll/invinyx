@@ -1,0 +1,75 @@
+%ul.nav.nav-tabs
+	%li
+		= link_to '<i class="icon-th-list"> Articulos</i>'.html_safe, articulos_path
+	%li
+		= link_to '<i class="icon-shopping-cart"> Pedidos</i>'.html_safe, pedidos_path
+	%li
+		= link_to '<i class="icon-random"> Devoluciones</i>'.html_safe, devolucions_path
+	%li.active
+		= link_to '<i class="icon-list-alt"> Facturas</i>'.html_safe, facturas_path
+	%li
+		= link_to '<i class="icon-book"> Proveedores</i>'.html_safe, proveedors_path
+
+.modal-footer	
+	%h2
+		%center
+			%i.icon-list-alt
+			Lista de Facturas
+%br
+
+%table.table.table-striped#facturas
+	%thead
+		%tr
+			%th Codigo
+			%th Fecha de Factura
+			%th Proveedor
+			%th Fecha de Registro
+			%th Control
+	%tbody
+		- @facturas.each do |factura|
+			%tr
+				%td 
+					=factura.id
+				%td 
+					=factura.fecha
+				%td
+					=factura.proveedor.nombre
+				%td 
+					=factura.created_at.strftime("%d %b. %Y %H:%M")
+				%td
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, factura, class: "btn btn-info", title: "Ver Detalles"
+
+
+:javascript
+
+	$('#facturas').dataTable({
+		"oLanguage": {
+			"sProcessing": "Procesando...",
+			"sLengthMenu": "Mostrar _MENU_ registros",
+			"sZeroRecords": "No se encontraron resultados",
+			"sEmptyTable": "Ningún dato disponible en esta tabla",
+			"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+			"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix": "",
+			"sSearch": "Buscar:",
+			"sUrl": "",
+			"sInfoThousands": ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+				"sFirst": "Primero",
+				"sLast": "Último",
+				"sNext": "Siguiente",
+				"sPrevious": "Anterior"
+			},
+			"oAria": {
+				"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+		},
+		"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
+		"sPaginationType": "bootstrap"
+	});
+
+
+

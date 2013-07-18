@@ -1,12 +1,14 @@
-.modal-footer	
+.modal-footer
+	=link_to('<i class="icon-chevron-left"></i> Atrás '.html_safe, articulos_path, html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})			
+.modal-footer
 	%h2
 		%p		
 			%center
-				Ficha de Articulo			
+				Ficha del Articulo.
 %br
 %center
 	%ul.thumbnails#verArticulo
-		%li.span4
+		%li.span7
 			.thumbnail#thumbnailArticulo
 				.fotoArticulo					
 					=image_tag "/#{@articulo.foto.store_dir}/detalle_#{@articulo.foto_identifier}"
@@ -48,5 +50,5 @@
 							%th
 								=@articulo.stock_minimo
 .modal-footer	
-	=link_to("Volver", articulos_path, html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+	
 

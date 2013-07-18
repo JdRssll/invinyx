@@ -6,10 +6,19 @@
 		= link_to '<i class="icon-shopping-cart"> Pedidos</i>'.html_safe, pedidos_path
 	%li
 		= link_to '<i class="icon-random"> Devoluciones</i>'.html_safe, devolucions_path
+	%li
+		= link_to '<i class="icon-list-alt"> Facturas</i>'.html_safe, facturas_path
+	%li
+		= link_to '<i class="icon-book"> Proveedores</i>'.html_safe, proveedors_path
 
-.modal-footer		
+.modal-footer	
+	%h2
+		%center
+			%i.icon-shopping-cart
+			Lista de Pedidos
+.modal-footer	
 	%p
-		= link_to '<i class="icon-plus"> Pedido</i>'.html_safe, new_pedido_path, class: "btn btn-large btn-success"
+		= link_to '<i class="icon-plus"> Nuevo Pedido</i>'.html_safe, new_pedido_path, class: "btn btn-success"	
 %br 
 %table.table.table-striped.articulos
 	%thead
