@@ -35,7 +35,7 @@
 						%td 
 							=empleado.cargo
 						%td
-							=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{empleado.cedula}', '/agregar/empleado/')", class: "btn", remote: true
+							=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{empleado.cedula}', '/agregar/empleado/')", class: "btn btn-success", remote: true
 	.modal-footer
 
 :javascript

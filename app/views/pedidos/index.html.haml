@@ -42,7 +42,7 @@
 				%th
 					=pedido.created_at.strftime("%d %b. %Y %H:%M")
 				%td
-					=link_to '<i class="icon-info-sign"></i>'.html_safe, "/pedidos/show/#{pedido.id}", :class=>"btn", title: "Ver Detalles"
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, "/pedidos/show/#{pedido.id}", :class=>"btn btn-info", title: "Ver Detalles"
 					=link_to '<i class="icon-random"></i>'.html_safe, "#", :class=>"btn", :title=>"Realizar Devolución"
 					
 :javascript
