@@ -4,10 +4,12 @@
 			%i.icon-shopping-cart
 			Nuevo Pedido
 .modal-footer
-	=link_to '<i class="icon-search"></i>'.html_safe, "#", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", href: "#EmpleadosModal", role: "button", title:"Buscar Empeado"
-	%center
+	.span7
 		%h4
-			Datos del Empleado
+			%p.text-rigth Datos del Empleado
+	.span4
+		%p.text.rigth
+			=link_to '<i class="icon-search"></i>'.html_safe, "#EmpleadosModal", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", role: "button", title:"Buscar Empeado"
 
 = render 'form'
 

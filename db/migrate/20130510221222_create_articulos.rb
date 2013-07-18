@@ -11,7 +11,7 @@ class CreateArticulos < ActiveRecord::Migration
       t.string :ubicacion_id, null: false
       t.float :stock_minimo
       t.float :stock_maximo
-      t.boolean :consumible
+      t.boolean :consumible, default: false
 
       t.timestamp
     end

@@ -69,25 +69,26 @@
 						%th Acciones
 				%tbody
 					- @articulos.each do |articulo|
-						%tr
-							%td
-								=articulo.codigo
-							%td 
-								=articulo.nombre
-							- if articulo.advertencia_stock == 1
-								%th{:style=>"background: #82FA58;"}
-									=articulo.cantidad
-									=articulo.unidad_de_medida
-							- elsif articulo.advertencia_stock == 2
-								%th{:style=>"background: #FA5858;"}
-									=articulo.cantidad
-									=articulo.unidad_de_medida
-							- else
-								%th{:style=>"background: #F4FA58;"}
-									=articulo.cantidad
-									=articulo.unidad_de_medida
-							%td
-								=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{articulo.id}', '/agregar/articulo/')", class: "btn btn-success", remote: true
+						- if articulo.cantidad > 0
+							%tr
+								%td
+									=articulo.codigo
+								%td 
+									=articulo.nombre
+								- if articulo.advertencia_stock == 1
+									%th{:style=>"background: #82FA58;"}
+										=articulo.cantidad
+										=articulo.unidad_de_medida
+								- elsif articulo.advertencia_stock == 2
+									%th{:style=>"background: #FA5858;"}
+										=articulo.cantidad
+										=articulo.unidad_de_medida
+								- else
+									%th{:style=>"background: #F4FA58;"}
+										=articulo.cantidad
+										=articulo.unidad_de_medida
+								%td
+									=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{articulo.id}', '/agregar/articulo/')", class: "btn btn-success", remote: true
 		.span6
 			%table.table.table-bordered#articulosAgregado
 				%thead

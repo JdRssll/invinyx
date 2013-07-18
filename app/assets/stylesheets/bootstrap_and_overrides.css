@@ -19,5 +19,12 @@
 }
 body {
 	background:#F2F2F2;
+}
 
+.datosArticulo .span {
+	margin-left: 0px;
+}
+
+.articulos .span {
+	margin-left: 0px;
 }

@@ -14,7 +14,7 @@
 					=image_tag "/#{@articulo.foto.store_dir}/detalle_#{@articulo.foto_identifier}"
 		%li.span4
 			%h3
-				=@articulo.nombre
+				=@articulo.nombre				
 			.datosArticulo
 				%table.table.table-striped 
 					%tbody
@@ -49,6 +49,33 @@
 								Stock Minimo: 
 							%th
 								=@articulo.stock_minimo
+						%tr
+							%th
+								Consumible: 
+							%th
+								-if @articulo.consumible
+									.span.badge.badge-success
+										%i.icon-ok
+								-else
+									.span.badge.badge-inverse
+										%i.icon-minus
+						%tr
+							%th
+								Estado: 
+							%th
+								- if @articulo.advertencia_stock == 1
+									.span.label.label-success
+										%i.icon-ok-sign
+										Aceptable!						
+								- elsif @articulo.advertencia_stock == 2										
+									.span.label.label-important
+										%i.icon-circle-arrow-down
+										Escaso!	
+								- else
+									.span.label.label-warning
+										%i.icon-circle-arrow-up
+										Excedido!
+
 .modal-footer	
 	
 
