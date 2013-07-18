@@ -1,9 +1,11 @@
+.modal-footer
+	=link_to('<i class="icon-chevron-left"></i> Atrás '.html_safe, pedidos_path, html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})	
 .NotaEntrega
 	.modal-footer	
 		%h2
 			%p		
 				%center
-					Detalles del Pedido #
+					Pedido #
 					=@pedido.id
 	%h4
 		%center
@@ -85,9 +87,16 @@
 				.firma
 					=@pedido.empleado.nombre
 					=@pedido.empleado.apellido
+					%br
+					%b
+						=@pedido.empleado.cargo
+				
 			.span6
 				.firma
 					= "#{current_user.nombre} #{current_user.apellido}"
+					%br
+					%b
+						Operador del Sistema
 				
 .modal-footer	
-	=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+	

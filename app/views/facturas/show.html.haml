@@ -1,0 +1,92 @@
+.modal-footer	
+	=link_to('<i class="icon-chevron-left"></i> Atrás '.html_safe, facturas_path, html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})
+.modal-footer
+	%h2
+		%p		
+			%center
+				Factura #
+				=@factura.id
+%h4
+	%center
+		Datos de Factura
+%hr
+.row	
+	.span12
+		.span7
+			%b
+				Fecha de Factura:
+			=@factura.fecha
+		.span3
+			%b
+				Fecha de Regisro:
+			=@factura.created_at.strftime("%d %b. %Y %H:%M")
+%hr
+%h4
+	%center
+		Datos de Proveedor
+%hr
+.row
+	.span12
+		.span4
+			%br
+			%b
+				Rif:
+			=@factura.proveedor.rif
+			%br
+		.span4
+			%br
+			%b
+				Nombre:
+			=@factura.proveedor.nombre
+			%br
+		.span3
+			%br
+			%b
+				Dirección:
+			=@factura.proveedor.direccion
+			%br
+.row
+	.span12
+		.span4
+			%br
+			%b
+				Telefono:
+			=@factura.proveedor.telefono
+			%br
+		.span4
+			%br
+			%b
+				Email:
+			=@factura.proveedor.email
+			%br
+		.span3
+			%br
+			%b
+				Contacto:
+			=@factura.proveedor.contacto
+			%br
+
+%hr
+%h4
+	%center
+		Lista de Articulos
+%hr
+%table.table.table-striped
+	%thead
+		%tr
+			%th Codigo
+			%th Nombre de Articulo
+			%th Cantidad
+			%th Unidad de Medida
+	%tbody
+		- @factura.articulos.each do |articulo|
+			%tr
+				%th
+					=articulo.codigo
+				%th
+					=articulo.nombre
+				%th
+					= @factura.cantidad_del_articulo_en_factura(articulo.id)		
+				%th
+					=articulo.unidad_de_medida
+.modal-footer	

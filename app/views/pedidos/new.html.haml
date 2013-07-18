@@ -1,12 +1,14 @@
 .modal-footer	
 	%h2
 		%center
+			%i.icon-shopping-cart
 			Nuevo Pedido
-%br
-%center
-	%h4
-		Datos del Empleado
-%hr
+.modal-footer
+	=link_to '<i class="icon-search"></i>'.html_safe, "#", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", href: "#EmpleadosModal", role: "button", title:"Buscar Empeado"
+	%center
+		%h4
+			Datos del Empleado
+
 = render 'form'
 
 

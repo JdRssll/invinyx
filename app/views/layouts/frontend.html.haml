@@ -9,7 +9,10 @@
 			.navbar-inner
 				.container-fluid
 					%a.brand{:href=>'/'}
+						= image_tag 'inyx.png', :size => "30x30"
 						Inyxtech
+						%span{:style => "color: #FFBF00;"}
+							%b .
 					%ul.nav.pull-right
 						-if current_user.admin?
 							%li
@@ -24,7 +27,9 @@
 		%header
 			%section.caja1
 				.tituloApp
-					%h1 Inyxtech
+					%h1
+						Invinyx.
+
 					%p Sistema de Control de Inventarios.
 				.logoInyx= image_tag 'inyxlogo.png'
 		.content

@@ -1,8 +1,14 @@
 Invinyx::Application.routes.draw do
+  get "proveedors/index"
+
+  get "factura/index"
+
   resources :productos
   resources :pedidos
   resources :articulos
   resources :devolucions
+  resources :facturas
+  resources :proveedors
 
   get "/agregar/empleado/:id" => 'pedidos#asignar_empleado_a_pedido', :as => :empleado_info 
 
