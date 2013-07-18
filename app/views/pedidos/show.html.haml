@@ -54,7 +54,10 @@
 					%th Codigo
 					%th Nombre de Articulo
 					%th Cantidad
+					%th Cantidad Devuelta
 					%th Unidad de Medida
+					%th Estado
+
 			%tbody
 				- @pedido.articulos.each do |articulo|
 					%tr
@@ -65,7 +68,15 @@
 						%th
 							= @pedido.cantidad_del_articulo_pedido(articulo.id)
 						%th
+							= @pedido.cantidad_devuelta_del_articulo_pedido(articulo.id)
+						%th
 							=articulo.unidad_de_medida
+						- if @pedido.estado_del_articulo_pedido(articulo.id) == "Activo"
+							%th{:style=>"background: #82FA58;"}
+								= @pedido.estado_del_articulo_pedido(articulo.id)
+						- else
+							%th{:style=>"background: #FA5858;"}
+								= @pedido.estado_del_articulo_pedido(articulo.id)
 
 	%br
 	.row

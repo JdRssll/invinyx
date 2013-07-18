@@ -49,7 +49,19 @@ class Pedido < ActiveRecord::Base
     end
   end
 
-	#returna la cantidad que se pidio por cada articulo
+  #retorna la cantidad devuelta de cada articulo pedido
+  def cantidad_devuelta_del_articulo_pedido(articulo)
+    pedido = PedidoHasArticulo.where(pedido_id: self.id, articulo_id: articulo)
+    pedido.first.cantidad_devuelta
+  end
+
+  #retorna el estado de cada articulo pedido
+  def estado_del_articulo_pedido(articulo)
+    pedido = PedidoHasArticulo.where(pedido_id: self.id, articulo_id: articulo)
+    pedido.first.estado
+  end
+
+	#retorna la cantidad que se pidio por cada articulo
   def cantidad_del_articulo_pedido(articulo)
 		pedido = PedidoHasArticulo.where(pedido_id: self.id, articulo_id: articulo)
 		pedido.first.cantidad
