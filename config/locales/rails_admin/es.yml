@@ -16,6 +16,8 @@ es:
     password: "Contraseña"
     password_confirmation: "Confirmar contraseña"
     pedido_has_articulos: "Lista de artículos:"
+    remember_me: "Recordar contraseña"
+    email: "Correo electrónico o Usuario"
   activerecord:
     models:
       ubicacion: 
