@@ -9,46 +9,46 @@
 		%center
 			Datos del Personal
 	%hr
-	.row
-		.span9
-			.span2
-				%b
-					Cedula:
-				=@pedido.empleado.cedula
-			.span2
-				%b
-					Nombre:
-				=@pedido.empleado.nombre
-			.span2
-				%b
-					Apellido:
-				=@pedido.empleado.apellido
-			.span2
-				%b
-					Cargo:
-				=@pedido.empleado.cargo
-	%br 
-	.row
-		.span9
-			%center
-				.span2
-					%b
-						Obra:
-					=@pedido.empleado.obra.nombre
-				.span2
-					%b
-						Estado:
-					=@pedido.estado
-				.span2
-					%b
-						Fecha:
-					=@pedido.created_at.strftime("%d %b. %Y %H:%M")
+	.row#DatosPersonales
+		.span4
+			.span12
+				%ul
+					%li
+						%b
+							Cedula:
+						= @pedido.empleado.cedula
+					%li
+						%b
+							Empleado:
+						= "#{@pedido.empleado.nombre} #{@pedido.empleado.apellido}"
+		.span4
+			.span12
+				%ul
+					%li
+						%b
+							Cargo:
+						= @pedido.empleado.cargo
+					%li
+						%b
+							Obra:
+						= @pedido.empleado.obra.nombre
+		.span4
+			.span12
+				%ul
+					%li
+						%b
+							Estado:
+						= @pedido.estado
+					%li
+						%b
+							Fecha:
+						=@pedido.created_at.strftime("%d %b. %Y")
 	%hr
 	%h4
 		%center
 			Listado de Articulos
 	%hr
-		%table.table.table-striped#articulos
+		%table.table.table-striped
 			%thead#cabezera
 				%tr
 					%th Codigo
@@ -70,16 +70,13 @@
 	%br
 	.row
 		%center
-			.span4
+			.span6
 				.firma
 					=@pedido.empleado.nombre
 					=@pedido.empleado.apellido
-					%br	
-					%b
-						=@pedido.empleado.cargo
-			.span4
+			.span6
 				.firma
-					Operador del sistema
+					= "#{current_user.nombre} #{current_user.apellido}"
 				
 .modal-footer	
 	=link_to("Volver", "/pedidos", html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})

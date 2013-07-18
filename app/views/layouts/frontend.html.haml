@@ -5,17 +5,21 @@
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body 
-		.navbar.navbar-inverse
+		.navbar.navbar-inverse.navbar-fixed-top
 			.navbar-inner
-				%a.brand
-					Inyxtech
-				%ul.nav.pull-right
-					%li
-						= link_to current_user.email, user_session_path
-					%li
-						= link_to '<span class="label label-important">Salir</span>'.html_safe, destroy_user_session_path, method: :delete
-					- if current_user.respond_to?(:email) && current_user.email.present?
-						%li= image_tag "#{(request.ssl? ? 'https://secure' : 'http://www')}.gravatar.com/avatar/#{Digest::MD5.hexdigest current_user.email}?s=30", :style => 'padding-top:5px'
+				.container-fluid
+					%a.brand
+						Inyxtech
+					%ul.nav.pull-right
+						-if current_user.admin?
+							%li
+								= link_to "Administración", rails_admin_path
+						%li
+							= link_to current_user.email, user_session_path
+						%li
+							= link_to '<span class="label label-important">Salir</span>'.html_safe, destroy_user_session_path, method: :delete
+						- if current_user.respond_to?(:email) && current_user.email.present?
+							%li= image_tag "#{(request.ssl? ? 'https://secure' : 'http://www')}.gravatar.com/avatar/#{Digest::MD5.hexdigest current_user.email}?s=30", :style => 'padding-top:5px'
 
 		%header
 			%section.caja1
@@ -26,5 +30,5 @@
 		.content
 			%section.caja2
 				= yield
-			%footer
+			%footer.footer
 				%center Performed by Inyxtech | All Right Reserve 2013

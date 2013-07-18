@@ -1,35 +1,25 @@
 = form_for(@pedido) do |f|
-	=link_to "Buscar", "#", class: "btn btn-info", id: "buscarEmpleado", "data-toggle" => "modal", href: "#EmpleadosModal", role: "button" 
-	.row
-		.span9
-			.span2s
-				= f.label :cedula 
-				= f.text_field :empleado_id, class: "formPedido", id: "cedulaEmpleado", readonly: "readonly", type:""
-			.span2s
-				= label_tag "Nombre"
+	.row.row-invinyx
+		.span12
+			.span2
+				= f.text_field :empleado_id, class: "formPedido", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"
+			.span2
 				= text_field_tag "Nombre","", class: "formPedido", id: "nombreEmpleado", readonly: "readonly", type:""
 			.span2
-				= label_tag "Apellido"
 				= text_field_tag "Apellido","", class: "formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""	
-	%br	
-	.row
-		.span9
-			.span2s
-				= label_tag "Cargo"
-				= text_field_tag "Cargo","", class: "formPedido", id: "cargoEmpleado", readonly: "readonly", type:""
-			.span2s
-				= label_tag "Telefono"
+			.span2
 				= text_field_tag "Telefono","", class: "formPedido", id: "telefonoEmpleado", readonly: "readonly", type:""
 			.span2
-				= label_tag "Obra"
-				= text_field_tag "Obra","", class: "formPedido", id: "obraEmpleado", readonly: "readonly", type:""			
+				= text_field_tag "Obra","", class: "formPedido", id: "obraEmpleado", readonly: "readonly", type:""
+			.span1 
+				=link_to "Buscar", "#", class: "btn", id: "buscarEmpleado", "data-toggle" => "modal", href: "#EmpleadosModal", role: "button" 			
 	%hr
 	%center
 		%h4
 			Lista de Articulos
 	%hr
-	.row
-		.span4
+	.row.row-invinyx
+		.span6
 			%table.table.table-bordered.tablaEstandar
 				%thead
 					%tr
@@ -57,8 +47,8 @@
 									=articulo.cantidad
 									=articulo.unidad_de_medida
 							%td
-								=link_to_function "+", "agregar('#{articulo.id}', '/agregar/articulo/')", class: "btn btn-success", remote: true
-		.span4
+								=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{articulo.id}', '/agregar/articulo/')", class: "btn", remote: true
+		.span6
 			%table.table.table-bordered#articulosAgregado
 				%thead
 					%tr

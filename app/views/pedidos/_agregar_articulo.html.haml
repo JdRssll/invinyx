@@ -6,7 +6,7 @@
 	%td
 		=text_field_tag "pedido[pedido_has_articulos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
 	%td
-		=link_to_function "X", "remover('#{articulo.id}')", class:"btn btn-danger", remote: true
+		=link_to_function '<i class="icon-remove"></i>'.html_safe, "remover('#{articulo.id}')", class: "btn", remote: true
 
 :javascript
 	function remover(id){

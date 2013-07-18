@@ -1,15 +1,15 @@
 //Esto se repite deberiamos crear un partial para esto
 %ul.nav.nav-tabs
 	%li
-		= link_to "Articulos", articulos_path
+		= link_to '<i class="icon-th-list"> Articulos</i>'.html_safe, articulos_path
 	%li.active
-		= link_to "Pedidos", pedidos_path
+		= link_to '<i class="icon-shopping-cart"> Pedidos</i>'.html_safe, pedidos_path
 	%li
-		= link_to "Devoluciones", devolucions_path
+		= link_to '<i class="icon-random"> Devoluciones</i>'.html_safe, devolucions_path
 
 .modal-footer		
 	%p
-		= link_to "Realizar Pedido", new_pedido_path, class: "btn btn-success"
+		= link_to '<i class="icon-plus"> Pedido</i>'.html_safe, new_pedido_path, class: "btn btn-large btn-success"
 %br 
 %table.table.table-striped.articulos
 	%thead
@@ -42,8 +42,8 @@
 				%th
 					=pedido.created_at.strftime("%d %b. %Y %H:%M")
 				%td
-					=link_to "V", "/pedidos/show/#{pedido.id}", class: "btn btn-info", title: "Ver Detalles"
-					=link_to "D", "#", :class=>"btn", :title=>"Realizar Devolución"
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, "/pedidos/show/#{pedido.id}", :class=>"btn", title: "Ver Detalles"
+					=link_to '<i class="icon-random"></i>'.html_safe, "#", :class=>"btn", :title=>"Realizar Devolución"
 					
 :javascript
 	(function() {
