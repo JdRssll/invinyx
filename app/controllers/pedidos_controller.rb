@@ -19,12 +19,13 @@ class PedidosController < ApplicationController
 
   def create
     @pedido = Pedido.new(params[:pedido])
+    @empleados = Empleado.all
     respond_to do |format|
       if @pedido.save
         format.html { redirect_to @pedido, notice: 'Producto was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @producto.errors, status: :unprocessable_entity }
+        format.json { render json: @pedido.errors, status: :unprocessable_entity }
       end
     end
   end

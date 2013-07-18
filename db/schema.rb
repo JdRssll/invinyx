@@ -83,12 +83,14 @@ ActiveRecord::Schema.define(:version => 20130717040144) do
     t.integer  "pedido_id"
     t.integer  "articulo_id"
     t.float    "cantidad"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.float    "cantidad_devuelta", :default => 0.0
+    t.string   "estado"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "pedidos", :force => true do |t|
-    t.integer  "estado"
+    t.string   "estado"
     t.integer  "empleado_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

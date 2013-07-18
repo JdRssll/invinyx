@@ -1,6 +1,8 @@
-%tr{id:"#{articulo.id}"}	
-	%td 
+%tr{id:"#{articulo.id}"}
+	%td#id-pedido
 		=text_field_tag "pedido[pedido_has_articulos_attributes][#{articulo.id}][articulo_id]", "#{articulo.id}", id:'input_codigo', readonly:'readonly'
+	%td 
+		=articulo.codigo
 	%td
 		=articulo.nombre
 	%td
