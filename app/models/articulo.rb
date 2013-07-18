@@ -51,6 +51,7 @@ class Articulo < ActiveRecord::Base
       field :cantidad
       field :descripcion
       field :unidad_de_medida 
+      field :consumible
       exclude_fields :articulos_proveedors
     end
 

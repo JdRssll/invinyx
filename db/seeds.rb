@@ -12,4 +12,5 @@ User.create(nombre: "Gabriel", apellido: "Morillo", telefono: "02692562618", ema
 Familia.create(nombre: "General")
 Ubicacion.create(nombre: "General")
 Obra.create(nombre: "Amuay")
+Role.create(nombre: "Administrador")
 

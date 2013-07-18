@@ -33,7 +33,7 @@
 					=pedido.empleado.apellido
 				%th
 					=pedido.empleado.obra.nombre
-				- if pedido.estado == 0
+				- if pedido.estado == "Activo"
 					%th{:style=>"background: #82FA58;"}
 						=pedido.estado
 				- else

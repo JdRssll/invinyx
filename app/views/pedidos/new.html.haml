@@ -44,9 +44,7 @@
 		$('#anuncio').remove()
 		if($("#"+id).size()==0){			
 			$.get(ruta+id)
-		}else{
-			alert("Este artículo ya ha sido agregado a la lista.")
-		}
+		} else { jAlert("Este artículo ya ha sido agregado a la lista.") }
 	}	
 
 	$('.tablaEstandar').dataTable({

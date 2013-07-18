@@ -15,6 +15,7 @@ es:
     factura_has_articulos: "Ingresar artículos"
     password: "Contraseña"
     password_confirmation: "Confirmar contraseña"
+    pedido_has_articulos: "Lista de artículos:"
   activerecord:
     models:
       ubicacion: 

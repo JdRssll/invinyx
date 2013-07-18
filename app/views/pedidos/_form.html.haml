@@ -1,4 +1,14 @@
 = form_for(@pedido) do |f|
+	- if @pedido.errors.any?
+		.alert.alert-error#error_explanation
+			=link_to_function "x", "alert('close')" , class: "close", data_dismiss: "alert" 
+			%h2 
+				No se ha podido guardar el producto, verifique los siguientes errores.
+			%ul
+			- @pedido.errors.full_messages.each do |msg|
+				%li= msg
+
+= form_for(@pedido) do |f|
 	.row.row-invinyx
 		.span12#formEmpleadoPedido
 			.span2
@@ -91,4 +101,8 @@
 	.modal-footer	
 		= f.submit class: "btn btn-primary"
 		=link_to"Volver", pedidos_path, class: "btn"
-		
+
+:javascript
+	function alert(accion) {
+		$(".alert").alert(accion)
+	}

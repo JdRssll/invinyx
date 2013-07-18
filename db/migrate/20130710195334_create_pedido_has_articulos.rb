@@ -4,6 +4,8 @@ class CreatePedidoHasArticulos < ActiveRecord::Migration
       t.integer :pedido_id
       t.integer :articulo_id
       t.float :cantidad
+      t.float :cantidad_devuelta, default: 0
+      t.string :estado
 
       t.timestamps
     end
