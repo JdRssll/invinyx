@@ -25,6 +25,7 @@
 			%th Nombre
 			%th Cantidad
 			%th Estado
+			%th Consumible
 			%th Ubicación
 			%th Acciones
 	%tbody
@@ -40,20 +41,33 @@
 					%th{:style=>"background: #82FA58;"}
 						=articulo.cantidad
 						=articulo.unidad_de_medida
-					%th{:style=>"background: #82FA58;"}
-						Aceptable						
+					%th
+						.span.label.label-success
+							%i.icon-ok-sign
+							Aceptable!						
 				- elsif articulo.advertencia_stock == 2
 					%th{:style=>"background: #FA5858;"}
 						=articulo.cantidad
 						=articulo.unidad_de_medida
-					%th{:style=>"background: #FA5858;"}
-						Comprar		
+					%th
+						.span.label.label-important
+							%i.icon-circle-arrow-down
+							Escaso!	
 				- else
 					%th{:style=>"background: #F4FA58;"}
 						=articulo.cantidad
 						=articulo.unidad_de_medida
-					%th{:style=>"background: #F4FA58;"}
-						No comprar
+					%th
+						.span.label.label-warning
+							%i.icon-circle-arrow-up
+							Excedido!
+				%td
+					-if articulo.consumible
+						.span.badge.badge-success
+							%i.icon-ok
+					-else
+						.span.badge.badge-inverse
+							%i.icon-minus
 				%td 
 					=articulo.ubicacion.nombre
 				%td
