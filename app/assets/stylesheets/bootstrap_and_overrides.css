@@ -7,7 +7,7 @@
   */
 
 .row-invinyx{
-	margin-left: 4%;
+	margin-left: 0%;
 }
 
 #DatosPersonales .span2 {
@@ -16,7 +16,7 @@
 
 #id-pedido {
 	display: none;
-
+}
 body {
 	background:#F2F2F2;
 

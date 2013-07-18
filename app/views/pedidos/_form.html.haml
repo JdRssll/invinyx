@@ -9,49 +9,55 @@
 				%li= msg
 
 = form_for(@pedido) do |f|
-	.row.row-invinyx
-		.span12#formEmpleadoPedido
-			.span2
+	.row.row-invinyx 
+		.span12
+			.span4
 				%br
 				= f.label :cedula
 
 				= f.text_field :empleado_id, class: "formPedido", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
 				%br
+			.span4
 				%br
 				= f.label :cargo
 
 				= text_field_tag "Cargo","", class: "formPedido", id: "cargoEmpleado", readonly: "readonly", type:""
-			.span2
+			.span3
 				%br
 				= f.label :nombre
 
 				= text_field_tag "Nombre","", class: "formPedido", id: "nombreEmpleado", readonly: "readonly", type:""
 				%br
+		.span12
+			.span4
 				%br
 				= f.label :telefono
 
 				= text_field_tag "Telefono","", class: "formPedido", id: "telefonoEmpleado", readonly: "readonly", type:""
 				
-			.span2
+			.span4
 				%br
 				= f.label :apellido
 
 				= text_field_tag "Apellido","", class: "formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""	
 				%br
+			.span3
 				%br
 				= f.label :obra
 
 				= text_field_tag "Obra","", class: "formPedido", id: "obraEmpleado", readonly: "readonly", type:""
 
-			.span2
-				%br 
-				%br
-				=link_to '<i class="icon-search"></i>'.html_safe, "#", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", href: "#EmpleadosModal", role: "button" 			
-	%hr
-	%center
-		%h4
-			Lista de Articulos
-	%hr
+			
+	%br 
+	%br
+	%br			
+
+	.modal-footer
+		%center
+			%h4
+				Lista de Articulos
+	%br
+	%br
 	.row.row-invinyx
 		.span6
 			%table.table.table-bordered.tablaEstandar
