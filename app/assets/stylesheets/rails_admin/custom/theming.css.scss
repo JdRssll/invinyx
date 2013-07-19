@@ -12,31 +12,10 @@
   body{ background-color: $linkColor; }
 */
 
-#articulos_length {
-	border-left-width: 1px;
-	margin-right: 0px;
-	width: 64px
-}
-
-#articulos_filter {
-	width: 115%;
-}
-
-#div-tabla-articulos {
-	border: 1px solid;
-	border-color: #ddd	
-}
-
 .dataTables_paginate {
 	text-align: center;
 }
 
-#articulos {
-	border-top: 1px solid;
-	border-bottom: 1px solid;
-	border-color: #ddd;
-	margin-bottom: 0px;
-}
 
 #div-tabla-articulos .row-fluid .span12 {
 	padding-top: 10px;
@@ -49,18 +28,6 @@
 	padding-right: 50px;
 }
 
-#facturas tr{
-	border: 1px solid;
-	border-color: #ddd;
-}
-
-#imput_codigo {
-	border: none;
-	box-shadow: none;
-	background: none;
-	width: 60px;
-	
-}
 
 #input_cantidad {
 	padding-top: 4px;

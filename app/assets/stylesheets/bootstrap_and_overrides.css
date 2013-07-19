@@ -28,3 +28,17 @@ body {
 .articulos .span {
 	margin-left: 0px;
 }
+
+[readonly="readonly"],
+[readonly="readonly"]:focus, 
+select[readonly="readonly"], 
+select[readonly="readonly"]:focus,
+input[readonly="readonly"],
+input[readonly="readonly"]:focus,
+.content input[type="text"][readonly]:focus,
+textarea[readonly]:focus, 
+select[readonly]:focus {
+    background: none repeat scroll 0 0 transparent;
+    border-bottom: 5px solid;
+    color: #797979;
+}

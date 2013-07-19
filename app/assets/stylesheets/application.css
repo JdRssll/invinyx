@@ -24,8 +24,7 @@ header{
 	margin-bottom: -30px;
 	background: -webkit-linear-gradient(#0174DF, #81DAF5);
 	background: -moz-linear-gradient(#0174DF, #81DAF5);
-	background: -o-linear-gradient(#0174DF, #81DAF5);
-	width: 100%;
+	background: -o-linear-gradient(#0174DF, #81DAF5);;
 	height: 160px;
 	padding: 1%;
 	color: #ffffff;
@@ -93,12 +92,10 @@ footer{
 }
 
 .formPedido{
-	background: #fff;
 	border: none;
-	width: 190px;
 	border-radius: 10px;
-	padding: 5px;
-	border: 1px solid #c0c0c0;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
 }
 
 .firma{

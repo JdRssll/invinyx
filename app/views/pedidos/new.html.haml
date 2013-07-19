@@ -4,12 +4,10 @@
 			%i.icon-shopping-cart
 			Nuevo Pedido
 .modal-footer
-	.span7
+	.span12
 		%h4
-			%p.text-rigth Datos del Empleado
-	.span4
-		%p.text.rigth
-			=link_to '<i class="icon-search"></i>'.html_safe, "#EmpleadosModal", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", role: "button", title:"Buscar Empeado"
+			%p.text-center Datos del Empleado
+
 
 = render 'form'
 
@@ -19,7 +17,7 @@
 		%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
 		%h3#myModalLabel Buscar Empleado
 	.modal-body
-		%table.table.table-striped.tablaEstandar
+		%table.table.table-bordered.tablaEstandar
 			%thead
 				%tr
 					%th C.I
@@ -48,7 +46,7 @@
 		$('#anuncio').remove()
 		if($("#"+id).size()==0){			
 			$.get(ruta+id)
-		} else { jAlert("Este artículo ya ha sido agregado a la lista.") }
+		} else { alert("Este artículo ya ha sido agregado a la lista.") }
 	}	
 
 	$('.tablaEstandar').dataTable({

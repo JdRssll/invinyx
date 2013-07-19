@@ -1,5 +1,6 @@
 = form_for(@pedido) do |f|
 	- if @pedido.errors.any?
+		%br
 		.alert.alert-error#error_explanation
 			=link_to_function "x", "alert('close')" , class: "close", data_dismiss: "alert" 
 			%h2 
@@ -8,44 +9,48 @@
 			- @pedido.errors.full_messages.each do |msg|
 				%li= msg
 
-= form_for(@pedido) do |f|
+= form_for @pedido do |f|
 	.row.row-invinyx 
 		.span12
-			.span4
+			.span3
 				%br
 				= f.label :cedula
 
-				= f.text_field :empleado_id, class: "formPedido", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
+				= f.text_field :empleado_id, class: "span3 formPedido", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
 				%br
-			.span4
+			.span3
 				%br
 				= f.label :cargo
 
-				= text_field_tag "Cargo","", class: "formPedido", id: "cargoEmpleado", readonly: "readonly", type:""
+				= text_field_tag "Cargo","", class: "span3 formPedido", id: "cargoEmpleado", readonly: "readonly", type:""
 			.span3
 				%br
 				= f.label :nombre
 
-				= text_field_tag "Nombre","", class: "formPedido", id: "nombreEmpleado", readonly: "readonly", type:""
+				= text_field_tag "Nombre","", class: "span3 formPedido", id: "nombreEmpleado", readonly: "readonly", type:""
+			.span2
+				%br
+				%br
+				=link_to '<i class="icon-search"> Empleado</i>'.html_safe, "#EmpleadosModal", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", role: "button", title:"Buscar Empeado"
 				%br
 		.span12
-			.span4
+			.span3
 				%br
 				= f.label :telefono
 
-				= text_field_tag "Telefono","", class: "formPedido", id: "telefonoEmpleado", readonly: "readonly", type:""
+				= text_field_tag "Telefono","", class: "span3 formPedido", id: "telefonoEmpleado", readonly: "readonly", type:""
 				
-			.span4
+			.span3
 				%br
 				= f.label :apellido
 
-				= text_field_tag "Apellido","", class: "formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""	
+				= text_field_tag "Apellido","", class: "span3 formPedido", id: "apellidoEmpleado", readonly: "readonly", type:""	
 				%br
 			.span3
 				%br
 				= f.label :obra
 
-				= text_field_tag "Obra","", class: "formPedido", id: "obraEmpleado", readonly: "readonly", type:""
+				= text_field_tag "Obra","", class: "span3 formPedido", id: "obraEmpleado", readonly: "readonly", type:""
 
 			
 	%br 
