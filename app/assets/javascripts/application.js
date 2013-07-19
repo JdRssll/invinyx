@@ -17,7 +17,7 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
 
-$(document).pjax('a', '[data-pjax-container]');
+$(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]');
 
 
 

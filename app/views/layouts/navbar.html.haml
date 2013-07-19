@@ -9,7 +9,7 @@
 			%ul.nav.pull-right
 				-if current_user.admin?
 					%li
-						= link_to "Administración", rails_admin_path
+						= link_to "Administración", rails_admin_path, :'data-skip-pjax' => true
 				%li
 					= link_to current_user.email, user_session_path
 				%li
