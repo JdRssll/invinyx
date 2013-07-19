@@ -1,14 +1,15 @@
 class Pedido < ActiveRecord::Base
-  attr_accessible :empleado_id, :pedido_has_articulos_attributes
+  attr_accessible :empleado_id, :obra_id, :pedido_has_articulos_attributes
   has_many :pedido_has_articulos
   has_many :articulos, :through => :pedido_has_articulos
   belongs_to :obra
   belongs_to :empleado
   accepts_nested_attributes_for :pedido_has_articulos, :allow_destroy => true
   before_save :restar_cantidad_a_articulo, :asignar_estado_individual, :asignar_estado_general
-  validates_presence_of :empleado_id
+  validates_presence_of :empleado_id, :obra_id
   validates_presence_of :pedido_has_articulos, message: I18n.t('errors.messages.pedido_has_articulos')
   validate :permitir_cantidad?, :cantidad_de_pedido_mayor?
+  validates :pedido_has_articulos, :numericality => { :greater_than_or_equal_to => 0 }
   
   #valida que la cantidad no pueda ser menor o igual a 0
   def permitir_cantidad?

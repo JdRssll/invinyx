@@ -6,12 +6,14 @@ class Articulo < ActiveRecord::Base
   validates_presence_of :codigo, :nombre, :unidad_de_medida, :familia, :ubicacion, :stock_maximo, :stock_minimo
   validates_uniqueness_of :codigo, :nombre
 
+  #validacion para que el stock no se menor a 0
+  validates :stock_maximo, :stock_minimo, :numericality => { :greater_than_or_equal_to => 0 }
 
   #validacion para descripcion
-  #validates :descripcion, :length => { :maximum => 140}
+  validates :descripcion, :length => { :maximum => 140}
 
   #valdiaciones personalizadas
-  #validate :stock_maximo_mayor?
+  validate :stock_maximo_mayor?
 
   has_many :factura_has_articulos
   has_many :facturas, through: :factura_has_articulos

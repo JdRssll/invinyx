@@ -48,9 +48,9 @@
 				%br
 			.span3
 				%br
-				= f.label :obra
+				= f.label :obra_id
 
-				= text_field_tag "Obra","", class: "span3 formPedido", id: "obraEmpleado", readonly: "readonly", type:""
+				= f.collection_select(:obra_id, Obra.all(:order => 'nombre'), :id, :nombre, { :prompt => 'Selecionar Obra' } )
 
 			
 	%br 
