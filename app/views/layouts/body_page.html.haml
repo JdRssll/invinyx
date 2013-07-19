@@ -1,0 +1,19 @@
+- if current_user
+	%ul.nav.nav-tabs
+		%li.active#articulos-tab
+			= link_to '<i class="icon-th-list"> Articulos</i>'.html_safe, articulos_path
+		%li#pedidos-tab
+			= link_to '<i class="icon-shopping-cart"> Pedidos</i>'.html_safe, pedidos_path
+		%li#devoluciones-tab
+			= link_to '<i class="icon-random"> Devoluciones</i>'.html_safe, devolucions_path
+		%li#facturas-tab
+			= link_to '<i class="icon-list-alt"> Facturas</i>'.html_safe, facturas_path
+		%li#proveedors-tab
+			= link_to '<i class="icon-book"> Proveedores</i>'.html_safe, proveedors_path
+=yield
+
+:javascript
+	$('.nav.nav-tabs li.active').removeClass('active');
+	var x = "#"+window.location.href.split("/")[3]+"-tab"
+	$(x).addClass('active');
+	

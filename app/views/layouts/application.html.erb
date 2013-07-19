@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%- if current_user %>
+    <%=render :template => 'layouts/navbar' %>
+  <% end -%>
 
 <header>
   <section class='caja1'>       
@@ -18,8 +21,10 @@
   </section>
 </header>
 <div class='content'>   
-  <section class='login'>
-    <%= yield %>
+  <section class='caja2'>
+    <div id="pjax" data-pjax-container>
+      <%= render :template => 'layouts/body_page' %>
+    </div>
   </section>
   <footer class='footerLogin'><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
 </div>

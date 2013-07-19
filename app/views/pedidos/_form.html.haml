@@ -51,7 +51,6 @@
 				= f.label :obra_id
 
 				= f.collection_select(:obra_id, Obra.all(:order => 'nombre'), :id, :nombre, { :prompt => 'Selecionar Obra' } )
-
 			
 	%br 
 	%br

@@ -22,6 +22,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
+gem 'rack-pjax'
 gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
