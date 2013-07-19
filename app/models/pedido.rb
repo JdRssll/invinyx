@@ -2,6 +2,7 @@ class Pedido < ActiveRecord::Base
   attr_accessible :empleado_id, :pedido_has_articulos_attributes
   has_many :pedido_has_articulos
   has_many :articulos, :through => :pedido_has_articulos
+  belongs_to :obra
   belongs_to :empleado
   accepts_nested_attributes_for :pedido_has_articulos, :allow_destroy => true
   before_save :restar_cantidad_a_articulo, :asignar_estado_individual, :asignar_estado_general

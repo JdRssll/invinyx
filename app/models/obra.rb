@@ -1,5 +1,6 @@
 class Obra < ActiveRecord::Base
   has_many :empleados, :dependent => :destroy
+  has_many :pedidos, :dependent => :destroy
   attr_accessible :nombre
 
   #validaciones en general

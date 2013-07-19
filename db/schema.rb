@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20130717040144) do
   create_table "pedidos", :force => true do |t|
     t.string   "estado"
     t.integer  "empleado_id"
+    t.integer  "obra_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
