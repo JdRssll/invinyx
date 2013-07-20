@@ -1,7 +1,7 @@
 - if current_user
 	%ul.nav.nav-tabs
 		%li.active#articulos-tab
-			= link_to '<i class="icon-th-list"> Articulos</i>'.html_safe, articulos_path
+			= link_to '<i class="icon-th-list"> Articulos</i>'.html_safe, "#{articulos_path}/"
 		%li#pedidos-tab
 			= link_to '<i class="icon-shopping-cart"> Pedidos</i>'.html_safe, pedidos_path
 		%li#devoluciones-tab

@@ -1,5 +1,3 @@
-.modal-footer
-	=link_to('<i class="icon-chevron-left"></i> Atrás '.html_safe, pedidos_path, html_options = {:class=>"btn", :id=>"volver", :title=>"Volver Atras"})	
 .NotaEntrega
 	.modal-footer	
 		%h2
@@ -13,38 +11,35 @@
 	%hr
 	.row#DatosPersonales
 		.span4
-			.span12
-				%ul
-					%li
-						%b
-							Cedula:
-						= @pedido.empleado.cedula
-					%li
-						%b
-							Empleado:
-						= "#{@pedido.empleado.nombre} #{@pedido.empleado.apellido}"
+			%ul
+				%li
+					%b
+						Cedula:
+					= @pedido.empleado.cedula
+				%li
+					%b
+						Empleado:
+					= "#{@pedido.empleado.nombre} #{@pedido.empleado.apellido}"
 		.span4
-			.span12
-				%ul
-					%li
-						%b
-							Cargo:
-						= @pedido.empleado.cargo
-					%li
-						%b
-							Obra:
-						= @pedido.obra.nombre
+			%ul
+				%li
+					%b
+						Cargo:
+					= @pedido.empleado.cargo
+				%li
+					%b
+						Obra:
+					= @pedido.obra.nombre
 		.span4
-			.span12
-				%ul
-					%li
-						%b
-							Estado:
-						= @pedido.estado
-					%li
-						%b
-							Fecha:
-						=@pedido.created_at.strftime("%d %b. %Y")
+			%ul
+				%li
+					%b
+						Estado:
+					= @pedido.estado
+				%li
+					%b
+						Fecha:
+					=@pedido.created_at.strftime("%d %b. %Y")
 	%hr
 	%h4
 		%center

@@ -6,17 +6,22 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-.row-invinyx{
-	margin-left: 0%;
+.row-invinyx .span12{
+	padding-left: 80px;
 }
 
-#DatosPersonales .span2 {
-	width: 135px;
+.row-invinyx .span6{
+  padding-left: 1.4%;
 }
 
 #id-pedido {
 	display: none;
 }
+
+#DatosPersonales ul{
+  padding-left: 100px;
+}
+
 body {
 	background:#F2F2F2;
 }
@@ -27,18 +32,4 @@ body {
 
 .articulos .span {
 	margin-left: 0px;
-}
-
-[readonly="readonly"],
-[readonly="readonly"]:focus, 
-select[readonly="readonly"], 
-select[readonly="readonly"]:focus,
-input[readonly="readonly"],
-input[readonly="readonly"]:focus,
-.content input[type="text"][readonly]:focus,
-textarea[readonly]:focus, 
-select[readonly]:focus {
-    background: none repeat scroll 0 0 transparent;
-    border-bottom: 5px solid;
-    color: #797979;
 }
