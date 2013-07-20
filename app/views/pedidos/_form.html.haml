@@ -50,7 +50,7 @@
 				%br
 				= f.label :obra_id
 
-				= f.collection_select(:obra_id, Obra.all(:order => 'nombre'), :id, :nombre, { :prompt => 'Selecionar Obra' } )
+				= f.collection_select(:obra_id, Obra.all(:order => 'nombre'), :id, :nombre, { :prompt => 'Selecionar Obra' }, class: "span3" )
 			
 	%br 
 	%br
