@@ -36,7 +36,7 @@
 					%th{:style=>"background: #FA5858;"}
 						=pedido.estado
 				%th
-					=pedido.created_at.strftime("%d %b. %Y %H:%M")
+					=pedido.created_at.strftime("%Y-%m-%d")
 				%td
 					=link_to '<i class="icon-info-sign"></i>'.html_safe, "/pedidos/show/#{pedido.id}", :class=>"btn btn-info", title: "Ver Detalles"
 					=link_to '<i class="icon-random"></i>'.html_safe, "#", :class=>"btn", :title=>"Realizar Devolución"

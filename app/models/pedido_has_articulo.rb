@@ -5,6 +5,7 @@ class PedidoHasArticulo < ActiveRecord::Base
   has_many :devolucion_has_pedidos
   has_many :devoluciones, :through => :devolucion_has_pedido
   validates_presence_of :cantidad
+  validates_numericality_of :cantidad, { :greater_than_or_equal_to => 1 }
 
 
   def asignar_estado
