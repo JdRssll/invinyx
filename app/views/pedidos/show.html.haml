@@ -1,14 +1,14 @@
 .NotaEntrega
-	.modal-footer	
-		%h2
-			%p		
-				%center
-					Pedido #
-					=@pedido.id
-	%h4
-		%center
-			Datos del Personal
+	.hero-unit	
+		%h2		
+			%center
+				=	"Pedido ##{@pedido.id}"
 	%hr
+	.page-header
+		%h4
+			%center
+				Datos del Personal
+	%br
 	.row#DatosPersonales
 		.span4
 			%ul
@@ -41,39 +41,41 @@
 						Fecha:
 					=@pedido.created_at.strftime("%d %b. %Y")
 	%hr
-	%h4
-		%center
-			Listado de Articulos
-	%hr
-		%table.table.table-striped
-			%thead#cabezera
-				%tr
-					%th Codigo
-					%th Nombre de Articulo
-					%th Cantidad
-					%th Cantidad Devuelta
-					%th Unidad de Medida
-					%th Estado
+	.page-header
+		%h4
+			%center
+				Listado de Artículos
+		%hr
+			.row#TablaShow
+				%table.table.table-bordered
+					%thead
+						%tr
+							%th Codigo
+							%th Nombre de Articulo
+							%th Cantidad
+							%th Cantidad Devuelta
+							%th Unidad de Medida
+							%th Estado
 
-			%tbody
-				- @pedido.articulos.each do |articulo|
-					%tr
-						%th
-							=articulo.codigo
-						%th
-							=articulo.nombre
-						%th
-							= @pedido.cantidad_del_articulo_pedido(articulo.id)
-						%th
-							= @pedido.cantidad_devuelta_del_articulo_pedido(articulo.id)
-						%th
-							=articulo.unidad_de_medida
-						- if @pedido.estado_del_articulo_pedido(articulo.id) == "Activo"
-							%th{:style=>"background: #82FA58;"}
-								= @pedido.estado_del_articulo_pedido(articulo.id)
-						- else
-							%th{:style=>"background: #FA5858;"}
-								= @pedido.estado_del_articulo_pedido(articulo.id)
+					%tbody
+						- @pedido.articulos.each do |articulo|
+							%tr
+								%th
+									=articulo.codigo
+								%th
+									=articulo.nombre
+								%th
+									= @pedido.cantidad_del_articulo_pedido(articulo.id)
+								%th
+									= @pedido.cantidad_devuelta_del_articulo_pedido(articulo.id)
+								%th
+									=articulo.unidad_de_medida
+								- if @pedido.estado_del_articulo_pedido(articulo.id) == "Activo"
+									%th{:style=>"background: #82FA58;"}
+										= @pedido.estado_del_articulo_pedido(articulo.id)
+								- else
+									%th{:style=>"background: #FA5858;"}
+										= @pedido.estado_del_articulo_pedido(articulo.id)
 
 	%br
 	.row

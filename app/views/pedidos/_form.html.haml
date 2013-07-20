@@ -11,25 +11,21 @@
 
 = form_for @pedido do |f|
 	.row.row-invinyx 
+		%br
 		.span12
 			.span3
-				%br
 				= f.label :cedula
 
 				= f.text_field :empleado_id, class: "span3 uneditable-input", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
-				%br
 			.span3
-				%br
 				= f.label :cargo
 
 				= text_field_tag "Cargo","", class: "span3 uneditable-input", id: "cargoEmpleado", readonly: "readonly", type:""
 			.span3
-				%br
 				= f.label :nombre
 
 				= text_field_tag "Nombre","", class: "span3 uneditable-input", id: "nombreEmpleado", readonly: "readonly", type:""
 			.span2
-				%br
 				%br
 				=link_to '<i class="icon-search"></i>'.html_safe, "#EmpleadosModal", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", role: "button", title:"Buscar Empeado"
 				%br
@@ -51,12 +47,10 @@
 				= f.label :obra_id
 
 				= f.collection_select(:obra_id, Obra.all(:order => 'nombre'), :id, :nombre, { :prompt => 'Selecionar Obra' }, class: "span3" )
-			
-	%br 
 	%br
-	%br			
+	%hr	
 
-	.modal-footer
+	.page-header
 		%center
 			%h4
 				Lista de Articulos
