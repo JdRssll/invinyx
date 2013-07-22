@@ -40,7 +40,7 @@
 					=pedido.created_at.strftime("%Y-%m-%d")
 				%td
 					=link_to '<i class="icon-info-sign"></i>'.html_safe, pedido, :class=>"btn btn-info", title: "Ver Detalles"
-					=link_to '<i class="icon-random"></i>'.html_safe, new_devolucion_path, :class=>"btn", :title=>"Realizar Devolución"
+					=link_to '<i class="icon-random"></i>'.html_safe, new_pedido_devolucion_path(pedido), :class=>"btn", :title=>"Realizar Devolución"
 					
 :javascript
 	(function() {
@@ -55,7 +55,7 @@
 					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
 					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
 					"sInfoPostFix": "",
-					"sSearch": "Buscar:",
+					"sSearch": "<i class='icon-search'></i>",
 					"sUrl": "",
 					"sInfoThousands": ",",
 					"sLoadingRecords": "Cargando...",

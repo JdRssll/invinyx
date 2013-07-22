@@ -1,0 +1,82 @@
+- content_for :title, "Realizar devolucion"
+= form_for(@devolucion) do |f|
+	- if @pedido.errors.any?
+		%br
+		.alert.alert-error#error_explanation
+			=link_to_function "x", "alert('close')" , class: "close", data_dismiss: "alert" 
+			%h2 
+				No se ha podido guardar el producto, verifique los siguientes errores.
+			%ul
+			- @pedido.errors.full_messages.each do |msg|
+				%li= msg
+
+.hero-unit	
+	%h2
+		%center
+			%i.icon-random
+			Realizar Devoluciòn
+%br
+= form_for @devolucion do |f|
+	%table.table.table-bordered.pedidos
+		%thead
+			%tr				
+				%th#pedidoIdBorrado
+				%th #
+				%th Nombre
+				%th Cantidad Pedida
+				%th Cantidad a Devolver
+		%tbody
+			- @pedido.articulos.each do |articulo|
+				- if articulo.cantidad > 0
+					%tr
+						%td#pedidoIdBorrado
+							=text_field_tag "devolucion[devolucion_has_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
+						%td
+							=articulo.id
+						%td 
+							=articulo.nombre
+						%td
+							=articulo.cantidad
+							=articulo.unidad_de_medida
+						%td
+							=text_field_tag "devolucion[devolucion_has_pedidos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
+							=articulo.unidad_de_medida
+	%br
+	.modal-footer	
+		= f.submit 'Realizar Devolución',class: "btn btn-primary"
+		=link_to "Volver", pedidos_path, class: "btn"
+
+:javascript
+	(function() {
+		jQuery(function() {
+			return $('.pedidos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "<i class='icon-search'></i>",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+				"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+				"sPaginationType": "bootstrap"
+			});
+		});
+	}).call(this);
+

@@ -32,6 +32,9 @@ header{
 	border-top: 1px solid #A9E2F3;
 }
 
+#pedidoIdBorrado{
+	display: none;
+}
 .content{
  }
  
