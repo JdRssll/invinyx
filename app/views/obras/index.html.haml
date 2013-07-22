@@ -1,41 +1,31 @@
-- content_for :title, "Lista de Proveedores"
+- content_for :title, "Lista de Obras"
 .hero-unit	
 	%h2
 		%center
-			%i.icon-book
-			Directorio de Proveedores
+			%i.icon-briefcase
+			Lista de Obras
 %br
 
-%table.table.table-bordered#proveedores
+%table.table.table-bordered.devoluciones
 	%thead
 		%tr
-			%th Rif
-			%th Nombre
-			%th Direccion
-			%th Telefono
-			%th Email
+			%th #
+			%th Nombre de la Obra
+			%th Control
 	%tbody
-		- @proveedores.each do |proveedor|
+		-@obras.each do |obra|
 			%tr
 				%td 
-					=proveedor.rif
-				%td 
-					%i.icon-th-large
-					=proveedor.nombre
+					=obra.id
 				%td
-					%i.icon-map-marker
-					=proveedor.direccion
-				%td 				
-					%i.icon-home
-					=proveedor.telefono
-				%td 
-					%i.icon-globe
-					=proveedor.email
+					=obra.nombre 
+				%td
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, obra, class: "btn btn-info", title: "Ver Detalles"
 
 
 :javascript
 
-	$('#proveedores').dataTable({
+	$('.devoluciones').dataTable({
 		"oLanguage": {
 			"sProcessing": "Procesando...",
 			"sLengthMenu": "Mostrar _MENU_ registros",
@@ -63,3 +53,4 @@
 		"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
 		"sPaginationType": "bootstrap"
 	});
+
