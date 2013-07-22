@@ -9,6 +9,13 @@
 <body>
   <%- if current_user %>
     <%=render :template => 'layouts/navbar' %>
+    <div class='content'>   
+    <section class='caja2'>
+      <div data-pjax-container>
+        <%= render :template => 'layouts/body_page' %>
+      </div>
+    </section>
+    <footer class='footerU'><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
   <%- else %>
     <header>
       <section class='caja1'>       
@@ -18,17 +25,13 @@
         </div>        
         <div class='logoInyx'><%= image_tag 'inyxlogo.png'%></div>
       </section>
-    </header>
+    </header>    
+    <div class='content'>   
+        <div data-pjax-container>
+          <%= render :template => 'layouts/body_page' %>
+        </div>
+      <footer class='footerLogin'><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
   <% end -%>
-
-
-<div class='content'>   
-  <section class='caja2'>
-    <div data-pjax-container>
-      <%= render :template => 'layouts/body_page' %>
-    </div>
-  </section>
-  <footer class='footerU'><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
 </div>
 </body>
 </html>
