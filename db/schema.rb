@@ -34,17 +34,10 @@ ActiveRecord::Schema.define(:version => 20130722220752) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "devolucion_has_pedidos", :force => true do |t|
-    t.integer  "devolucion_id"
-    t.integer  "pedido_has_articulo_id"
-    t.float    "cantidad"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-  end
-
   create_table "devolucion_has_pedidoshasarticulos", :force => true do |t|
     t.integer  "devolucion_id"
     t.integer  "pedido_has_articulo_id"
+    t.integer  "articulo_id"
     t.float    "cantidad"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false

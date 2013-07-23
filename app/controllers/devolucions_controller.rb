@@ -9,15 +9,26 @@ class DevolucionsController < ApplicationController
   end
 
   def create
+    params[:devolucion][:lista_de_articulos_pedidos_attributes].values.each do |item|
+      @id = item[:pedido_has_articulo_id]
+      break
+    end
+    @errores = []
   	@devolucion = Devolucion.new(params[:devolucion])
+    
+    
+
+    @pedido = Pedido.find(@id)
     respond_to do |format|
       if @devolucion.save
         format.html { redirect_to @devolucion, notice: 'Producto was successfully created.' }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_pedido_devolucion_path(@id), :flash => { :alert => @devolucion.errors.full_messages.map { |x| x } } }
         format.json { render json: @devolucion.errors, status: :unprocessable_entity }
       end
     end
   end
+
+  
   
 end

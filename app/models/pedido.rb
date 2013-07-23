@@ -52,6 +52,11 @@ class Pedido < ActiveRecord::Base
     pedido.first.cantidad_devuelta
   end
 
+  #retorna la cantidad que falta por devolver del pedido
+  def cantidad_por_remunerar(articulo)
+    self.cantidad_del_articulo_pedido(articulo)-self.cantidad_devuelta_del_articulo_pedido(articulo)
+  end
+
   #retorna el estado de cada articulo pedido
   def estado_del_articulo_pedido(articulo)
     pedido = PedidoHasArticulo.where(pedido_id: self.id, articulo_id: articulo)
@@ -72,7 +77,9 @@ class Pedido < ActiveRecord::Base
     end 
   end
 
-  rails_admin do 
-  	field :empleado
+  #retorna un array con todas las devoluciones de un pedido
+  def obtener_devoluciones
+    DevolucionHasPedidoshasarticulo.where(pedido_has_articulo_id: self.id)
   end
+
 end

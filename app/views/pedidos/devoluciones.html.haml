@@ -1,6 +1,3 @@
-- @devoluciones.each do |devolucion|
-	= devolucion.cantidad
-
 .hero-unit	
 	%h2
 		%center
@@ -13,17 +10,14 @@
 			%th Codigo
 			%th Nombre
 			%th Cantidad del pedido
-		- @articulos.each do |articulo|
+		- @pedido.obtener_devoluciones.order("articulo_id asc").each do |devolucion|
 			%tr
 				%td 
-					=articulo.codigo
+					=devolucion.obtener_articulo.codigo
 				%td 
-					=articulo.nombre
+					=devolucion.obtener_articulo.nombre
 				%td
-					=@pedido.cantidad_del_articulo_pedido(articulo.id)
-				
-
-					
+					=devolucion.cantidad					
 					
 :javascript
 	(function() {

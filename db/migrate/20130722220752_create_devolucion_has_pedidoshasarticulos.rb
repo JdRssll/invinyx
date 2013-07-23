@@ -3,6 +3,7 @@ class CreateDevolucionHasPedidoshasarticulos < ActiveRecord::Migration
     create_table :devolucion_has_pedidoshasarticulos do |t|
     	t.integer :devolucion_id
     	t.integer :pedido_has_articulo_id
+    	t.integer :articulo_id
     	t.float :cantidad
 
       t.timestamps
