@@ -1,15 +1,4 @@
 - content_for :title, "Realizar devolucion"
-= form_for(@devolucion) do |f|
-	- if @pedido.errors.any?
-		%br
-		.alert.alert-error#error_explanation
-			=link_to_function "x", "alert('close')" , class: "close", data_dismiss: "alert" 
-			%h2 
-				No se ha podido guardar el producto, verifique los siguientes errores.
-			%ul
-			- @pedido.errors.full_messages.each do |msg|
-				%li= msg
-
 .hero-unit	
 	%h2
 		%center
@@ -30,16 +19,16 @@
 				- if articulo.cantidad > 0
 					%tr
 						%td#pedidoIdBorrado
-							=text_field_tag "devolucion[devolucion_has_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
+							=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
 						%td
 							=articulo.id
 						%td 
 							=articulo.nombre
 						%td
-							=articulo.cantidad
+							=@pedido.cantidad_del_articulo_pedido(articulo.id)
 							=articulo.unidad_de_medida
 						%td
-							=text_field_tag "devolucion[devolucion_has_pedidos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
+							=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
 							=articulo.unidad_de_medida
 	%br
 	.modal-footer	

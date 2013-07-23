@@ -41,6 +41,9 @@
 				%td
 					=link_to '<i class="icon-info-sign"></i>'.html_safe, pedido, :class=>"btn btn-info", title: "Ver Detalles"
 					=link_to '<i class="icon-random"></i>'.html_safe, new_pedido_devolucion_path(pedido), :class=>"btn", :title=>"Realizar Devolución"
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, devoluciones_pedido_path(pedido.id), :class=>"btn", :title=>"Ver Devoluciones"
+
+					
 					
 :javascript
 	(function() {

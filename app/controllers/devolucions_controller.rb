@@ -9,7 +9,7 @@ class DevolucionsController < ApplicationController
   end
 
   def create
-  	@devolucion = Devolucion.new(params[:pedido])
+  	@devolucion = Devolucion.new(params[:devolucion])
     respond_to do |format|
       if @devolucion.save
         format.html { redirect_to @devolucion, notice: 'Producto was successfully created.' }
@@ -19,4 +19,9 @@ class DevolucionsController < ApplicationController
       end
     end
   end
+
+  def show
+    
+  end
+  
 end

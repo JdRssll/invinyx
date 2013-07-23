@@ -6,6 +6,9 @@ Invinyx::Application.routes.draw do
   resources :productos
   resources :pedidos do
     resources :devolucions, only: [:new]
+    member do
+      get :devoluciones
+    end
   end
   resources :articulos
   resources :facturas
