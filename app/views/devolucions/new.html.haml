@@ -16,20 +16,19 @@
 				%th Cantidad a Devolver
 		%tbody
 			- @pedido.articulos.each do |articulo|
-				- if articulo.cantidad > 0
-					%tr
-						%td#pedidoIdBorrado
-							=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
-						%td
-							=articulo.id
-						%td 
-							=articulo.nombre
-						%td
-							=@pedido.cantidad_del_articulo_pedido(articulo.id)
-							=articulo.unidad_de_medida
-						%td
-							=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
-							=articulo.unidad_de_medida
+				%tr
+					%td#pedidoIdBorrado
+						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
+					%td
+						=articulo.codigo
+					%td 
+						=articulo.nombre
+					%td
+						=@pedido.cantidad_del_articulo_pedido(articulo.id)
+						=articulo.unidad_de_medida
+					%td
+						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
+						=articulo.unidad_de_medida
 	%br
 	.modal-footer	
 		= f.submit 'Realizar Devolución',class: "btn btn-primary"

@@ -33,6 +33,7 @@ class PedidosController < ApplicationController
   def devoluciones
     @pedido = Pedido.find(params[:id])
     @devoluciones = DevolucionHasPedidoshasarticulo.where(pedido_has_articulo_id: @pedido.id)
+    @articulos = PedidoHasArticulo.articulos_del_pedido(@pedido)
   end
 
   def asignar_empleado_a_pedido  	

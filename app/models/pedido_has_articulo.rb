@@ -17,4 +17,13 @@ class PedidoHasArticulo < ActiveRecord::Base
   	end
   end
 
+  #retorna la lista de articulos de un pedido, recive como parametro el pedido
+  def self.articulos_del_pedido(pedido)
+    @articulos = []
+    PedidoHasArticulo.where(pedido_id: pedido.id).each do |pedido|
+      @articulos << Articulo.find(pedido.articulo_id)
+    end
+    @articulos
+  end
+
 end
