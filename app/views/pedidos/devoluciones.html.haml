@@ -10,6 +10,7 @@
 			%th Codigo
 			%th Nombre
 			%th Cantidad del pedido
+			%th Fecha de realización
 		- @pedido.obtener_devoluciones.order("articulo_id asc").each do |devolucion|
 			%tr
 				%td 
@@ -17,7 +18,9 @@
 				%td 
 					=devolucion.obtener_articulo.nombre
 				%td
-					=devolucion.cantidad					
+					=devolucion.cantidad
+				%td
+					=devolucion.created_at.strftime("%Y-%m-%d")						
 					
 :javascript
 	(function() {

@@ -5,7 +5,8 @@ class Pedido < ActiveRecord::Base
   belongs_to :obra
   belongs_to :empleado
   accepts_nested_attributes_for :lista_de_articulos, :allow_destroy => true
-  before_save :restar_cantidad_a_articulo, :asignar_estado_individual, :asignar_estado_general
+  before_save :asignar_estado_individual, :asignar_estado_general
+  before_create :restar_cantidad_a_articulo
   validates_presence_of :empleado_id, :obra_id
   validates_presence_of :lista_de_articulos, message: I18n.t('errors.messages.lista_de_articulos')
   validate :cantidad_de_pedido_mayor?
