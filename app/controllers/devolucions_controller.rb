@@ -16,14 +16,12 @@ class DevolucionsController < ApplicationController
     @errores = []
   	@devolucion = Devolucion.new(params[:devolucion])
     
-    
-
     @pedido = Pedido.find(@id)
     respond_to do |format|
       if @devolucion.save
         format.html { redirect_to @devolucion, notice: 'Producto was successfully created.' }
       else
-        format.html { redirect_to new_pedido_devolucion_path(@id), :flash => { :alert => @devolucion.errors.full_messages.map { |x| x } } }
+        format.html { redirect_to new_pedido_devolucion_path(@id), :flash => { :alert => @devolucion.errors.messages } }
         format.json { render json: @devolucion.errors, status: :unprocessable_entity }
       end
     end

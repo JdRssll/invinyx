@@ -20,8 +20,8 @@ class DevolucionHasPedidoshasarticulo < ActiveRecord::Base
 
   def permitir_cantidad?
   	self.pedido.lista_de_articulos.each do |registro|
-  		if self.cantidad > self.pedido.cantidad_por_remunerar(registro.articulo_id)
-  			return errors.add(:cantidad, ", el articulo #{self.obtener_articulo.codigo} la cantidad a devolver excede a la del pedido")
+  		if self.cantidad > self.pedido.cantidad_por_remunerar(registro.articulo_id) && self.articulo_id == registro.articulo_id
+  			return errors.add(:cantidad, I18n.t('errors_invinyx.devolucion.cantidad'))
   		end
   	end
   	false

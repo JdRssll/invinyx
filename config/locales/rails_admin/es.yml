@@ -1,4 +1,9 @@
 es:
+  errors_invinyx:
+    devolucion:
+      descripcion: "Descripción: no puede estar en blanco"
+      lista_vacia: "Debe al menos devolver un pedido"
+      cantidad: "Cantidad: la cantidad a devolver no puede exceder a la cantidad a remunerar"
   attributes:
     proveedors: "Proveedores"
     descripcion: "Descripción"

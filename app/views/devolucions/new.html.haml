@@ -14,8 +14,8 @@
 				%p.flash-error
 					No se ha podido guardar el producto, verifique los siguientes errores.
 			%ul
-				- flash[:alert].each do |msg|
-					%li= msg
+				- flash[:alert].each_pair do |key, msg|
+					%li= "#{msg.join}"
 
 = form_for @devolucion do |f|
 	.row-fluid
