@@ -22,7 +22,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
-gem 'prawn'
+gem "prawnto_2", :require => "prawnto"
 gem 'rack-pjax'
 gem 'jquery-rails'
 gem 'devise'
