@@ -83,4 +83,33 @@ class Pedido < ActiveRecord::Base
     DevolucionHasPedidoshasarticulo.where(pedido_has_articulo_id: self.id)
   end
 
+  
+  rails_admin do 
+  	field :empleado
+  end
+
+  def self.listado_de_articulos_por_obra(obra)
+    @listado = []
+    Pedido.cantidad_de_articulos_por_obra(obra.id).each_pair do |k,v| 
+      @listado << [Articulo.find(k), v]
+    end
+    @listado
+  end
+
+  private
+
+  def self.cantidad_de_articulos_por_obra(id)
+    @articulos = {}
+    Pedido.where(obra_id: id).each do |pedido|
+      pedido.lista_de_articulos.each do |articulos|
+        if @articulos.include?(articulos.articulo_id) 
+          @articulos[articulos.articulo_id]+=articulos.cantidad
+        else
+          @articulos.merge!(articulos.articulo_id => articulos.cantidad)
+        end
+      end 
+    end
+    @articulos      
+  end
+
 end

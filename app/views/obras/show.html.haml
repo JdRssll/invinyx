@@ -1,41 +1,39 @@
-- content_for :title, "Lista de Proveedores"
+- content_for :title, "#{@obra.nombre}"
 .hero-unit	
 	%h2
 		%center
-			%i.icon-book
-			Directorio de Proveedores
+			%i.icon-briefcase
+			=@obra.nombre 
 %br
-
-%table.table.table-bordered#proveedores
+%table.table.table-bordered.articulos
 	%thead
 		%tr
-			%th Rif
+			%th imagen
+			%th Codigo
 			%th Nombre
-			%th Direccion
-			%th Telefono
-			%th Email
+			%th Cantidad
+			%th Consumible
 	%tbody
-		- @proveedores.each do |proveedor|
+		- @listado.each do |articulo|
 			%tr
 				%td 
-					=proveedor.rif
-				%td 
-					%i.icon-th-large
-					=proveedor.nombre
+					=image_tag "/#{articulo[0].foto.store_dir}/thumb_#{articulo[0].foto_identifier}"
 				%td
-					%i.icon-map-marker
-					=proveedor.direccion
-				%td 				
-					%i.icon-home
-					=proveedor.telefono
-				%td 
-					%i.icon-globe
-					=proveedor.email
-
-
+					=articulo[0].codigo
+				%td
+					=articulo[0].nombre
+				%td
+					=articulo[1]
+				%td
+					-if articulo[0].consumible
+						.span.badge.badge-success
+							%i.icon-ok
+					-else
+						.span.badge.badge-important
+							✘
 :javascript
 
-	$('#proveedores').dataTable({
+	$('.articulos').dataTable({
 		"oLanguage": {
 			"sProcessing": "Procesando...",
 			"sLengthMenu": "Mostrar _MENU_ registros",
@@ -63,3 +61,6 @@
 		"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
 		"sPaginationType": "bootstrap"
 	});
+			
+				
+				
