@@ -3,9 +3,7 @@
 		%li.active#articulos-tab
 			= link_to '<i class="icon-th-list"> Articulos</i>'.html_safe, "#{articulos_path}"
 		%li#pedidos-tab
-			= link_to '<i class="icon-shopping-cart"> Pedidos</i>'.html_safe, pedidos_path
-		%li#devolucions-tab
-			= link_to '<i class="icon-random"> Devoluciones</i>'.html_safe, devolucions_path
+			= link_to '<i class="icon-shopping-cart"> Pedidos / <i class="icon-random"></i> Devoluciones</i>'.html_safe, pedidos_path
 		%li#facturas-tab
 			= link_to '<i class="icon-list-alt"> Facturas</i>'.html_safe, facturas_path
 		%li#proveedors-tab

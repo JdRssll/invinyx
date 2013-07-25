@@ -21,11 +21,13 @@
 	.row-fluid
 		= f.label :descripcion
 		= f.text_area :descripcion, { class: "span12", rows: 0 }
+
 	%table.table.table-bordered.pedidos
 		%thead
 			%tr				
 				%th#pedidoIdBorrado
 				%th#pedidoIdBorrado
+				%th Imagen
 				%th Código
 				%th Nombre
 				%th Cantidad por Remunerar
@@ -38,6 +40,8 @@
 						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
 					%td#pedidoIdBorrado
 						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][articulo_id]", "#{articulo.id}", id:'input_codigo', readonly:'readonly'
+					%td
+						=image_tag "/#{articulo.foto.store_dir}/thumb_#{articulo.foto_identifier}"
 					%td
 						=articulo.codigo
 					%td 

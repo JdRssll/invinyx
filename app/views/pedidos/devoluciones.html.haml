@@ -1,18 +1,22 @@
 .hero-unit	
 	%h2
 		%center
-			%i.icon-shopping-cart
+			%i.icon-random
 			="Devoluciones del Pedido ##{@pedido.id}"
 %br 
-%table.table.table-bordered.tablaestandar
+%table.table.table-bordered.articulos
 	%thead
 		%tr
+			%th Imagen
 			%th Codigo
 			%th Nombre
 			%th Cantidad del pedido
 			%th Fecha de realización
+	%tbody
 		- @pedido.obtener_devoluciones.order("articulo_id asc").each do |devolucion|
 			%tr
+				%td 
+					=image_tag "/#{devolucion.obtener_articulo.foto.store_dir}/thumb_#{devolucion.obtener_articulo.foto_identifier}"
 				%td 
 					=devolucion.obtener_articulo.codigo
 				%td 

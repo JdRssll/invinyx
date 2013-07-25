@@ -152,5 +152,7 @@ footer{
 	margin-right: -60px;
 }
 
-
-
+#cedulaEmpleado, #nombreEmpleado, #apellidoEmpleado,
+#telefonoEmpleado, #cargoEmpleado{
+	color: #000000;
+}

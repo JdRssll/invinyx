@@ -18,13 +18,15 @@
 
 				= f.text_field :empleado_id, class: "span3 uneditable-input", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
 			.span3
-				= f.label :cargo
 
-				= text_field_tag "Cargo","", class: "span3 uneditable-input", id: "cargoEmpleado", readonly: "readonly", type:""
-			.span3
 				= f.label :nombre
 
 				= text_field_tag "Nombre","", class: "span3 uneditable-input", id: "nombreEmpleado", readonly: "readonly", type:""
+			.span3
+				= f.label :apellido
+
+				= text_field_tag "Apellido","", class: "span3 uneditable-input", id: "apellidoEmpleado", readonly: "readonly", type:""	
+				
 			.span2
 				%br
 				=link_to '<i class="icon-search"></i>'.html_safe, "#EmpleadosModal", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", role: "button", title:"Buscar Empeado"
@@ -38,9 +40,9 @@
 				
 			.span3
 				%br
-				= f.label :apellido
+				= f.label :cargo
 
-				= text_field_tag "Apellido","", class: "span3 uneditable-input", id: "apellidoEmpleado", readonly: "readonly", type:""	
+				= text_field_tag "Cargo","", class: "span3 uneditable-input", id: "cargoEmpleado", readonly: "readonly", type:""				
 				%br
 			.span3
 				%br
