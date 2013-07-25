@@ -82,7 +82,6 @@ class Pedido < ActiveRecord::Base
   def obtener_devoluciones
     DevolucionHasPedidoshasarticulo.where(pedido_has_articulo_id: self.id)
   end
-
   
   rails_admin do 
   	field :empleado
