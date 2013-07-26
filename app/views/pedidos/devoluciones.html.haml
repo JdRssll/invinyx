@@ -7,24 +7,21 @@
 %table.table.table-bordered.articulos
 	%thead
 		%tr
-			%th Imagen
-			%th Codigo
-			%th Nombre
-			%th Cantidad del pedido
+			%th #
+			%th Descripción
 			%th Fecha de realización
+			%th Acciones
 	%tbody
-		- @pedido.obtener_devoluciones.order("articulo_id asc").each do |devolucion|
+		- @pedido.obtener_devoluciones_generales.each do |devolucion|
 			%tr
 				%td 
-					=image_tag "/#{devolucion.obtener_articulo.foto.store_dir}/thumb_#{devolucion.obtener_articulo.foto_identifier}"
+					=devolucion.id
 				%td 
-					=devolucion.obtener_articulo.codigo
-				%td 
-					=devolucion.obtener_articulo.nombre
+					=devolucion.descripcion
 				%td
-					=devolucion.cantidad
+					=devolucion.created_at.strftime("%Y-%m-%d")
 				%td
-					=devolucion.created_at.strftime("%Y-%m-%d")						
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, devolucion, :class=>"btn btn-info", title: "Ver Detalles"
 					
 :javascript
 	(function() {
