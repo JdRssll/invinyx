@@ -4,7 +4,7 @@ class DevolucionHasPedidoshasarticulo < ActiveRecord::Base
   belongs_to :pedido_has_articulo
 
   validate :permitir_cantidad?
-  validates_numericality_of :cantidad, { :greater_than_or_equal_to => 0 }
+  validates_numericality_of :cantidad, { :greater_than_or_equal_to => 0, message: I18n.t('errors_invinyx.devolucion.menor_a_cero') }
 
   def obtener_articulo
   	Articulo.find(self.articulo_id)	
