@@ -5,7 +5,8 @@
 			%center
 				=	"Pedido ##{@pedido.id}"
 	.well
-		=link_to "<i class='icon-file'> Nota de Entrega</i>".html_safe, pedido_path(@pedido, :format=>'pdf'), class: 'btn', :'data-skip-pjax' => true, :target => '_blank'
+		%p
+			=link_to "<i class='icon-file'> Nota de Entrega</i>".html_safe, pedido_path(@pedido, :format=>'pdf'), class: 'btn', :'data-skip-pjax' => true, :target => '_blank'
 	%hr
 	.page-header
 		%h4

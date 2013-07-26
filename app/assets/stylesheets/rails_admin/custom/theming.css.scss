@@ -28,11 +28,11 @@ body {
 	background: #fff;
 	border-radius: 10px;
 	width: 95%;
-	padding-top: 30px;
 }
 
 .footerAdmin{
 	margin: 4em auto;
+	margin-bottom: 18px;
 	margin-top: -40px;
 	box-shadow: 0px 0px 15px #888888;
 	padding: 10px;
@@ -42,6 +42,11 @@ body {
 	border: 1px solid #ffffff;
 	border-radius: 10px;
 	width: 95%;
+}
+
+.cajaAdmin .container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 #footerU{
