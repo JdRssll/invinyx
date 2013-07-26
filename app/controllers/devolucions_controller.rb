@@ -27,6 +27,10 @@ class DevolucionsController < ApplicationController
     end
   end
 
+  def show
+    @devolucion = Devolucion.find(params[:id])
+  end
+
   
   
 end

@@ -79,8 +79,16 @@ class Pedido < ActiveRecord::Base
   end
 
   #retorna un array con todas las devoluciones de un pedido
-  def obtener_devoluciones
+  def obtener_devoluciones_individuales
     DevolucionHasPedidoshasarticulo.where(pedido_has_articulo_id: self.id)
+  end
+
+  def obtener_devoluciones_generales
+    @devolucion_ids = []
+    self.obtener_devoluciones_individuales.each do |devolucion|
+      @devolucion_ids << devolucion.devolucion_id
+    end
+    @devolucion_ids.uniq.map { |id| Devolucion.find(id) }
   end
   
   rails_admin do 
