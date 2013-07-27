@@ -64,6 +64,8 @@ GEM
       multi_json (~> 1.0)
     font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
+    foreigner (1.4.2)
+      activerecord (>= 3.0.0)
     haml (4.0.3)
       tilt
     hashery (2.1.0)
@@ -195,6 +197,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
+  foreigner
   jquery-datatables-rails!
   jquery-rails
   jquery-ui-rails

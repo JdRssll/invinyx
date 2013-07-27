@@ -98,14 +98,6 @@ ActiveRecord::Schema.define(:version => 20130722220752) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "productos", :force => true do |t|
-    t.string   "nombre"
-    t.integer  "cantidad"
-    t.text     "descriptcion"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "proveedors", :force => true do |t|
     t.string "rif",       :limit => 10
     t.string "nombre",    :limit => 20,  :null => false

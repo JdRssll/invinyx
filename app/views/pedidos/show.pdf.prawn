@@ -32,7 +32,7 @@ items += @pedido.articulos.map do |item|
 	[
 		item.codigo,
 		item.nombre,
-		"#{item.cantidad} #{item.unidad_de_medida}",
+		"#{@pedido.cantidad_del_articulo_pedido(item.id)} #{item.unidad_de_medida}",
 		@pedido.estado_del_articulo_pedido(item.id)
 	]
 end
