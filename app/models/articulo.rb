@@ -58,7 +58,7 @@ class Articulo < ActiveRecord::Base
     end
 
     edit do
-      exclude_fields :cantidad, :facturas, :transaccions, :articulos_proveedors, :proveedors
+      exclude_fields :cantidad, :facturas, :transaccions, :articulos_proveedors, :proveedors, :consumible
     end
 
     show do

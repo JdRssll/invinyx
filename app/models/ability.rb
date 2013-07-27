@@ -1,8 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
-    can :read, :all                   # allow everyone to read everything
+  def initialize(user)                  # allow everyone to read everything
     if user.admin?
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard
@@ -12,7 +11,12 @@ class Ability
       can :new, Articulo   
       can :read, Articulo     
     elsif user.role? :operador
-      can :manage, :all # allow managers to do anything to products and users
+      can :access, :rails_admin
+      can :dashboard 
+      can :edit, [Articulo, Empleado, Familia, Obra, Proveedor, Ubicacion]
+      can :new, [Articulo, Empleado, Factura, Familia, Obra, Proveedor, Ubicacion]
+      can :index, [Articulo, Empleado, Factura, Obra, Familia, Ubicacion, Proveedor]
+      can :show, [Articulo, Empleado, Factura, Obra, Familia, Ubicacion, Proveedor]
     end
   end
 

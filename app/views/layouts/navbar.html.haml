@@ -8,7 +8,7 @@
 				%span{:style => "color: #FFBF00;margin-left:-3px;"}
 					%b .
 			%ul.nav.pull-right
-				-if current_user.admin?
+				-if current_user
 					%li
 						= link_to "<i class='icon-cog'></i> Administración".html_safe, rails_admin_path, :'data-skip-pjax' => true
 				%li

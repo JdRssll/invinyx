@@ -17,6 +17,7 @@ RailsAdmin.config do |config|
   # config.audit_with :history, 'User'
 
   config.authorize_with :cancan
+  config.audit_with :history, User
 
   # Or with a PaperTrail: (you need to install it first)
   # config.audit_with :paper_trail, 'User'
@@ -28,7 +29,7 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo", "ArticulosProveedor", "Pedido", "Devolucion", "DevolucionHasPedido", "PedidoHasArticulo", "DevolucionHasPedidoshasarticulo"]
+  config.excluded_models = ["TipoTransaccion", "FacturaHasArticulo", "ArticulosProveedor", "Pedido", "Devolucion", "DevolucionHasPedido", "PedidoHasArticulo", "DevolucionHasPedidoshasarticulo", "Role"]
 
   # Include specific models (exclude the others):
   # config.included_models = []
@@ -46,6 +47,7 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     export
+    history_show
     bulk_delete
     # member actions
     show
