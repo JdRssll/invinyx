@@ -87,9 +87,7 @@ ActiveRecord::Schema.define(:version => 20130730212628) do
   add_index "facturas", ["proveedor_id"], :name => "facturas_proveedor_id_fk"
 
   create_table "familias", :force => true do |t|
-    t.string   "nombre"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "nombre", :limit => 80, :null => false
   end
 
   create_table "obras", :force => true do |t|
@@ -192,6 +190,10 @@ ActiveRecord::Schema.define(:version => 20130730212628) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   add_foreign_key "articulos", "ubicacions", :name => "articulos_ubicacion_id_fk"
+
+  add_foreign_key "articulos", "familias", :name => "articulos_familia_id_fk"
+
+  add_foreign_key "transaccions", "articulos", :name => "transaccions_articulo_id_fk"
 
   add_foreign_key "articulos_proveedors", "articulos", :name => "articulos_proveedors_articulo_id_fk"
   add_foreign_key "articulos_proveedors", "proveedors", :name => "articulos_proveedors_proveedor_id_fk"

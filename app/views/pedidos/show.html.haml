@@ -82,22 +82,5 @@
 										= @pedido.estado_del_articulo_pedido(articulo.id)
 
 	%br
-	.row
-		%center
-			.span6
-				.firma
-					=@pedido.empleado.nombre
-					=@pedido.empleado.apellido
-					%br
-					%b
-						=@pedido.empleado.cargo
-				
-			.span6
-				.firma
-					= "#{current_user.nombre} #{current_user.apellido}"
-					%br
-					%b
-						Operador del Sistema
-				
 .modal-footer	
 	

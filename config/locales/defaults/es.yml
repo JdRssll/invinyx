@@ -136,6 +136,8 @@ es:
       wrong_length:
         one: longitud errónea (debe ser de 1 caracter)
         other: longitud errónea (debe ser de %{count} caracteres)
+      exception:
+        restrict: No se puede eliminar debido a que posee registros asociados
     template:
       body: ! 'Revise que los siguientes campos sean válidos:'
       header:

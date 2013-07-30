@@ -7,6 +7,6 @@ class CreateTransaccions < ActiveRecord::Migration
       t.integer :articulo_id, null: false
       t.timestamps
     end    
-    #add_foreign_key(:transaccions, :articulos)
+    add_foreign_key(:transaccions, :articulos)
   end
 end

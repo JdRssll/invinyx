@@ -15,7 +15,7 @@ class CreateArticulos < ActiveRecord::Migration
 
       t.timestamp
     end
-    #add_foreign_key(:articulos, :familias)
+    add_foreign_key(:articulos, :familias)
     add_foreign_key(:articulos, :ubicacions)
   end
 end
