@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(:version => 20130722220752) do
 
   create_table "articulos", :force => true do |t|
     t.string  "codigo",           :limit => 12
-    t.string  "nombre",           :limit => 60,                          :null => false
-    t.text    "descripcion",      :limit => 255,                         :null => false
-    t.string  "unidad_de_medida", :limit => 15,                          :null => false
+    t.string  "nombre",           :limit => 60,                        :null => false
+    t.text    "descripcion",      :limit => 255,                       :null => false
+    t.string  "unidad_de_medida", :limit => 15,                        :null => false
     t.float   "cantidad",                             :default => 0.0
     t.text    "foto",             :limit => 16777215
-    t.string  "familia_id",                                              :null => false
-    t.string  "ubicacion_id",                                            :null => false
+    t.string  "familia_id",                                            :null => false
+    t.string  "ubicacion_id",                                          :null => false
     t.float   "stock_minimo"
     t.float   "stock_maximo"
-    t.boolean "consumible",                           :default => false
+    t.boolean "consumible"
   end
 
   create_table "articulos_proveedors", :force => true do |t|
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20130722220752) do
   create_table "devolucion_has_pedidoshasarticulos", :force => true do |t|
     t.integer  "devolucion_id"
     t.integer  "pedido_has_articulo_id"
-    t.integer  "articulo_id"
     t.float    "cantidad"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
