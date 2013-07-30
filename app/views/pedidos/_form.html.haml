@@ -13,10 +13,11 @@
 	.row.row-invinyx 
 		%br
 		.span12
+			= f.hidden_field :empleado_id, id: "idEmpleado"
 			.span3
 				= f.label :cedula
 
-				= f.text_field :empleado_id, class: "span3 uneditable-input", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
+				= text_field_tag :cedula, "", class: "span3 uneditable-input", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
 			.span3
 
 				= f.label :nombre

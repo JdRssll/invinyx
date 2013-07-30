@@ -1,6 +1,6 @@
 class CreateEmpleados < ActiveRecord::Migration
   def change
-    create_table :empleados do  |t|
+    create_table :empleados do |t|
       t.string :cedula, :limit => 8, :null => false
       t.string :nombre, :limit => 20, :null => false
       t.string :apellido, :limit => 20, :null => false
