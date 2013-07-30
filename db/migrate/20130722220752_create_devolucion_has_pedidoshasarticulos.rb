@@ -8,5 +8,7 @@ class CreateDevolucionHasPedidoshasarticulos < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_foreign_key(:devolucion_has_pedidoshasarticulos, :devolucions)
+    add_foreign_key(:devolucion_has_pedidoshasarticulos, :pedido_has_articulos)
   end
 end

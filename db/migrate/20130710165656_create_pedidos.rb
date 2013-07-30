@@ -7,5 +7,7 @@ class CreatePedidos < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_foreign_key(:pedidos, :obras, options: 'ON DELETE RESTRICT')
+    add_foreign_key(:pedidos, :empleados)
   end
 end

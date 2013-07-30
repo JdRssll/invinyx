@@ -9,5 +9,7 @@ class CreatePedidoHasArticulos < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_foreign_key(:pedido_has_articulos, :pedidos)
+    add_foreign_key(:pedido_has_articulos, :articulos)
   end
 end

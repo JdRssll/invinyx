@@ -1,5 +1,6 @@
 class Familia < ActiveRecord::Base
   attr_accessible :nombre
+
   has_many :articulos
   
   #validaciones para nombre
@@ -8,11 +9,11 @@ class Familia < ActiveRecord::Base
   validates_uniqueness_of :nombre
   
  rails_admin do
-  	field :nombre
-  	list do
-  		field :nombre
-  		field :articulos
-  	end
+    field :nombre
+    list do
+      field :nombre
+      field :articulos
+    end
     show do
       field :nombre
       field :articulos
