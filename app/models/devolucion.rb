@@ -4,7 +4,7 @@ class Devolucion < ActiveRecord::Base
   has_many :pedido_has_articulos, :through => :lista_de_articulos_pedidos
   accepts_nested_attributes_for :lista_de_articulos_pedidos, :reject_if => lambda { |a| a[:cantidad].to_f.zero? }, :allow_destroy => true
   before_save :sumar_cantidad_devuelta_al_articulo
-  after_save :actualizar_cantidad_devuelta_de_pedido, :cambiar_estado_general_del_pedido, :cambiar_estado_individual_del_pedido
+  after_save :actualizar_cantidad_devuelta_de_pedido, :cambiar_estado_individual_del_pedido, :cambiar_estado_general_del_pedido 
   validates_presence_of :descripcion, message: I18n.t('errors_invinyx.devolucion.descripcion')
   validates_presence_of :lista_de_articulos_pedidos, message: I18n.t('errors_invinyx.devolucion.lista_vacia')
 
