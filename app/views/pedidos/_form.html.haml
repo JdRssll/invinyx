@@ -1,0 +1,116 @@
+= form_for(@pedido) do |f|
+	- if @pedido.errors.any?
+		%br
+		.alert.alert-error#error_explanation
+			=link_to_function "x", "alert('close')" , class: "close", data_dismiss: "alert" 
+			%h2 
+				No se ha podido guardar el producto, verifique los siguientes errores.
+			%ul
+			- @pedido.errors.full_messages.each do |msg|
+				%li= msg
+
+= form_for @pedido do |f|
+	.row.row-invinyx 
+		%br
+		.span12
+			= f.hidden_field :empleado_id, id: "idEmpleado"
+			.span3
+				= f.label :cedula
+
+				= text_field_tag :cedula, "", class: "span3 uneditable-input", id: "cedulaEmpleado", readonly: "readonly", type:"", tittle: "Cédula"			
+			.span3
+
+				= f.label :nombre
+
+				= text_field_tag "Nombre","", class: "span3 uneditable-input", id: "nombreEmpleado", readonly: "readonly", type:""
+			.span3
+				= f.label :apellido
+
+				= text_field_tag "Apellido","", class: "span3 uneditable-input", id: "apellidoEmpleado", readonly: "readonly", type:""	
+				
+			.span2
+				%br
+				=link_to '<i class="icon-search"></i>'.html_safe, "#EmpleadosModal", class: "btn btn-large btn-info", id: "buscarEmpleado", "data-toggle" => "modal", role: "button", title:"Buscar Empeado"
+				%br
+		.span12
+			.span3
+				%br
+				= f.label :telefono
+
+				= text_field_tag "Telefono","", class: "span3 uneditable-input", id: "telefonoEmpleado", readonly: "readonly", type:""
+				
+			.span3
+				%br
+				= f.label :cargo
+
+				= text_field_tag "Cargo","", class: "span3 uneditable-input", id: "cargoEmpleado", readonly: "readonly", type:""				
+				%br
+			.span3
+				%br
+				= f.label :obra_id
+
+				= f.collection_select(:obra_id, Obra.all(:order => 'nombre'), :id, :nombre, { :prompt => 'Selecionar Obra' }, class: "span3" )
+	%br
+	%hr	
+
+	.page-header
+		%center
+			%h4
+				Lista de Articulos
+	%br
+	%br
+	.row.row-invinyx
+		.span6
+			%table.table.table-bordered.tablaEstandar
+				%thead
+					%tr
+						%th Codigo
+						%th Nombre
+						%th Cantidad
+						%th Acciones
+				%tbody
+					- @articulos.each do |articulo|
+						- if articulo.cantidad > 0
+							%tr
+								%td
+									=articulo.codigo
+								%td 
+									=articulo.nombre
+								- if articulo.advertencia_stock == 1
+									%th{:style=>"background: #82FA58;"}
+										=articulo.cantidad
+										=articulo.unidad_de_medida
+								- elsif articulo.advertencia_stock == 2
+									%th{:style=>"background: #FA5858;"}
+										=articulo.cantidad
+										=articulo.unidad_de_medida
+								- else
+									%th{:style=>"background: #F4FA58;"}
+										=articulo.cantidad
+										=articulo.unidad_de_medida
+								%td
+									=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{articulo.id}', '/agregar/articulo/')", class: "btn btn-success", remote: true
+		.span6
+			%table.table.table-bordered#articulosAgregado
+				%thead
+					%tr
+						%th#id-pedido
+						%th Codigo
+						%th Nombre
+						%th Cantidad
+						%th Acciones
+				%tbody.agregar
+					%tr#anuncio
+						%th{ :colspan=>"4" }
+							%center
+								No hay articulos en la lista
+	%br
+	%br
+	.modal-footer	
+		= f.submit class: "btn btn-primary"
+		=link_to"Volver", pedidos_path, class: "btn"
+
+:javascript
+	function alert(accion) {
+		$(".alert").alert(accion)
+	}

@@ -1,0 +1,81 @@
+.hero-unit	
+	%h2
+		%center
+			%i.icon-shopping-cart
+			Nuevo Pedido
+%hr
+.page-header
+	%center
+		%h4 Datos del Empleado
+
+= render 'form'
+
+
+#EmpleadosModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+	.modal-header
+		%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+		%h3#myModalLabel Buscar Empleado
+	.modal-body
+		%table.table.table-bordered.tablaEstandar
+			%thead
+				%tr
+					%th C.I
+					%th Nombre
+					%th Apellido
+					%th Cargo
+					%th Control
+			%tbody
+				- @empleados.each do |empleado|
+					%tr
+						%td
+							=empleado.cedula
+						%td 
+							=empleado.nombre
+						%td 
+							=empleado.apellido
+						%td 
+							=empleado.cargo
+						%td
+							=link_to_function '<i class="icon-plus"></i>'.html_safe, "agregar('#{empleado.id}', '/agregar/empleado/')", class: "btn btn-success", remote: true
+	.modal-footer
+
+:javascript
+
+	function agregar(id, ruta) {
+		$('#anuncio').remove()
+		if($("#"+id).size()==0){			
+			$.get(ruta+id)
+		} else { alert("Este artículo ya ha sido agregado a la lista.") }
+	}	
+
+	$('.tablaEstandar').dataTable({
+		"oLanguage": {
+			"sProcessing": "Procesando...",
+			"sLengthMenu": "Mostrar _MENU_ registros",
+			"sZeroRecords": "No se encontraron resultados",
+			"sEmptyTable": "Ningún dato disponible en esta tabla",
+			"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+			"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix": "",
+			"sSearch": "<i class='icon-search'></i>",
+			"sUrl": "",
+			"sInfoThousands": ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+				"sFirst": "Primero",
+				"sLast": "Último",
+				"sNext": "Siguiente",
+				"sPrevious": "Anterior"
+			},
+			"oAria": {
+				"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+		},
+		"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
+		"sPaginationType": "bootstrap"
+	});
+
+
+

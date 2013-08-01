@@ -12,4 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.pjax
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
+
+$(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]');
+
+
+
+

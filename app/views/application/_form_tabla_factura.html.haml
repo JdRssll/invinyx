@@ -1,0 +1,19 @@
+%td#id-factura
+	= text_field_tag "factura[factura_has_articulos_attributes][#{articulo.id}][articulo_id]", "#{articulo.id}", id: "imput_codigo", readonly: "readonly"
+%td
+	= articulo.codigo
+%td
+	= articulo.nombre
+%td
+	= text_field_tag "factura[factura_has_articulos_attributes][#{articulo.id}][cantidad]", 0, id: "input_cantidad"
+%td
+	= link_to_function '<i class="icon-remove"></i>'.html_safe, "remover(#{articulo.id})", class: "btn btn-danger",remote: true
+
+:javascript
+	
+	function remover(id) {
+		$('#'+id).remove()
+		if($('#facturas >tbody >tr').length==0) {
+			$('#facturas').append("<tr id = 'anuncio'><td colspan = 4><center>Ingresar artículos al listado</center></td></tr>")
+		}
+	}

@@ -1,0 +1,24 @@
+#footer1{
+	padding: 5px;
+	width: 100px;
+}
+#footer2{
+	padding: 5px;
+	width: 500px;
+}
+.logofooter{
+	margin-top: -28px;
+	float: right;
+	width: 100px;
+}
+
+#thumbnailArticulo{
+	width: 300px;
+	height: 300px;	
+}
+
+.datosArticulo{
+	width: 300px;
+	padding-left: 30px;
+	padding-top: 30px;
+}

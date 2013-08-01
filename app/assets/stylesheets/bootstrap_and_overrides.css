@@ -1,0 +1,72 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.row-invinyx .span12{
+	padding-left: 80px;
+}
+
+.row-invinyx .span6{
+  padding-left: 1.4%;
+}
+
+#id-pedido {
+	display: none;
+}
+
+#verArticulo .span7{
+  padding-top: 50px;
+}
+
+#DatosPersonales ul{
+  padding-left: 100px;
+}
+
+body {
+	background:#F2F2F2;
+}
+
+.datosArticulo .span {
+	margin-left: 0px;
+}
+
+.articulos .span {
+	margin-left: 0px;
+}
+
+#DatosFactura .span6{
+  padding-left: 175px;
+}
+
+#DatosFactura .span4{
+  padding-left: 30px;
+}
+
+#TablaShow {
+  margin-left: 0px;
+  padding-left: 40px;
+  margin-right: 40px;
+}
+
+.hero-unit {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+
+.well {
+  border: none;
+  padding-bottom: 7px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+}
+
+.page-header {
+  margin-bottom: 0px;
+}

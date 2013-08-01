@@ -1,0 +1,103 @@
+- content_for :title, "Realizar devolucion"
+.hero-unit	
+	%h2
+		%center
+			%i.icon-random
+			Realizar Devoluciòn
+
+- if flash[:alert]
+	- unless flash[:alert].size.zero?
+		%br
+		.alert.alert-error#error_explanation
+			=link_to_function "x", "alert('close')" , class: "close", data_dismiss: "alert" 
+			%h2 
+				%p.flash-error
+					No se ha podido guardar el producto, verifique los siguientes errores.
+			%ul
+				- flash[:alert].each_pair do |key, msg|
+					%li= "#{msg.join}"
+
+= form_for @devolucion do |f|
+	.row-fluid
+		= f.label :descripcion
+		= f.text_area :descripcion, { class: "span12", rows: 0 }
+
+	%table.table.table-bordered.pedidos
+		%thead
+			%tr				
+				%th#pedidoIdBorrado
+				%th#pedidoIdBorrado
+				%th Imagen
+				%th Código
+				%th Nombre
+				%th Cantidad por Remunerar
+				%th Cantidad a Devolver
+				%th Estado
+		%tbody
+			- @pedido.articulos.each do |articulo|
+				%tr
+					%td#pedidoIdBorrado
+						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][pedido_has_articulo_id]", "#{@pedido.id}", id:'input_codigo', readonly:'readonly'
+					%td#pedidoIdBorrado
+						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][articulo_id]", "#{articulo.id}", id:'input_codigo', readonly:'readonly'
+					%td
+						=image_tag "/#{articulo.foto.store_dir}/thumb_#{articulo.foto_identifier}"
+					%td
+						=articulo.codigo
+					%td 
+						=articulo.nombre
+					%td
+						=@pedido.cantidad_por_remunerar(articulo.id)
+						=articulo.unidad_de_medida
+					%td
+						=text_field_tag "devolucion[lista_de_articulos_pedidos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
+						=articulo.unidad_de_medida
+					- if @pedido.estado_del_articulo_pedido(articulo.id) == "Activo"
+						%th{:style=>"background: #82FA58;"}
+							= @pedido.estado_del_articulo_pedido(articulo.id)
+					- else
+						%th{:style=>"background: #FA5858;"}
+							= @pedido.estado_del_articulo_pedido(articulo.id)
+	%br
+	.modal-footer	
+		= f.submit 'Realizar Devolución',class: "btn btn-primary"
+		=link_to "Volver", pedidos_path, class: "btn"
+
+:javascript
+	(function() {
+		jQuery(function() {
+			return $('.pedidos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "<i class='icon-search'></i>",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+				"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+				"sPaginationType": "bootstrap"
+			});
+		});
+	}).call(this);
+
+	function alert(accion) {
+		$(".alert").alert(accion)
+	}
+

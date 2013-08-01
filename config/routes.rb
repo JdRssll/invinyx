@@ -1,7 +1,32 @@
 Invinyx::Application.routes.draw do
+  get "obra/index"
+
+  get "proveedors/index"
+
+  get "factura/index"
+
+  resources :productos
+  resources :pedidos do
+    resources :devolucions, only: [:new]
+    member do
+      get :devoluciones
+    end
+  end
+  resources :articulos
+  resources :facturas
+  resources :proveedors
+  resources :devolucions
+  resources :obras
+
+  get "/agregar/empleado/:id" => 'pedidos#asignar_empleado_a_pedido', :as => :empleado_info 
+
+  get "/agregar/articulo/:id" => 'pedidos#asignar_articulo_a_pedido', :as => :articulo_info
+  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
+
+  get '/agregar/:id' => 'application#articulos_facturas',  :as => :articulos_facturas
 
   
 
@@ -54,11 +79,10 @@ Invinyx::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
+  root :to => 'articulos#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action(/:id))(.:format)'
 end

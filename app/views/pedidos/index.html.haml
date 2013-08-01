@@ -1,0 +1,82 @@
+- content_for :title, "Lista de Pedidos"
+.hero-unit	
+	%h2
+		%center
+			%i.icon-shopping-cart
+			Lista de Pedidos
+.well	
+	%p
+		= link_to '<i class="icon-plus"> Nuevo Pedido</i>'.html_safe, new_pedido_path, class: "btn btn-success"	
+%br 
+%table.table.table-bordered.articulos
+	%thead
+		%tr
+			%th #
+			%th C.I
+			%th Empleado
+			%th Obra
+			%th Estado
+			%th Fecha
+			%th Acciones
+	%tbody
+		- @pedidos.each do |pedido|
+			%tr
+				%td 
+					=pedido.id
+				%td 
+					=pedido.empleado.cedula
+				%th
+					=pedido.empleado.nombre
+					=pedido.empleado.apellido
+				%th
+					=pedido.obra.nombre
+				- if pedido.estado == "Activo"
+					%th{:style=>"background: #82FA58;"}
+						=pedido.estado
+				- else
+					%th{:style=>"background: #FA5858;"}
+						=pedido.estado
+				%th
+					=pedido.created_at.strftime("%Y-%m-%d")
+				%td
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, pedido, :class=>"btn btn-info", title: "Ver Detalles"
+					=link_to '<i class="icon-random"></i>'.html_safe, new_pedido_devolucion_path(pedido), :class=>"btn", :title=>"Realizar Devolución"
+					=link_to '<i class=" icon-eye-open"></i>'.html_safe, devoluciones_pedido_path(pedido.id), :class=>"btn", :title=>"Ver Devoluciones", :'data-skip-pjax' => false
+
+					
+					
+:javascript
+	(function() {
+		jQuery(function() {
+			return $('.articulos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "<i class='icon-search'></i>",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+				"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+				"sPaginationType": "bootstrap",
+				"aaSorting": [[ 0, "desc" ]]
+			});
+		});
+	}).call(this);
+

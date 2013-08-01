@@ -1,12 +1,59 @@
 es:
+  errors_invinyx:
+    devolucion:
+      descripcion: "Descripción: no puede estar en blanco"
+      lista_vacia: "Debe al menos devolver un pedido"
+      cantidad: "Cantidad: la cantidad a devolver no puede exceder a la cantidad a remunerar"
+      menor_a_cero: "Cantidad: la cantidad debe ser mayor o igual a 0"
+  attributes:
+    proveedors: "Proveedores"
+    descripcion: "Descripción"
+    codigo: "Código"
+    ubicacion: "Ubicación"
+    stock_maximo: "Stock máximo"
+    stock_minimo: "Stock mínimo"
+    cedula: "Cédula"
+    direccion: "Dirección"
+    telefono: "Teléfono"
+    tipo_transaccion: "Tipo de transacción"
+    created_at: "Fecha de creación"
+    articulos: "Artículos"
+    factura_has_articulos: "Ingresar artículos"
+    password: "Contraseña"
+    password_confirmation: "Confirmar contraseña"
+    lista_de_articulos: "Lista de artículos:"
+    remember_me: "Recordar contraseña"
+    email: "Correo electrónico o Usuario"
+  activerecord:
+    models:
+      ubicacion: 
+        one: "Ubicación"
+        other: "Ubicaciones"
+      transaccion:
+        one: "Transacción"
+        other: "Transacciones"
+      proveedor:
+        one: "Proveedor"
+        other: "Proveedores"
+      familia:
+        one: "Familia"
+        other: "Familias"
+      articulo:
+        one: "Artículo"
+        other: "Artículos"
+    attributes:
+      factura:
+        fecha: "Fecha de emisión"
   home:
-    name: Inicio
+    name: "Inicio"
   views:
     pagination:
       previous: "&laquo; Anterior"
       next: "Siguiente &raquo;"
       truncate: "…"
   admin:
+    home:  
+      name: "Inicio"
     misc:
       search: "Buscar"
       filter: "Filtrar"

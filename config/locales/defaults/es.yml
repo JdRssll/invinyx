@@ -98,10 +98,16 @@ es:
       minute: Minuto
       month: Mes
       second: Segundos
-      year: Año
+      year: Año      
   errors:
     format: ! '%{attribute} %{message}'
     messages:
+      tipo_transaccion: no puede realizarse, el artículo no posee existencia
+      lista_de_articulos: no puede estar vacía
+      stock_maximo: no puede ser menor al stock mínimo
+      stock_minimo: no puede ser mayor al stock máximo
+      only_letters: solo permite letras
+      extension_white_list_error: "inválida, asegúrese de que el formato de la imagen sea (jpg, jpeg, gif, png)"
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide con la confirmación
@@ -130,6 +136,8 @@ es:
       wrong_length:
         one: longitud errónea (debe ser de 1 caracter)
         other: longitud errónea (debe ser de %{count} caracteres)
+      exception:
+        restrict: No se puede eliminar debido a que posee registros asociados
     template:
       body: ! 'Revise que los siguientes campos sean válidos:'
       header:

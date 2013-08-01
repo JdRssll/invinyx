@@ -1,0 +1,19 @@
+.navbar.navbar-inverse.navbar-fixed-top
+	.navbar-inner
+		.container-fluid
+			%a.brand{:href=>'/'}
+				= image_tag 'inyx.png', :size => "23x23", :style =>'margin-top:-3px;margin-top:-3px;'
+				%span{:style => "font-size:18px;margin-left:-2;"}
+					Inyxtech
+				%span{:style => "color: #FFBF00;margin-left:-3px;"}
+					%b .
+			%ul.nav.pull-right
+				-if current_user
+					%li
+						= link_to "<i class='icon-cog'></i> Administración".html_safe, rails_admin_path, :'data-skip-pjax' => true
+				%li
+					= link_to "<i class='icon-user'></i> #{current_user.nombre} #{current_user.apellido} ".html_safe, user_session_path
+				%li
+					= link_to '<span class="label label-important"><i class="icon-off"></i> Salir</span>'.html_safe, destroy_user_session_path, method: :delete
+				- if current_user.respond_to?(:email) && current_user.email.present?
+					%li= image_tag "#{(request.ssl? ? 'https://secure' : 'http://www')}.gravatar.com/avatar/#{Digest::MD5.hexdigest current_user.email}?s=30", :style => 'padding-top:5px'

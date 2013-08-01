@@ -1,0 +1,79 @@
+/*
+  Customize RailsAdmin theme here.
+  Copy this file to your app/assets/stylesheets/rails_admin/custom/theming.css.scss, leave this one untouched
+  Don't require it in your application.rb
+
+  Look at the markup in RailsAdmin and go there to get inspiration from:
+
+  http://twitter.github.com/bootstrap/
+
+  Test me: (actual color should be the one defined in variables.css.scss if you did)
+
+  body{ background-color: $linkColor; }
+*/
+
+.dataTables_paginate {
+	text-align: right;
+}
+
+body {
+	background:#F2F2F2;
+}
+
+.cajaAdmin{
+	margin: 4em auto;
+	margin-top: 0px;
+	padding: 10px;
+	box-shadow: 0px 0px 15px #888888;
+	background: #fff;
+	border-radius: 10px;
+	width: 95%;
+}
+
+.footerAdmin{
+	margin: 4em auto;
+	margin-bottom: 18px;
+	margin-top: -40px;
+	box-shadow: 0px 0px 15px #888888;
+	padding: 10px;
+	background: -webkit-linear-gradient(#ffffff, #E6E6E6);
+	background: -moz-linear-gradient(#ffffff, #E6E6E6);
+	background: -o-linear-gradient(#ffffff, #E6E6E6);	
+	border: 1px solid #ffffff;
+	border-radius: 10px;
+	width: 95%;
+}
+
+.cajaAdmin .container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#footerU{
+	width: 200px;
+	height: 40px;
+	float: left;
+}
+
+
+.dataTables_filter {
+	text-align: right;
+}
+
+#div-tabla-articulos .table {
+	margin-bottom: 0px;
+}
+#factura_cantidad_field {
+	padding-right: 50px;
+}
+
+
+#input_cantidad {
+	padding-top: 4px;
+	padding-left: 6px;
+	width: 70px;
+}
+
+#id-factura {
+	display: none;
+}

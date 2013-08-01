@@ -7,22 +7,36 @@ gem 'rails', '3.2.13'
 
 gem 'mysql2'
 
+group :development do
+	gem "rails-erd"
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
+  gem "twitter-bootstrap-rails"
 end
 
+gem "foreigner"
+gem "prawnto_2", :require => "prawnto"
+gem 'rack-pjax'
 gem 'jquery-rails'
 gem 'devise'
+gem 'cancan'
 gem 'rails_admin'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'simple_form'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -39,5 +53,3 @@ gem 'rails_admin'
 # To use debugger
 # gem 'debugger'
 
-
-gem "devise"

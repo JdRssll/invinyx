@@ -1,0 +1,59 @@
+.hero-unit	
+	%h2
+		%center
+			%i.icon-random
+			="Devoluciones del Pedido ##{@pedido.id}"
+%br 
+%table.table.table-bordered.articulos
+	%thead
+		%tr
+			%th #
+			%th Descripción
+			%th Fecha de realización
+			%th Acciones
+	%tbody
+		- @pedido.obtener_devoluciones_generales.each do |devolucion|
+			%tr
+				%td 
+					=devolucion.id
+				%td 
+					=devolucion.descripcion
+				%td
+					=devolucion.created_at.strftime("%Y-%m-%d")
+				%td
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, devolucion, :class=>"btn btn-info", title: "Ver Detalles"
+					
+:javascript
+	(function() {
+		jQuery(function() {
+			return $('.articulos').dataTable({
+				"oLanguage": {
+					"sProcessing": "Procesando...",
+					"sLengthMenu": "Mostrar _MENU_ registros",
+					"sZeroRecords": "No se encontraron resultados",
+					"sEmptyTable": "Ningún dato disponible en esta tabla",
+					"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix": "",
+					"sSearch": "<i class='icon-search'></i>",
+					"sUrl": "",
+					"sInfoThousands": ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst": "Primero",
+						"sLast": "Último",
+						"sNext": "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+				"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+				"sPaginationType": "bootstrap",
+				"aaSorting": [[ 0, "desc" ]]
+			});
+		});
+	}).call(this);

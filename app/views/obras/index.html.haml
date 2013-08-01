@@ -1,0 +1,56 @@
+- content_for :title, "Lista de Obras"
+.hero-unit	
+	%h2
+		%center
+			%i.icon-briefcase
+			Lista de Obras
+%br
+
+%table.table.table-bordered.devoluciones
+	%thead
+		%tr
+			%th #
+			%th Nombre de la Obra
+			%th Control
+	%tbody
+		-@obras.each do |obra|
+			%tr
+				%td 
+					=obra.id
+				%td
+					=obra.nombre 
+				%td
+					=link_to '<i class="icon-info-sign"></i>'.html_safe, obra, class: "btn btn-info", title: "Ver Detalles"
+
+
+:javascript
+
+	$('.devoluciones').dataTable({
+		"oLanguage": {
+			"sProcessing": "Procesando...",
+			"sLengthMenu": "Mostrar _MENU_ registros",
+			"sZeroRecords": "No se encontraron resultados",
+			"sEmptyTable": "Ningún dato disponible en esta tabla",
+			"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+			"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix": "",
+			"sSearch": "<i class='icon-search'></i>",
+			"sUrl": "",
+			"sInfoThousands": ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+				"sFirst": "Primero",
+				"sLast": "Último",
+				"sNext": "Siguiente",
+				"sPrevious": "Anterior"
+			},
+			"oAria": {
+				"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+		},
+		"sDom": "<'row-fluid'<'span12'f>r>t<'row-fluid'<'span12'p>>",
+		"sPaginationType": "bootstrap"
+	});
+

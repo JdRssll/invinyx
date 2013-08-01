@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Invinyx</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title><%= content_for?(:title) ? content_for(:title) : "Invinyx" %> - Invinyx</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%- if current_user %>
+    <%=render :template => 'layouts/navbar' %>
+    <div class='content'>   
+    <section class='caja2'>
+      <div data-pjax-container>
+        <%= render :template => 'layouts/body_page' %>
+      </div>
+    </section>
+    <footer class='footerU'><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
+  <%- else %>
+    <header>
+      <section class='caja1'>       
+        <div class='tituloApp'>  
+          <h1>Invinyx<span style="color: #FFBF00;"><b>.</b></span></h1>
+          <p>Sistema de Control de Inventarios.</p>
+        </div>        
+        <div class='logoInyx'><%= image_tag 'inyxlogo.png'%></div>
+      </section>
+    </header>    
+    <div class='content'>   
+        <div data-pjax-container>
+          <%= render :template => 'layouts/body_page' %>
+        </div>
+      <footer class='footerLogin'><center>Performed by Inyxtech | All Right Reserve 2013</center></footer>
+  <% end -%>
+</div>
 </body>
 </html>

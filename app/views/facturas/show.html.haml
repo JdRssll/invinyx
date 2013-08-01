@@ -1,0 +1,87 @@
+- content_for :title, @factura ? "Factura ##{@factura.id}" : "Facturas"
+.hero-unit
+	%h2	
+		%center
+			=	"Factura ##{@factura.id}"
+%hr
+%h4
+	%center
+		Datos de Factura
+%hr
+.row#DatosFactura
+	.span12
+		.span6
+			%b
+				Fecha de Emisión:
+			=@factura.fecha
+		.span3
+			%b
+				Fecha de Regisro:
+			=@factura.created_at.strftime("%Y-%m-%d")
+%hr
+%h4
+	%center
+		Datos de Proveedor
+%hr
+.row#DatosFactura
+	.span12
+		.span4
+			%b
+				Rif:
+			=@factura.proveedor.rif
+			%br
+		.span4
+			%b
+				Nombre:
+			=@factura.proveedor.nombre
+		.span3
+			%b
+				Dirección:
+			=@factura.proveedor.direccion
+			%br
+.row#DatosFactura
+	.span12
+		.span4
+			%br
+			%b
+				Telefono:
+			=@factura.proveedor.telefono
+			%br
+		.span4
+			%br
+			%b
+				Email:
+			=@factura.proveedor.email
+			%br
+		.span3
+			%br
+			%b
+				Contacto:
+			=@factura.proveedor.contacto
+			%br
+
+%hr
+%h4
+	%center
+		Lista de Articulos
+%hr
+.row#TablaShow
+	%table.table.table-bordered
+		%thead
+			%tr
+				%th Código
+				%th Nombre del Artículo
+				%th Cantidad
+				%th Unidad de Medida
+		%tbody
+			- @factura.articulos.each do |articulo|
+				%tr
+					%th
+						=articulo.codigo
+					%th
+						=articulo.nombre
+					%th
+						= @factura.cantidad_del_articulo_en_factura(articulo.id)		
+					%th
+						=articulo.unidad_de_medida
+.modal-footer	

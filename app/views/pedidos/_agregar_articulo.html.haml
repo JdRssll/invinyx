@@ -1,0 +1,20 @@
+%tr{id:"#{articulo.id}"}
+	%td#id-pedido
+		=text_field_tag "pedido[lista_de_articulos_attributes][#{articulo.id}][articulo_id]", "#{articulo.id}", id:'input_codigo', readonly:'readonly'
+	%td 
+		=articulo.codigo
+	%td
+		=articulo.nombre
+	%td
+		=text_field_tag "pedido[lista_de_articulos_attributes][#{articulo.id}][cantidad]", "0", id:'input_cantidad'
+		=articulo.unidad_de_medida
+	%td
+		=link_to_function '<i class="icon-remove"></i>'.html_safe, "remover('#{articulo.id}')", class: "btn btn-danger", remote: true
+
+:javascript
+	function remover(id){
+		$('.agregar #'+id).remove()
+		if($('.agregar tr').size()==0){
+			$('.agregar').append("<tr id='anuncio'><td colspan='4'><center>No hay articulos en la lista</center></td></tr>");
+		}
+	}
